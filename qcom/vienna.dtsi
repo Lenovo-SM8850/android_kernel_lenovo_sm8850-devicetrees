@@ -305,13 +305,6 @@
 
 	reserved_memory: reserved-memory { };
 
-	mem-offline {
-		compatible = "qcom,mem-offline";
-		granule = <512>;  // Minimum granule size in MB
-		offline-sizes = <0x0 0xc0000000 0x0 0x20000000>;  // 512MB offlinable region for 4GB DDR
-		qcom,qmp = <&aoss_qmp>;  // Reference to the mailbox used for memory requests
-	};
-
 	soc: soc { };
 };
 
