@@ -6,11 +6,11 @@
 /dts-v1/;
 /plugin/;
 
-#include "scuba-sde.dtsi"
+#include "scuba-iot-sde-display-idp-lp4.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Scuba IOT IDP";
+	model = "Qualcomm Technologies, Inc. Scuba IOT LP4 IDP";
 	compatible = "qcom,scuba-idp", "qcom,scuba-iot", "qcom,idp";
-	qcom,msm-id = <473 0x10000>, <474 0x10000>, <441 0x10000>;
-	qcom,board-id = <0 0>;
+	qcom,msm-id =  <473 0x10000>, <474 0x10000>, <441 0x10000>;
+	qcom,board-id = <34 6>;
 };
