@@ -9241,31 +9241,126 @@
 &mdss_mdp {
 
 	baldur_nt36523_csot_3k_dsc_vid: qcom,mdss_dsi_baldur_nt36523_csot_3k_dsc_vid {
+		lenovo,hardware-info-name = "baldur_nt36523_csot_3k_dsc_vid";
+		lenovo,power-delay-us = <2000 2100 5000 5100 10000 10100 15000 15100 5000 5100 5000 5100>;
+		lenovo,lcd-power-sequence;
+		qcom,platform-te-gpio = <&tlmm 0x56 GPIO_ACTIVE_HIGH>;
+		qcom,platform-reset-gpio = <&pmh0110_f_gpios 0x0a GPIO_ACTIVE_HIGH>;
+		qcom,mdss-brightness-max-level = <0xfff>;
+		qcom,mdss-dsi-bl-max-level = <0xfff>;
+		qcom,mdss-dsi-bl-min-level = <0x00>;
+		qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_external";
+		qcom,mdss-dsi-pan-fps-update = "dfps_custom";
+		qcom,mdss-dsi-pan-enable-dynamic-fps;
+		qcom,dsi-supported-dfps-list = <0x78 0xa5 0x90 0x5a 0x3c 0x1e>;
+		qcom,dsi-select-clocks = "pll_byte_clk0\0pll_dsi_clk0";
+		qcom,mdss-dsi-panel-status-check-mode = "te_signal_check";
+		qcom,esd-check-enabled;
+		qcom,ulps-enabled;
+		qcom,mdss-dsi-panel-blackness-level = <0x168a>;
+		qcom,mdss-dsi-panel-peak-brightness = <0x7270e0>;
+		qcom,mdss-dsi-panel-hdr-color-primaries = <0x3a66 0x3d86 0x849e 0x3e1c 0x33c2 0x86c4 0x1bee 0xb54>;
+		qcom,mdss-dsi-panel-hdr-enabled;
+		qcom,mdss-dsi-reset-sequence = <0x00 0x0b 0x01 0x01 0x00 0x03 0x01 0x0a>;
+		qcom,mdss-dsi-lp11-init;
+		qcom,mdss-pan-physical-height-dimension = <0xbe>;
+		qcom,mdss-pan-physical-width-dimension = <0x76>;
+		qcom,mdss-dsi-mdp-trigger = "none";
+		qcom,mdss-dsi-dma-trigger = "trigger_sw";
+		qcom,mdss-dsi-lane-3-state;
+		qcom,mdss-dsi-lane-2-state;
+		qcom,mdss-dsi-lane-1-state;
+		qcom,mdss-dsi-lane-0-state;
+		qcom,mdss-dsi-bllp-eof-power-mode;
+		qcom,mdss-dsi-bllp-power-mode;
+		qcom,mdss-dsi-traffic-mode = "burst_mode";
+		qcom,mdss-dsi-bpp = <0x1e>;
+		qcom,mdss-dsi-stream = <0x00>;
+		qcom,mdss-dsi-virtual-channel-id = <0x00>;
+		qcom,dsi-phy-num = <0x00 0x01>;
+		qcom,dsi-ctrl-num = <0x00 0x01>;
+		qcom,mdss-dsi-panel-type = "dsi_video_mode";
+		qcom,mdss-dsi-panel-name = "nt36523 3k fhd plus 165Hz DPHY video panel";
 
 		qcom,mdss-dsi-display-timings {
 
 			timing@0 {
+				qcom,default-topology-index = <0x00>;
+				qcom,display-topology = <0x02 0x02 0x02>;
+				qcom,mdss-dsi-panel-phy-timings = [00 2a 0b 0b 1c 1a 0b 0c 0b 02 04 00 23 10];
+				qcom,mdss-dsc-block-prediction-enable;
+				qcom,mdss-dsc-bit-per-pixel = <0x08>;
+				qcom,mdss-dsc-bit-per-component = <0x0a>;
+				qcom,mdss-dsc-slice-per-pkt = <0x02>;
+				qcom,mdss-dsc-slice-width = <0x1dc>;
+				qcom,mdss-dsc-slice-height = <0x14>;
+				qcom,mdss-dsc-version = <0x12>;
+				qcom,compression-mode = "dsc";
+				qcom,mdss-dsi-off-command = <0x5010000 0x128 0x5010000 0x110>;
+				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-on-command = [39 01 00 00 00 00 02 ff 23 39 01 00 00 00 00 02 fb 01 39 01 00 00 00 00 02 89 a4 39 01 00 00 00 00 02 ff e0 39 01 00 00 00 00 02 fb 01 39 01 00 00 00 00 02 bb 00 39 01 00 00 00 00 02 ff f0 39 01 00 00 00 00 02 fb 01 39 01 00 00 00 00 02 e6 02 39 01 00 00 00 00 02 ff 27 39 01 00 00 00 00 02 fb 01 39 01 00 00 00 00 02 d0 33 39 01 00 00 00 00 02 d1 05 39 01 00 00 00 00 02 de 43 39 01 00 00 00 00 02 df 02 39 01 00 00 00 00 02 ff 10 39 01 00 00 00 00 02 fb 01 39 01 00 00 00 00 0a 3b 03 4e 1a 04 04 01 80 36 36 39 01 00 00 00 00 02 60 00 39 01 00 00 00 00 03 90 03 00 39 01 00 00 00 00 11 91 ab a8 00 14 d2 00 00 00 01 b9 00 06 05 7a 05 b8 39 01 00 00 00 00 03 92 10 e0 39 01 00 00 00 00 03 b2 91 80 39 01 00 00 00 00 02 b3 40 05 01 00 00 69 00 01 11 05 01 00 00 28 00 01 29];
+				qcom,mdss-dsi-panel-framerate = <0x78>;
+				qcom,mdss-dsi-panel-clockrate = <0x4d83e710>;
+				qcom,mdss-dsi-v-pulse-width = <0x04>;
+				qcom,mdss-dsi-v-front-porch = <0x1a>;
+				qcom,mdss-dsi-v-back-porch = <0x14a>;
+				qcom,mdss-dsi-h-sync-skew = <0x00>;
+				qcom,mdss-dsi-h-pulse-width = <0x10>;
+				qcom,mdss-dsi-h-back-porch = <0x40>;
+				qcom,mdss-dsi-h-front-porch = <0x5a>;
+				qcom,mdss-dsi-panel-height = <0xbe0>;
+				qcom,mdss-dsi-panel-width = <0x3b8>;
 			};
 		};
 
 		qcom,dfps-timings {
 
 			dtiming@0 {
+				fps = <0x78>;
+				vfp = <0x1a>;
+				vbp = <0x14a>;
+				hfp = <0x5a>;
+				hbp = <0x40>;
 			};
 
 			dtiming@1 {
+				fps = <0x3c>;
+				vfp = <0xd62>;
+				vbp = <0x14a>;
+				hfp = <0x5a>;
+				hbp = <0x40>;
 			};
 
 			dtiming@2 {
+				fps = <0x1e>;
+				vfp = <0x27f2>;
+				vbp = <0x14a>;
+				hfp = <0x5a>;
+				hbp = <0x40>;
 			};
 
 			dtiming@3 {
+				fps = <0x90>;
+				vfp = <0x1e1>;
+				vbp = <0x32>;
+				hfp = <0x32>;
+				hbp = <0x10>;
 			};
 
 			dtiming@4 {
+				fps = <0xa5>;
+				vfp = <0x1a>;
+				vbp = <0x32>;
+				hfp = <0x32>;
+				hbp = <0x10>;
 			};
 
 			dtiming@5 {
+				fps = <0x5a>;
+				vfp = <0x1a>;
+				vbp = <0x32>;
+				hfp = <0xda>;
+				hbp = <0x80>;
 			};
 		};
 	};
@@ -9617,6 +9712,30 @@
 	};
 
 	sde_dsi: qcom,dsi-display-primary {
+		pinctrl-5 = <&sde_iovdd_disable>;
+		pinctrl-4 = <&sde_iovdd_enable>;
+		pinctrl-3 = <&sde_te_suspend &sde_disp0_rst_1p8_active>;
+		pinctrl-2 = <&sde_te_function0 &sde_disp0_rst_1p8_active>;
+		pinctrl-1 = <&sde_te_active &sde_disp0_rst_1p8_active>;
+		pinctrl-0 = <&sde_te_active &sde_disp0_rst_1p8_active>;
+		pinctrl-names = "panel_active\0panel_active_with_esync\0panel_active_with_esync_without_te\0panel_suspend\0iovdd_enable\0iovdd_disable";
+		tvdd-supply = <&L4B>;
+		vdd-supply = <&L11B>;
+		vci-supply = <&L13B>;
+		vddio-supply = <&L12B>;
+		clock-names = "pll_byte_clk0\0pll_dsi_clk0\0pll_byte_clk1\0pll_dsi_clk1\0mdp_core_clk\0esync_clk_rcg";
+		clocks = <&mdss_dsi_phy0 0x00 &mdss_dsi_phy0 0x01 &mdss_dsi_phy1 0x00 &mdss_dsi_phy1 0x01 &dispcc 0x43 &dispcc 0x01>;
+		qcom,demura-panel-id = <0x122e700 0x471>;
+		qcom,dsi-default-panel = <&baldur_nt36523_csot_3k_dsc_vid>;
+		qcom,mdp = <&mdss_mdp>;
+		qcom,panel-te-source = <0x00>;
+		qcom,platform-te-gpio = <&tlmm 0x56 GPIO_ACTIVE_HIGH>;
+		qcom,dsi-phy = <&mdss_dsi_phy0 &mdss_dsi_phy1>;
+		qcom,dsi-ctrl = <&mdss_dsi0 &mdss_dsi1>;
+		status = "ok";
+		qcom,op-label = "hwio";
+		label = "primary";
+		compatible = "qcom,dsi-display";
 	};
 
 	sde_dsi1: qcom,dsi-display-secondary {
@@ -9658,6 +9777,13 @@
 	};
 
 	bl@76 {
+		pinctrl-1 = <&bl_sleep>;
+		pinctrl-0 = <&bl_active>;
+		pinctrl-names = "default\0sleep";
+		reg = <0x76>;
+		compatible = "i2c-backlight";
+		lenovo,lcd-backlight;
+		lenovo,hbm-current-ma = <280>;
 	};
 };
 
@@ -10182,10 +10308,12 @@
 &qupv3_se19_spi {
 
 	novatek@0 {
+		panel = <&baldur_nt36523_csot_3k_dsc_vid>;
 	};
 };
 
 &battery_charger {
+	qcom,display-panels = <&baldur_nt36523_csot_3k_dsc_vid>;
 };
 
 &lpi_tlmm {
