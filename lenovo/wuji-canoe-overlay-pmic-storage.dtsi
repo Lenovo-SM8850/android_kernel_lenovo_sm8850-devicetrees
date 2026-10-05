@@ -1879,8 +1879,10 @@
 		target = <&tlmm>;
 		__overlay__ {
 			lenovo_36: vib_reset_l {
+				LENOVO_CANOE_TLMM_VIB_RESET_L_BODY;
 			};
 			lenovo_37: vib_reset_r {
+				LENOVO_CANOE_TLMM_VIB_RESET_R_BODY;
 			};
 		};
 	};
@@ -1889,8 +1891,33 @@
 		__overlay__ {
 			LENOVO_CANOE_QUPV3_SE6_I2C_PROPERTIES;
 			haptic_hv_l@5A {
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES;
+				lenovo,fixed-gain-waveform = <5 3>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_2;
+				irq-gpio = <&tlmm 0x63 0x0>;
+				reset-gpio = <&tlmm 0xd8 0x0>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+				pinctrl-0 = <&lenovo_36>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+				aw8693x_uvlo_vol_default = "";
+				aw8693x_cont_smart_loop = "";
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+				aw8693x_trig_config = <0x1 0x20000 0x1 0x20000 0x1 0x20000>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
 			};
 			haptic_hv_r@5B {
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES_2;
+				irq-gpio = <&tlmm 0x5f 0x0>;
+				reset-gpio = <&tlmm 0xd7 0x0>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+				pinctrl-0 = <&lenovo_37>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+				aw8693x_uvlo_vol_default = "";
+				aw8693x_cont_smart_loop = "";
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+				aw8693x_trig_config = <0x1 0x20000 0x1 0x20000 0x1 0x20000>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
 			};
 		};
 	};

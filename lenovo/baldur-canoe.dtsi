@@ -2126,9 +2126,11 @@
 &tlmm {
 
 	vib_reset_l: vib_reset_l {
+		LENOVO_CANOE_TLMM_VIB_RESET_L_BODY;
 	};
 
 	vib_reset_r: vib_reset_r {
+		LENOVO_CANOE_TLMM_VIB_RESET_R_BODY;
 	};
 };
 
@@ -2136,9 +2138,43 @@
 	LENOVO_CANOE_QUPV3_SE6_I2C_PROPERTIES;
 
 	haptic_hv_l@5A {
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES;
+		lenovo,effect-gain-waveforms = <3 5>;
+		lenovo,fixed-gain-waveform = <5>;
+		lenovo,loop-waveforms = <4 45 5 13>;
+		lenovo,constant-waveform-offset = <1>;
+		lenovo,rtp-waveform-start = <6>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_2;
+		irq-gpio = <&tlmm 0x63 GPIO_ACTIVE_HIGH>;
+		reset-gpio = <&tlmm 0xd8 GPIO_ACTIVE_HIGH>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+		pinctrl-0 = <&vib_reset_l>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+		aw8693x_uvlo_vol_default = [00];
+		aw8693x_cont_smart_loop = [00];
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+		aw8693x_trig_config = <0x01 0x20000 0x01 0x20000 0x01 0x20000>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
 	};
 
 	haptic_hv_r@5B {
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES;
+		lenovo,effect-gain-waveforms = <3 5>;
+		lenovo,fixed-gain-waveform = <5>;
+		lenovo,loop-waveforms = <4 45 5 13>;
+		lenovo,constant-waveform-offset = <1>;
+		lenovo,rtp-waveform-start = <6>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES_2;
+		irq-gpio = <&tlmm 0x5f GPIO_ACTIVE_HIGH>;
+		reset-gpio = <&tlmm 0xd7 GPIO_ACTIVE_HIGH>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+		pinctrl-0 = <&vib_reset_r>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+		aw8693x_uvlo_vol_default = [00];
+		aw8693x_cont_smart_loop = [00];
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+		aw8693x_trig_config = <0x01 0x20000 0x01 0x20000 0x01 0x20000>;
+		LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
 	};
 };
 
