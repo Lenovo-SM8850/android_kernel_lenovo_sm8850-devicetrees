@@ -2266,6 +2266,9 @@
 };
 
 &battery_charger {
+	compatible = "lenovo,dual-bank-battery-charger-v1", "qcom,battery-charger";
+	lenovo,usb1-burn-en-gpios = <&pmh0110_f_gpios 7 GPIO_ACTIVE_HIGH>;
+	lenovo,usb2-burn-en-gpios = <&pmh0110_f_gpios 8 GPIO_ACTIVE_HIGH>;
 	qcom,thermal-mitigation-step = <0x7a120>;
 	qcom,thermal-mitigation = <0xbd3580 0xbd3580 0xb71b00 0xaf79e0 0xa7d8c0 0xa037a0 0x989680 0x90f560 0x895440 0x81b320 0x7a1200 0x6acfc0 0x5b8d80 0x4c4b40 0x3d0900 0x2dc6c0 0x2625a0 0x1e8480 0x16e360 0x7a120>;
 	#cooling-cells = <0x02>;

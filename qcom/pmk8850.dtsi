@@ -7,7 +7,11 @@
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/spmi/spmi.h>
 
+#ifdef BALDUR_CANOE_BASE
+pmk8850@0 {
+#else
 pmk8850: pmk8850@0 {
+#endif
 	compatible = "qcom,spmi-pmic";
 	reg = <0 SPMI_USID>;
 	#address-cells = <1>;

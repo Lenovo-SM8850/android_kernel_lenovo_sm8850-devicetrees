@@ -1,0 +1,73 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Lenovo TB323FU: QTI CanoeP v2 SoC and stock base techpacks.
+/dts-v1/;
+#define BALDUR_CANOE_BASE
+#include "../qcom/canoep-v2.dtsi"
+#include "../qcom/canoe-pmic-overlay.dtsi"
+// audio/canoe-audio.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/audio/canoe-audio.dtsi"
+// camera/canoe-camera-v2.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,camcc-canoe.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/camera/canoe-camera-v2.dtsi"
+// display/display/canoe-sde.dts
+#include "../qcom/display/display/canoe-sde.dtsi"
+// dsp/canoe/canoe-dsp_v2.dts
+#include "../qcom/dsp/canoe/canoe-dsp_v2.dtsi"
+// graphics/gpu/canoe-v2-gpu.dts
+#include <dt-bindings/clock/qcom,aop-qmp.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,gpucc-canoe.h>
+#include <dt-bindings/clock/qcom,gxclkctl-canoe.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "../qcom/graphics/gpu/canoe-v2-gpu.dtsi"
+#include "../qcom/graphics/gpu/canoe-v2-gpu-pwrlevels.dtsi"
+// eva/canoe-eva.dts
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,evacc-canoe.h>
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
+#include "../qcom/eva/canoe-eva.dtsi"
+// mmrm/canoe/canoe-mmrm.dts
+#include <dt-bindings/clock/qcom,camcc-canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include <dt-bindings/clock/qcom,evacc-canoe.h>
+#include <dt-bindings/clock/qcom,dispcc-canoe.h>
+#include "../qcom/mmrm/canoe/canoe-mmrm.dtsi"
+// mm/hw_fence/canoe-hw-fence.dts
+#include "../qcom/mm/hw_fence/canoe-hw-fence.dtsi"
+// mm/hfi_core/canoe-hfi-core.dts
+#include "../qcom/mm/hfi_core/canoe-hfi-core.dtsi"
+// synx/synx/canoe-synx.dts
+#include <dt-bindings/mailbox/qcom-ipcc.h>
+#include <dt-bindings/mailbox/qcom-ipcc-canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "../qcom/synx/synx/canoe-synx.dtsi"
+// video/canoe-vidc-v2.dts
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include "../qcom/video/canoe-vidc-v2.dtsi"
+/ {
+	model = "Qualcomm Technologies, Inc. CanoeP v2 SoC";
+	compatible = "qcom,canoep";
+	qcom,msm-id = <0x295 0x20000>;
+	qcom,board-id = <0 0>;
+};
+
+#include "baldur-canoe.dtsi"

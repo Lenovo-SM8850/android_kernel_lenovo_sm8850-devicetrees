@@ -130,7 +130,11 @@
 				"lpass_audio_hw_vote";
 		clocks = <&lpass_core_hw_vote 0>,
 				<&lpass_audio_hw_vote 0>;
+#ifdef BALDUR_CANOE_BASE
+		lpass-cdc-clk-rsc-mngr {
+#else
 		lpass_clk_mngr: lpass-cdc-clk-rsc-mngr {
+#endif
 			qcom,rx_mclk_mode_muxsel = <0x06BEC0D8>;
 			qcom,wsa_mclk_mode_muxsel = <0x06BEA110>;
 			compatible = "qcom,lpass-cdc-clk-rsc-mngr";

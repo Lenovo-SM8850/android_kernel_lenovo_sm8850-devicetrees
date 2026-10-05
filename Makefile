@@ -12,5 +12,7 @@ ifneq "$(wildcard $(vendor)/qcom)" ""
 	subdir-y += qcom
 endif
 
+subdir-y += lenovo
+
 # Silence all DTC warnings by default
 DTC_FLAGS += -q
