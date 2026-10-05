@@ -12666,6 +12666,35 @@
 };
 
 &canoe_snd {
+	qcom,upd_ear_pa_reg_addr = <0x3430>;
+	qcom,upd_lpass_reg_addr = <0x6b00418 0x6b14020>;
+	qcom,upd_backends_used = "wsa";
+	qcom,msm_audio_ssr_devs = <&audio_gpr &lpi_tlmm &lpass_cdc &lpass_bt_swr>;
+	qcom,wcd-disable-legacy-surge;
+	qcom,msm-mbhc-gnd-swh = <0x01>;
+	qcom,msm-mbhc-hphl-swh = <0x01>;
+	qcom,msm-mbhc-usbc-audio-supported = <0x01>;
+	qcom,msm-mbhc-hs-mic-max-threshold-mv = <0x686>;
+	qcom,audio-routing = "AMIC1\0Analog Mic1\0AMIC1\0MIC BIAS1\0AMIC2\0Analog Mic2\0AMIC2\0MIC BIAS2\0AMIC3\0Analog Mic3\0AMIC3\0MIC BIAS3\0AMIC4\0Analog Mic4\0AMIC4\0MIC BIAS4\0AMIC5\0Analog Mic5\0AMIC5\0MIC BIAS4\0VA AMIC1\0Analog Mic1\0VA AMIC1\0VA MIC BIAS1\0VA AMIC2\0Analog Mic2\0VA AMIC2\0MIC BIAS2\0VA AMIC3\0Analog Mic3\0VA AMIC3\0VA MIC BIAS3\0VA AMIC4\0Analog Mic4\0VA AMIC4\0VA MIC BIAS3\0VA AMIC5\0Analog Mic5\0VA AMIC5\0VA MIC BIAS4\0IN1_HPHL\0HPHL_OUT\0IN2_HPHR\0HPHR_OUT\0IN3_EAR\0AUX_OUT\0RX_TX DEC0_INP\0TX DEC0 MUX\0RX_TX DEC1_INP\0TX DEC1 MUX\0RX_TX DEC2_INP\0TX DEC2 MUX\0RX_TX DEC3_INP\0TX DEC3 MUX\0TX SWR_INPUT\0WCD_TX_OUTPUT\0VA SWR_INPUT\0VA_SWR_CLK\0VA SWR_INPUT\0WCD_TX_OUTPUT\0VA_AIF1 CAP\0VA_SWR_CLK\0VA_AIF2 CAP\0VA_SWR_CLK\0VA_AIF3 CAP\0VA_SWR_CLK";
+	fsa4480-sub-i2c-handle = <&fsa4480_sub>;
+	fsa4480-i2c-handle = <&fsa4480>;
+	qcom,dedicated-wsa2;
+	qcom,wcn-bt-ext = <0x01>;
+	qcom,wsa-max-devs = <0x00>;
+	asoc-codec-names = "msm-stub-codec.1\0lpass-cdc\0wcd939x_codec\0swr-haptics\0sdca-simple-amp.01";
+	asoc-codec = <&stub_codec &lpass_cdc &wcd939x_codec &swr_haptics>;
+	qcom,audio-core-list = <0x00 0x01>;
+	qcom,mi2s-clk-attribute = <0x01 0x01 0x01 0x01 0x01 0x01 0x01>;
+	qcom,tdm-clk-attribute = <0x01 0x01 0x01 0x01 0x01 0x01 0x01>;
+	qcom,tdm-max-slots = <0x08>;
+	qcom,ext-disp-audio-rx = <0x01>;
+	qcom,wcn-bt = <0x01>;
+	qcom,mi2s-tdm-is-hw-vote-needed = <0x01 0x01 0x01 0x01 0x01 0x01 0x01>;
+	qcom,msm-mi2s-master = <0x01 0x01 0x01 0x01 0x01 0x01 0x01>;
+	qcom,pri-mi2s-gpios = <&cdc_pri_mi2s_gpios>;
+	qcom,mi2s-audio-intf = <0x01>;
+	swr-haptics-unsupported;
+	qcom,model = "canoe-qrd-snd-card";
 };
 
 &qupv3_se4_i2c {

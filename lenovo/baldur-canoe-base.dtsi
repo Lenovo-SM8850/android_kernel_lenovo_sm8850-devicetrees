@@ -52,6 +52,7 @@
 		ports {
 			port@1 {
 				ucsi_audio_mux0: endpoint {
+					remote-endpoint = <&fsa4480_mux0>;
 				};
 			};
 		};
@@ -63,6 +64,7 @@
 		ports {
 			port@1 {
 				ucsi_audio_mux1: endpoint {
+					remote-endpoint = <&fsa4480_mux1>;
 				};
 			};
 		};
@@ -78,8 +80,12 @@
 
 &{/soc/qcom,qupv3_1_geni_se@ac0000/i2c@a94000} {
 	fsa4480: fsa4480_i2c@43 {
+		compatible = "qcom,fsa4480-i2c";
+		reg = <0x43>;
+		mode-switch;
 		port {
 			fsa4480_mux0: endpoint {
+				remote-endpoint = <&ucsi_audio_mux0>;
 			};
 		};
 	};
@@ -87,8 +93,12 @@
 
 &{/soc/qcom,qupv3_1_geni_se@ac0000/i2c@a94000} {
 	fsa4480_sub: fsa4480_sub_i2c@42 {
+		compatible = "qcom,fsa4480-sub-i2c";
+		reg = <0x42>;
+		mode-switch;
 		port {
 			fsa4480_mux1: endpoint {
+				remote-endpoint = <&ucsi_audio_mux1>;
 			};
 		};
 	};
@@ -193,6 +203,7 @@
 };
 
 &{/soc/qcom,dp_display@9ad2000} {
+	qcom,dp-aux-switch = <&fsa4480>;
 };
 
 &{/soc/qcom,kgsl-3d0@3d00000} {
