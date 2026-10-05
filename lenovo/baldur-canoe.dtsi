@@ -2846,6 +2846,20 @@
 &cam_cci0 {
 
 	actuator_rear: qcom,actuator0 {
+		lenovo,haptic-vcm-parking;
+		lenovo,haptic-park-program = <2 2 0 4 0x7c 0x24>;
+		lenovo,haptic-park-address = <0x0c>;
+		status = "ok";
+		rgltr-load-current = <0x00 0x00>;
+		rgltr-max-voltage = <0x2ab980 0x1b7740>;
+		rgltr-min-voltage = <0x2ab980 0x1b7740>;
+		rgltr-cntrl-support;
+		regulator-names = "cam_vaf\0cam_vio";
+		cam_vio-supply = <&L10B>;
+		cam_vaf-supply = <&L6B>;
+		cci-master = <0x00>;
+		compatible = "qcom,actuator";
+		cell-index = <0x00>;
 	};
 
 	eeprom_main: qcom,eeprom0 {
