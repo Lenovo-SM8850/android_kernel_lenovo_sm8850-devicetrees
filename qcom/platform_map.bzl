@@ -1254,8 +1254,20 @@ _platform_map = {
     },
 }
 
+# Add only verified board sources here. Entries are ordered for image packaging;
+# future boards keep their prebuilt images until their bootloader IDs are known.
+_lenovo_platform_map = {
+    "canoe": {
+        "dtb_list": [{"name": "baldur-canoe-base.dtb"}],
+        "dtbo_list": [{"name": "baldur-canoe-overlay.dtbo"}],
+    },
+}
+
 def _get_dtb_lists(target, dt_overlay_supported):
-    if not target in _platform_map:
+    platform_map = dict(_platform_map)
+    if dt_overlay_supported:
+        platform_map.update(_lenovo_platform_map)
+    if not target in platform_map:
         fail("{} not in device tree platform map!".format(target))
 
     ret = {
@@ -1264,16 +1276,16 @@ def _get_dtb_lists(target, dt_overlay_supported):
         "custom_dtbo_img_list": [],
     }
 
-    for dtb_node in [target] + _platform_map[target].get("binary_compatible_with", []):
-        ret["dtb_list"].extend(_platform_map[dtb_node].get("dtb_list", []))
+    for dtb_node in [target] + platform_map[target].get("binary_compatible_with", []):
+        ret["dtb_list"].extend(platform_map[dtb_node].get("dtb_list", []))
         if dt_overlay_supported:
-            ret["dtbo_list"].extend(_platform_map[dtb_node].get("dtbo_list", []))
-            ret["custom_dtbo_img_list"].extend(_platform_map[dtb_node].get("custom_dtbo_img_list", []))
+            ret["dtbo_list"].extend(platform_map[dtb_node].get("dtbo_list", []))
+            ret["custom_dtbo_img_list"].extend(platform_map[dtb_node].get("custom_dtbo_img_list", []))
         else:
             # Translate the dtbo list into dtbs we can append to main dtb_list
-            for dtb in _platform_map[dtb_node].get("dtb_list", []):
+            for dtb in platform_map[dtb_node].get("dtb_list", []):
                 dtb_base = dtb["name"].replace(".dtb", "")
-                for dtbo in _platform_map[dtb_node].get("dtbo_list", []):
+                for dtbo in platform_map[dtb_node].get("dtbo_list", []):
                     if not dtbo.get("apq", True) and dtb.get("apq", False):
                         continue
 
