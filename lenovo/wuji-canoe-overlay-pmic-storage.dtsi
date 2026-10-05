@@ -2122,7 +2122,14 @@
 		__overlay__ {
 			status = "okay";
 			aw22xxx_led@6a {
+				LENOVO_CANOE_AW22XXX_NODE_COMMON;
+				pinctrl-names = "led_reset_ctrl_default", "led_reset_ctrl_low";
+				pinctrl-0 = <&lenovo_45>;
+				pinctrl-1 = <&lenovo_46>;
+				irq-gpio = <&lenovo_47 0xc 0x1>;
 				aw22xxx,led {
+					LENOVO_CANOE_AW22XXX_LED_COMMON;
+					aw22xxx,imax = <0x1>;
 				};
 			};
 		};
