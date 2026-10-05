@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Lenovo TB323FU: QTI CanoeP v2 SoC and stock base techpacks.
+/dts-v1/;
+#define LENOVO_CANOE_BASE_ASSEMBLY
+#include "../qcom/canoep-v2.dtsi"
+#include "../qcom/canoe-pmic-overlay.dtsi"
+#include "canoe-base-techpacks-before-ipa.dtsi"
+#include "canoe-base-techpacks-after-ipa.dtsi"
+/ {
+	model = "Qualcomm Technologies, Inc. CanoeP v2 SoC";
+	compatible = "qcom,canoep";
+	qcom,msm-id = <0x295 0x20000>;
+	qcom,board-id = <0 0>;
+};
+
+#include "baldur-canoe.dtsi"
