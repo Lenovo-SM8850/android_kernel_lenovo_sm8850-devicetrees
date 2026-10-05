@@ -2202,6 +2202,8 @@
 &soc {
 
 	sys_temp_support {
+		compatible = "lenovo,tb323fu-sys-temp", "lenovo,sys-temp";
+		LENOVO_CANOE_SOC_SYS_TEMP_SUPPORT_PROPERTIES;
 	};
 };
 
