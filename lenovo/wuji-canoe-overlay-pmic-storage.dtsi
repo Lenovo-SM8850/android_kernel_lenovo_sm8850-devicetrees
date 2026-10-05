@@ -1709,6 +1709,19 @@
 	fragment@6 {
 		target = <&battery_charger>;
 		__overlay__ {
+			compatible = "lenovo,dual-usb-battery-charger-v1", "lenovo,offmode-charger-v1", "qcom,battery-charger";
+				lenovo,thermal-sensor = "quiet-therm";
+				lenovo,current-limits = <52000 500000 47000 2000000
+					45000 3000000 43000 4000000 41000 6000000
+					38000 7000000 37000 8000000 36000 8500000
+					35000 9500000 34000 10500000>;
+				lenovo,default-current-ua = <12400000>;
+				lenovo,initial-delay-ms = <1000>;
+				lenovo,poll-interval-ms = <2000>;
+			qcom,thermal-mitigation-step = <0x7a120>;
+			qcom,thermal-mitigation = <0xbd3580 0xbd3580 0xb71b00 0xaf79e0 0xa7d8c0 0xa037a0 0x989680 0x90f560 0x895440 0x81b320 0x7a1200 0x6acfc0 0x5b8d80 0x4c4b40 0x3d0900 0x2dc6c0 0x2625a0 0x1e8480 0x16e360 0x7a120>;
+			#cooling-cells = <0x2>;
+			qcom,wireless-fw-name = "cps4061.bin";
 		};
 	};
 	fragment@7 {

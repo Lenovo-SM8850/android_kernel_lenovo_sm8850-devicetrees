@@ -200,6 +200,7 @@
 };
 
 &{/soc/pmic-glink/battery-charger} {
+	compatible = "lenovo,dual-bank-battery-charger-v1", "qcom,battery-charger";
 };
 
 &{/soc/qcom,dp_display@9ad2000} {
