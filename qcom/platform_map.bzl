@@ -1254,8 +1254,11 @@ _platform_map = {
     },
 }
 
-def _get_dtb_lists(target, dt_overlay_supported):
-    if not target in _platform_map:
+def _get_dtb_lists(target, dt_overlay_supported, device_map = {}):
+    platform_map = dict(_platform_map)
+    if dt_overlay_supported:
+        platform_map.update(device_map)
+    if not target in platform_map:
         fail("{} not in device tree platform map!".format(target))
 
     ret = {
@@ -1264,16 +1267,16 @@ def _get_dtb_lists(target, dt_overlay_supported):
         "custom_dtbo_img_list": [],
     }
 
-    for dtb_node in [target] + _platform_map[target].get("binary_compatible_with", []):
-        ret["dtb_list"].extend(_platform_map[dtb_node].get("dtb_list", []))
+    for dtb_node in [target] + platform_map[target].get("binary_compatible_with", []):
+        ret["dtb_list"].extend(platform_map[dtb_node].get("dtb_list", []))
         if dt_overlay_supported:
-            ret["dtbo_list"].extend(_platform_map[dtb_node].get("dtbo_list", []))
-            ret["custom_dtbo_img_list"].extend(_platform_map[dtb_node].get("custom_dtbo_img_list", []))
+            ret["dtbo_list"].extend(platform_map[dtb_node].get("dtbo_list", []))
+            ret["custom_dtbo_img_list"].extend(platform_map[dtb_node].get("custom_dtbo_img_list", []))
         else:
             # Translate the dtbo list into dtbs we can append to main dtb_list
-            for dtb in _platform_map[dtb_node].get("dtb_list", []):
+            for dtb in platform_map[dtb_node].get("dtb_list", []):
                 dtb_base = dtb["name"].replace(".dtb", "")
-                for dtbo in _platform_map[dtb_node].get("dtbo_list", []):
+                for dtbo in platform_map[dtb_node].get("dtbo_list", []):
                     if not dtbo.get("apq", True) and dtb.get("apq", False):
                         continue
 
@@ -1282,11 +1285,11 @@ def _get_dtb_lists(target, dt_overlay_supported):
 
     return ret
 
-def get_dtb_list(target, dt_overlay_supported = True):
-    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported).get("dtb_list", [])]
+def get_dtb_list(target, dt_overlay_supported = True, device_map = {}):
+    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported, device_map).get("dtb_list", [])]
 
-def get_dtbo_list(target, dt_overlay_supported = True):
-    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported).get("dtbo_list", [])]
+def get_dtbo_list(target, dt_overlay_supported = True, device_map = {}):
+    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported, device_map).get("dtbo_list", [])]
 
-def get_custom_dtbo_img_list(target, dt_overlay_supported = True):
-    return _get_dtb_lists(target, dt_overlay_supported).get("custom_dtbo_img_list", [])
+def get_custom_dtbo_img_list(target, dt_overlay_supported = True, device_map = {}):
+    return _get_dtb_lists(target, dt_overlay_supported, device_map).get("custom_dtbo_img_list", [])
