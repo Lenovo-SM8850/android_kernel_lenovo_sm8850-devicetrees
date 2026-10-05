@@ -2057,18 +2057,25 @@
 };
 
 &usb0 {
+	lenovo,dual-port-data-switch;
+	usb-role-switch;
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb3phy_portselect_gpio>;
+	gpios = <&tlmm 0x3c GPIO_ACTIVE_HIGH>;
 
 	ports {
 
 		port@0 {
 
 			usb_port0: endpoint {
+				remote-endpoint = <&usb_port0_connector>;
 			};
 		};
 
 		port@1 {
 
 			usb_port1: endpoint {
+				remote-endpoint = <&usb_port1_connector>;
 			};
 		};
 	};
@@ -2198,6 +2205,9 @@
 };
 
 &ucsi {
+	compatible = "lenovo,dual-port-ucsi-glink-v1", "qcom,ucsi-glink";
+	lenovo,analog-audio-switch-gpios = <&tlmm 81 GPIO_ACTIVE_HIGH>;
+	gpios = <&tlmm 0x1e GPIO_ACTIVE_HIGH>;
 };
 
 &eusb2_phy0 {

@@ -48,6 +48,8 @@
 };
 
 &{/soc/pmic-glink/ucsi-glink} {
+	compatible = "lenovo,dual-port-ucsi-glink-v1", "qcom,ucsi-glink";
+	lenovo,analog-audio-switch-gpios = <&tlmm 81 GPIO_ACTIVE_HIGH>;
 	connector {
 		ports {
 			port@1 {

@@ -20,6 +20,7 @@
 / {
 	lenovo,charger-key-coordination;
 	lenovo,cellular-hardware-info;
+	lenovo,usb-c-accessory-mux;
 	model = "Qualcomm Technologies, Inc. Canoe v2 SoC";
 	compatible = "lenovo,wuji", "qcom,canoe";
 	qcom,msm-id = <0x294 0x20000>;

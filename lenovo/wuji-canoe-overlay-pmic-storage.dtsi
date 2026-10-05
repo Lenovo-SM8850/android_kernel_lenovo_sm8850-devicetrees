@@ -1783,13 +1783,20 @@
 	fragment@13 {
 		target = <&usb0>;
 		__overlay__ {
+			usb-role-switch;
+			lenovo,dual-port-data-switch;
+			pinctrl-names = "default";
+			pinctrl-0 = <&usb3phy_portselect_gpio>;
+			gpios = <&tlmm 0x3c 0x0>;
 			ports {
 				port@0 {
 					lenovo_2f: endpoint {
+						remote-endpoint = <&lenovo_2d>;
 					};
 				};
 				port@1 {
 					lenovo_30: endpoint {
+						remote-endpoint = <&lenovo_2e>;
 					};
 				};
 			};
@@ -1798,28 +1805,39 @@
 	fragment@14 {
 		target = <&ucsi>;
 		__overlay__ {
+			compatible = "lenovo,dual-port-ucsi-glink-v2", "qcom,ucsi-glink";
 			connector {
+				compatible = "usb-c-connector";
 				ports {
 					#address-cells = <0x1>;
 					#size-cells = <0>;
 					port@0 {
+						reg = "", "", "", "";
 						lenovo_2d: endpoint {
+							remote-endpoint = <&lenovo_2f>;
 						};
 					};
 					port@1 {
+						reg = <0x1>;
 						lenovo_b6: endpoint {
+							remote-endpoint = <&lenovo_314>;
 						};
 					};
 				};
 			};
 			connector1 {
+				compatible = "usb-c-connector";
 				ports {
 					port@0 {
+						reg = "", "", "", "";
 						lenovo_2e: endpoint {
+							remote-endpoint = <&lenovo_30>;
 						};
 					};
 					port@1 {
+						reg = <0x1>;
 						lenovo_b7: endpoint {
+							remote-endpoint = <&lenovo_315>;
 						};
 					};
 				};
