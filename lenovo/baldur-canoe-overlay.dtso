@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Lenovo TB323FU (baldur): stock ZUXOS 2.0.12.088 PRC entry 47.
+// Root selection properties and overlay order are intentional.
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+
+/ {
+	model = "Qualcomm Technologies, Inc. Canoe QRD + ST54L + Pandeiro";
+	compatible = "qcom,canoe-qrd\0qcom,canoe\0qcom,canoep-cdp\0qcom,canoep\0qcom,qrd";
+	qcom,msm-id = <0x295 0x20000 0x294 0x10000 0x294 0x20000 0x1000294 0x10000 0x295 0x10000 0x1000295 0x10000 0x1000294 0x20000 0x1000295 0x20000>;
+	qcom,board-id = <0x2000b 0x00>;
+};
+
+#include "baldur-canoe.dtsi"
