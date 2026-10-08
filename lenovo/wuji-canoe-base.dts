@@ -1,0 +1,86 @@
+// SPDX-License-Identifier: GPL-2.0
+// Lenovo TB324ZC: gen6 Canoe v2 base and QTI techpacks.
+// Reuse the existing base-only techpack gate; no Baldur board nodes are included.
+/dts-v1/;
+#define BALDUR_CANOE_BASE
+#include "../qcom/canoe-v2.dtsi"
+#include "../qcom/canoe-pmic-overlay.dtsi"
+// Include audio/canoe-audio.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/audio/canoe-audio.dtsi"
+// Include camera/canoe-camera-v2.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,camcc-canoe.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/camera/canoe-camera-v2.dtsi"
+// Include display/display/canoe-sde.dts
+#include "../qcom/display/display/canoe-sde.dtsi"
+// Include data/canoe-ipa.dts: modem/AP IPA init and SMMU context banks.
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include "../qcom/data/canoe-ipa.dtsi"
+// Include dsp/canoe/canoe-dsp_v2.dts
+#include "../qcom/dsp/canoe/canoe-dsp_v2.dtsi"
+// Include graphics/gpu/canoe-v2-gpu.dts
+#include <dt-bindings/clock/qcom,aop-qmp.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,gpucc-canoe.h>
+#include <dt-bindings/clock/qcom,gxclkctl-canoe.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "../qcom/graphics/gpu/canoe-v2-gpu.dtsi"
+#include "../qcom/graphics/gpu/canoe-v2-gpu-pwrlevels.dtsi"
+// Include eva/canoe-eva.dts
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/soc/qcom,ipcc.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,evacc-canoe.h>
+#include <dt-bindings/arm/msm/qti-smmu-proxy-dt-ids.h>
+#include "../qcom/eva/canoe-eva.dtsi"
+// Include mmrm/canoe/canoe-mmrm.dts
+#include <dt-bindings/clock/qcom,camcc-canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include <dt-bindings/clock/qcom,evacc-canoe.h>
+#include <dt-bindings/clock/qcom,dispcc-canoe.h>
+#include "../qcom/mmrm/canoe/canoe-mmrm.dtsi"
+// Include mm/hw_fence/canoe-hw-fence.dts
+#include "../qcom/mm/hw_fence/canoe-hw-fence.dtsi"
+// Include mm/hfi_core/canoe-hfi-core.dts
+#include "../qcom/mm/hfi_core/canoe-hfi-core.dtsi"
+// Include synx/synx/canoe-synx.dts
+#include <dt-bindings/mailbox/qcom-ipcc.h>
+#include <dt-bindings/mailbox/qcom-ipcc-canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include "../qcom/synx/synx/canoe-synx.dtsi"
+// Include video/canoe-vidc-v2.dts
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/clock/qcom,videocc-canoe.h>
+#include "../qcom/video/canoe-vidc-v2.dtsi"
+&ipa_hw {
+	// Preserve the stock board's SVS2 vote and uC HOLB monitoring.
+	qcom,svs2 = <0 0 0 1300000 0 76800>;
+	qcom,ipa-uc-holb-monitor;
+};
+
+/ {
+	lenovo,charger-key-coordination;
+	lenovo,amplifier-supply-control;
+	lenovo,cellular-hardware-info;
+	lenovo,front-eeprom-fuse;
+	lenovo,usb-c-accessory-mux;
+	model = "Qualcomm Technologies, Inc. Canoe v2 SoC";
+	compatible = "lenovo,wuji", "qcom,canoe";
+	qcom,msm-id = <0x294 0x20000>;
+	qcom,board-id = <0 0>;
+};

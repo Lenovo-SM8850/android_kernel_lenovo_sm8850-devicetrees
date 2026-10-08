@@ -6,19 +6,11 @@ load(
     _qcom_get_dtbo_list = "get_dtbo_list",
 )
 
-# Keep the legacy Canoe target mapped to Baldur while exposing both devices.
+# Build both Lenovo boards with the chipset target.
 _LENOVO_PLATFORM_MAP = {
     "canoe": {
-        "dtb_list": [{"name": "baldur-canoe-base.dtb"}],
-        "dtbo_list": [{"name": "baldur-canoe-overlay.dtbo"}],
-    },
-    "baldur": {
-        "dtb_list": [{"name": "baldur-canoe-base.dtb"}],
-        "dtbo_list": [{"name": "baldur-canoe-overlay.dtbo"}],
-    },
-    "wuji": {
-        "dtb_list": [{"name": "wuji-canoe-base.dtb"}],
-        "dtbo_list": [{"name": "wuji-canoe-overlay.dtbo"}],
+        "dtb_list": [{"name": "baldur-canoe-base.dtb"}, {"name": "wuji-canoe-base.dtb"}],
+        "dtbo_list": [{"name": "baldur-canoe-overlay.dtbo"}, {"name": "wuji-canoe-overlay.dtbo"}],
     },
 }
 

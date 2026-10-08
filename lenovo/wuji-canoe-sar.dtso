@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// GPIO SAR switch overlay.
+// Peripheral overlay only; the complete Wuji base/panel overlay is still required.
+/dts-v1/;
+/plugin/;
+
+&soc {
+	swtp {
+		status = "okay";
+		compatible = "virtualsar,swtp-eint";
+		irq-gpio = <&tlmm 97 0>;
+	};
+};
