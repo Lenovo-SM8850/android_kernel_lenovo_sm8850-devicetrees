@@ -18,6 +18,7 @@
 };
 
 / {
+	lenovo,charger-key-coordination;
 	lenovo,cellular-hardware-info;
 	model = "Qualcomm Technologies, Inc. Canoe v2 SoC";
 	compatible = "lenovo,wuji", "qcom,canoe";
