@@ -1,0 +1,501 @@
+// SPDX-License-Identifier: GPL-2.0
+// Canoe connectivity and camera fragments.
+	lenovo_bf: fragment@38 {
+		target = <&tlmm>;
+		__overlay__ {
+			nfc {
+				lenovo_ba: nfc_int_active {
+					mux {
+						function = "gpio";
+						pins = "gpio75";
+					};
+					config {
+						bias-pull-down;
+						drive-strength = <0x2>;
+						pins = "gpio75";
+					};
+				};
+				lenovo_bc: nfc_int_suspend {
+					mux {
+						function = "gpio";
+						pins = "gpio75";
+					};
+					config {
+						bias-pull-down;
+						drive-strength = <0x2>;
+						pins = "gpio75";
+					};
+				};
+				lenovo_bb: nfc_enable_active {
+					mux {
+						function = "gpio";
+						pins = "gpio34", "gpio35";
+					};
+					config {
+						bias-disable;
+						drive-strength = <0x2>;
+						pins = "gpio34", "gpio35";
+					};
+				};
+				lenovo_bd: nfc_enable_suspend {
+					mux {
+						function = "gpio";
+						pins = "gpio34", "gpio35";
+					};
+					config {
+						bias-disable;
+						drive-strength = <0x2>;
+						pins = "gpio34", "gpio35";
+					};
+				};
+			};
+		};
+	};
+	lenovo_ce: fragment@42 {
+		target = <&tlmm>;
+		__overlay__ {
+			cnss_pins {
+				lenovo_c2: cnss_wlan_en_active {
+					mux {
+						function = "gpio";
+						pins = "gpio16";
+					};
+					config {
+						bias-pull-up;
+						output-high;
+						drive-strength = <0x10>;
+						pins = "gpio16";
+					};
+				};
+				lenovo_c3: cnss_wlan_en_sleep {
+					mux {
+						function = "gpio";
+						pins = "gpio16";
+					};
+					config {
+						bias-pull-down;
+						output-low;
+						drive-strength = <0x2>;
+						pins = "gpio16";
+					};
+				};
+				lenovo_c4: cnss_wlan_sw_ctrl {
+					mux {
+						function = "wcn_sw_ctrl";
+						pins = "gpio18";
+					};
+				};
+				lenovo_c5: cnss_wlan_sw_ctrl_wl_cx {
+					mux {
+						function = "wcn_sw";
+						pins = "gpio19";
+					};
+				};
+				lenovo_c6: cnss_host_sol_default {
+					mux {
+						function = "gpio";
+						pins = "gpio204";
+					};
+					config {
+						bias-pull-down;
+						drive-strength = <0x4>;
+						pins = "gpio204";
+					};
+				};
+			};
+		};
+	};
+	lenovo_cf: fragment@44 {
+		target = <&reserved_memory>;
+		__overlay__ {
+			lenovo_c9: cnss_wlan_region {
+				size = <0x0 0x2000000>;
+				alignment = "", "", "", "", "", "@", "";
+				reusable;
+				alloc-ranges = <0x0 0x0 0x0 0xffffffff>;
+				compatible = "shared-dma-pool";
+			};
+		};
+	};
+	lenovo_d0: fragment@46 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_cc: qcom,cnss-peach@b0000000 {
+				wcal-pbs-supply = <&WCAL_PBS>;
+				nvmem-cell-names = "xo_calib_reg";
+				nvmem-cells = <&lenovo_4c>;
+				wlan-txrx-intr-cpumask = <0x3 0x30>;
+				qcom,pdc_mode_vote_table = " {class: wlan_pdc, ss: rf, res: L3K1.m, enable: 1}", " {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 2}";
+				qcom,pmu_vreg_map = "VDDD_AON_0P9", "S2J1", "VDDA_RFA_0P9", "S2J1", "VDDA_RFA_1P9", "S8F0", "VDDA_RFA_1P3", "S7F0", "VDDD_WLMX_0P9", "S2J1", "VDDD_WLCX_0P9", "S1J1", "VDDD_BTCX_0P9", "S2J1", "VDDD_BTCMX_0P9", "S2J1", "VDDA_PCIE_0P9", "S7F0", "VDDA_PCIE_1P2", "S7F0";
+				qcom,vreg_pdc_map = "S1J1", "bb", "S2J1", "rf", "S7F0", "rf", "S8F0", "rf";
+				qcom,bus-bw-cfg = <0x0 0x0 0x8ca 0x4b320 0x1d4c 0x4b320 0x7530 0x4b320 0x186a0 0x4b320 0x2ab98 0x30fb10 0x4c4b4 0x30fb10 0x8f6ec 0x626b50 0x1d4c 0x189110 0x0 0x0 0x8ca 0x216600 0x1d4c 0x216600 0x7530 0x216600 0x186a0 0x216600 0x2ab98 0x5eec00 0x4c4b4 0x7faf80 0x8f6ec 0xc35000 0x1d4c 0x216600>;
+				qcom,bus-bw-cfg-count = <0x9>;
+				qcom,icc-path-count = <0x2>;
+				interconnect-names = "pcie_to_memnoc", "memnoc_to_ddr";
+				interconnects = <&pcie_noc 0x35 &pcie_noc 0x232 &gem_noc 0x1e &mc_virt 0x200>;
+				qcom,vdd-wlan-ant-share-config = <0x124f80 0x124f80 0x19 0x0 0x1>;
+				vdd-wlan-ant-share-supply = <&L3K>;
+				qcom,vdd-wlan-rfa2-config = <0x144380 0x147260 0x0 0x0 0x1>;
+				vdd-wlan-rfa2-supply = <&S7F>;
+				qcom,vdd-wlan-rfa1-config = <0x1ca020 0x1e8480 0x0 0x0 0x1>;
+				vdd-wlan-rfa1-supply = <&S8F>;
+				qcom,vdd-wlan-dig-config = <0xd9c60 0xf4240 0x0 0x0 0x1>;
+				vdd-wlan-dig-supply = <&S2J>;
+				qcom,vdd-wlan-cx-config = <0xd9c60 0xf4240 0x0 0x0 0x1>;
+				vdd-wlan-cx-supply = <&S1J>;
+				qcom,vdd-wlan-io12-config = <0x124f80 0x124f80 0x7530 0x0 0x1>;
+				vdd-wlan-io12-supply = <&L3G>;
+				qcom,vdd-wlan-aon-config = <0x1b7740 0x1b7740 0x7530 0x0 0x1>;
+				vdd-wlan-aon-supply = <&L2G>;
+				platform-name-required;
+				msix-match-addr = "", "", "0";
+				qcom,qmp = <&aoss_qmp>;
+				qcom,same-dt-multi-dev;
+				use-pm-domain;
+				qcom,wlan-cbc-enabled;
+				cnss-enable-self-recovery;
+				qcom,wlan-ramdump-dynamic = "", "x", "";
+				qcom,wlan-rc-num = "", "", "", "";
+				qcom,wlan;
+				pinctrl-4 = <&lenovo_c6>;
+				pinctrl-3 = <&lenovo_c5>;
+				pinctrl-2 = <&lenovo_c4>;
+				pinctrl-1 = <&lenovo_c3>;
+				pinctrl-0 = <&lenovo_c2>;
+				pinctrl-names = "wlan_en_active", "wlan_en_sleep", "sw_ctrl", "sw_ctrl_wl_cx", "sol_default";
+				mpm_wake_set_gpios = <0x12 0x13>;
+				wlan-dev-sol-gpio = <&tlmm 0xcd 0x0>;
+				wlan-host-sol-gpio = <&tlmm 0xcc 0x0>;
+				qcom,sw-ctrl-gpio = <&tlmm 0x12 0x0>;
+				qcom,bt-en-gpio = <&lenovo_7b 0x5 0x0>;
+				wlan-en-gpio = <&tlmm 0x10 0x0>;
+				supported-ids = <0x110e>;
+				qcom,wlan-sw-ctrl-gpio = <&tlmm 0x13 0x0>;
+				reg-names = "smmu_iova_ipa";
+				reg = <0x0 0xb0000000 0x0 0x10000>;
+				compatible = "qcom,cnss-peach";
+			};
+			lenovo_c8: qcom,cnss-direct-link {
+				dma-coherent;
+				memory-region = <&lenovo_c7>;
+				qcom,iommu-group = <&cnss_audio_iommu_group0>;
+				iommus = <&apps_smmu 0x100f 0x0>;
+				#size-cells = <0x2>;
+				#address-cells = <0x2>;
+				compatible = "qcom,cnss-direct-link";
+				lenovo_c7: direct_link_iommu_region_partition {
+					iommu-addresses = <&lenovo_c8 0x0 0x0 0x0 0x18000000 &lenovo_c8 0x0 0xb0000000 0x0 0x50000000>;
+				};
+			};
+			lenovo_cd: qcom,cnss-vendor-wlan-wonder {
+				status = "okay";
+				compatible = "qcom,cnss-vendor-wlan-wonder";
+			};
+		};
+	};
+	lenovo_d1: fragment@48 {
+		target = <&pcie_rp>;
+		__overlay__ {
+			#size-cells = <0x2>;
+			#address-cells = <0x3>;
+			lenovo_cb: cnss_pci0 {
+				memory-region = <&lenovo_c9 &lenovo_ca>;
+				qcom,iommu-group = <&cnss_audio_iommu_group0>;
+				reg = "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
+				lenovo_ca: cnss_pci0_iommu_region_partition {
+					iommu-addresses = <&lenovo_cb 0x0 0x0 0x0 0x0 0x18000000 &lenovo_cb 0x0 0x0 0xb0000000 0x0 0x50000000>;
+				};
+			};
+		};
+	};
+	lenovo_d4: fragment@49 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_d2: qcom,hw-fence {
+				qcom,hw-fence-client-type-ife0 = <0x1 0x1 0x80 0x1>;
+				qcom,hw-fence-client-type-vpu = <0x1 0x2 0x320 0x0>;
+				qcom,hw-fence-client-type-ipe = <0x1 0x2 0x320 0x0>;
+				qcom,hw-fence-client-type-dpu = <0x6 0x2 0x80 0x1>;
+				qcom,hw-fence-ipc-ver = <0x30102>;
+				qcom,qtime-reg = <0xc221000 0x1000>;
+				qcom,ipcc-reg = <0x1100000 0x400000>;
+				qcom,hw-fence-queue-entries = <0x320>;
+				qcom,hw-fence-table-entries = "", "", " ";
+				shbuf_soccp_va = <0xd4e23000>;
+				soccp_controller = <&soccp_pas>;
+				dma-coherent;
+				iommus = <&apps_smmu 0x562 0x1>;
+				#interrupt-cells = <0x1>;
+				interrupt-controller;
+				interrupts = <0x0 0x46 0x4>;
+				status = "ok";
+				compatible = "qcom,msm-hw-fence";
+			};
+		};
+	};
+	lenovo_d5: fragment@51 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_d3: qcom,hfi-core {
+				qcom,fw_image_name = "dcp.mbn";
+				memory-region = <&dcp_mem>;
+				qcom,pas-id = <0x3f>;
+				qcom,device-map-addr-reg = <0x88000000 0x8000000>;
+				reg-names = "swi_dev0";
+				reg = <0x0 0x9cb1000 0x0 0x1000>;
+				dma-coherent;
+				iommus = <&apps_smmu 0x19a3 0x0>;
+				qcom,smem-state-names = "stop", "ping", "wdog", "fatal";
+				qcom,smem-states = <&dcp_smp2p_out 0x0 &dcp_smp2p_out 0x8 &dcp_smp2p_out 0xb &dcp_smp2p_out 0xc>;
+				interrupt-names = "dcp_power_notify_irq", "dcp_event_notify_irq", "apss_power_notify_irq", "apss_event_notify_irq", "dcp_wdog_bus_error_irq", "smp2p_fatal_irq", "smp2p_err_service_ready_irq", "smp2p_dcp_clock_ready_irq", "smp2p_dcp_pong_irq", "smp2p_dcp_stop_ack_irq";
+				interrupts-extended = <&ipcc_mproc 0xe 0x5 0x1 &ipcc_mproc 0xe 0x6 0x1 &ipcc_mproc 0x6 0x5 0x1 &ipcc_mproc 0x6 0x6 0x1 &intc 0x0 0x127 0x4 &dcp_smp2p_in 0x0 0x0 &dcp_smp2p_in 0x1 0x0 &dcp_smp2p_in 0x2 0x0 &dcp_smp2p_in 0x9 0x0 &dcp_smp2p_in 0x3 0x0>;
+				mboxes = <&ipcc_mproc 0xe 0x5 &ipcc_mproc 0xe 0x6 &ipcc_mproc 0x6 0x5 &ipcc_mproc 0x6 0x6>;
+				depends-on-supply = <&qcom_smp2p_dcp>;
+				status = "ok";
+				compatible = "qcom,msm-hfi-core";
+			};
+		};
+	};
+	lenovo_db: fragment@53 {
+		target = <&tlmm>;
+		__overlay__ {
+			lenovo_d7: cnss_wlan_sw_ctrl {
+				mux {
+					function = "wcn_sw_ctrl";
+					pins = "gpio18";
+				};
+			};
+		};
+	};
+	lenovo_dc: fragment@55 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_d9: bt_peach {
+				qcom,pdc_init_table = "{class: wlan_pdc, ss: rf, res: S2J1.m, enable: 1}", "{class: wlan_pdc, ss: rf, res: S2J1.v, enable: 1}", "{class: wlan_pdc, ss: rf, res: S2J1.v, upval: 876}", "{class: wlan_pdc, ss: rf, res: S2J1.v, dwnval: 876}";
+				qcom,bt-vdd-wlan-aon-config = <0xd9c60 0xf4240 0x0 0x0 0x1>;
+				qcom,bt-vdd-wlan-aon-supply = <&S1J>;
+				qcom,bt-vdd-rfa1p25-config = <0x144380 0x147260 0x0 0x1 0x0>;
+				qcom,bt-vdd-rfa1p8-config = <0x1ca020 0x1e8480 0x0 0x1 0x0>;
+				qcom,bt-vdd-rfa0p75-config = <0xd9c60 0xfcee0 0x0 0x1 0x0>;
+				qcom,bt-vdd-dig-config = <0xd9c60 0xfcee0 0x0 0x1 0x1>;
+				qcom,bt-vdd-aon-config = <0xd9c60 0xfcee0 0x0 0x1 0x0>;
+				qcom,bt-ant-ldo-config = <0x1b7740 0x1c61a0 0x0 0x1 0x0>;
+				qcom,bt-vdd12-io-config = <0x124f80 0x124f80 0x7530 0x1 0x1>;
+				qcom,bt-vdd18-aon-config = <0x1b7740 0x1b7740 0x7530 0x1 0x1>;
+				qcom,bt-vdd-rfa1p25-supply = <&S7F>;
+				qcom,bt-vdd-rfa1p8-supply = <&S8F>;
+				qcom,bt-vdd-rfa0p75-supply = <&S2J>;
+				qcom,bt-vdd-aon-supply = <&S2J>;
+				qcom,bt-vdd-dig-supply = <&S2J>;
+				qcom,bt-ant-ldo-supply = <&L6K>;
+				qcom,bt-vdd12-io-supply = <&L3G>;
+				qcom,bt-vdd18-aon-supply = <&L2G>;
+				qcom,qmp = <&aoss_qmp>;
+				qcom,bt-reset-gpio = <&lenovo_7b 0x5 0x0>;
+				qcom,bt-fmd-clk-gpio = <&lenovo_7b 0x6 0x0>;
+				qcom,bt-sw-ctrl-gpio = <&tlmm 0x12 0x0>;
+				qcom,wl-reset-gpio = <&tlmm 0x10 0x0>;
+				mpm_wake_set_gpios = <0x12 0x9>;
+				pinctrl-2 = <&lenovo_d8>;
+				pinctrl-1 = <&lenovo_d7>;
+				pinctrl-0 = <&lenovo_d6>;
+				pinctrl-names = "bt_uwb_en", "sw_ctrl", "bt_fmd_clk_en";
+				qcom,peach-bt;
+				clock-names = "bt_rf_clk1";
+				clocks = <&rpmhcc 0x6>;
+				nvmem-cell-names = "fmd_set", "fmd_chg_pon", "fmd_cnt2_stop";
+				nvmem-cells = <&lenovo_4d &lenovo_4f &lenovo_50>;
+				compatible = "qcom,peach-bt";
+			};
+		};
+	};
+	lenovo_dd: fragment@57 {
+		target = <&swr4>;
+		__overlay__ {
+			lenovo_da: btswr-slave {
+				reg = <0x2 0x8170220>;
+				compatible = "qcom,btfmswr_slave";
+			};
+		};
+	};
+	lenovo_de: fragment@59 {
+		target = <&qupv3_se18_4uart>;
+		__overlay__ {
+			status = "ok";
+		};
+	};
+	lenovo_df: fragment@61 {
+		target = <&qupv3_se17_spi>;
+		__overlay__ {
+			status = "ok";
+			spi_cnss {
+				qcom,irq-gpio = <&tlmm 0x55 0x0>;
+				interrupt-parent = <&tlmm>;
+				spi-max-freq = <0x1e84800>;
+				reg = "", "", "", "";
+				compatible = "qcom,spi-cnss";
+			};
+		};
+	};
+	lenovo_f4: fragment@62 {
+		target = <&qupv3_se20_i2c>;
+		__overlay__ {
+			status = "okay";
+			#size-cells = "", "", "", "";
+			#address-cells = <0x1>;
+			i2c_et5907@35 {
+				lenovo_e3: ldo_1 {
+				};
+				lenovo_ec: ldo_2 {
+				};
+				lenovo_ed: ldo_3 {
+				};
+				lenovo_e4: ldo_4 {
+				};
+				lenovo_e1: ldo_5 {
+				};
+				lenovo_f3: ldo_6 {
+				};
+				lenovo_e2: ldo_7 {
+				};
+			};
+		};
+	};
+	lenovo_f5: fragment@67 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_eb: qcom,camera-flash1 {
+				status = "ok";
+				leds = <&lenovo_65>;
+				compatible = "qcom,camera-flash";
+				cell-index = <0x1>;
+			};
+			qcom,cam-res-mgr {
+				status = "ok";
+				compatible = "qcom,cam-res-mgr";
+			};
+		};
+	};
+	lenovo_f6: fragment@69 {
+		target = <&cam_cci0>;
+		__overlay__ {
+			lenovo_ea: qcom,actuator0 {
+				status = "ok";
+				rgltr-load-current = "", "", "", "", "", "", "", "";
+				rgltr-max-voltage = <0x2b2eb0 0x1b7740>;
+				rgltr-min-voltage = <0x2b2eb0 0x1b7740>;
+				rgltr-cntrl-support;
+				regulator-names = "cam_vaf", "cam_vio";
+				cam_vio-supply = <&lenovo_e2>;
+				cam_vaf-supply = <&lenovo_e1>;
+				cci-master = "", "", "", "";
+				compatible = "qcom,actuator";
+				cell-index = "", "", "", "";
+			};
+			lenovo_e9: qcom,eeprom0 {
+				status = "ok";
+				clock-rates = <0x124f800>;
+				clock-cntl-level = "nominal";
+				clock-names = "cam_clk";
+				clocks = <&rpmhcc 0x11>;
+				cci-master = "", "", "", "";
+				gpio-req-tbl-label = "CAM_RESET0_1P8";
+				gpio-req-tbl-flags = "", "", "", "";
+				gpio-req-tbl-num = "", "", "", "";
+				gpio-reset = "", "", "", "";
+				gpios = <&lenovo_6d 0xb 0x0>;
+				pinctrl-1 = <&lenovo_e7 &lenovo_e8>;
+				pinctrl-0 = <&lenovo_e5 &lenovo_e6>;
+				pinctrl-names = "cam_default", "cam_suspend";
+				gpio-no-mux = "", "", "", "";
+				rgltr-load-current = "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
+				rgltr-max-voltage = <0x1b7740 0x120930 0x2b2eb0 0x2b2eb0>;
+				rgltr-min-voltage = <0x1b7740 0x120930 0x2b2eb0 0x2b2eb0>;
+				rgltr-cntrl-support;
+				regulator-names = "cam_vio", "cam_vdig", "cam_vana", "cam_vaf";
+				cam_vaf-supply = <&lenovo_e1>;
+				cam_vana-supply = <&lenovo_e4>;
+				power-domains = <&camcc 0x5>;
+				cam_vdig-supply = <&lenovo_e3>;
+				cam_vio-supply = <&lenovo_e2>;
+				compatible = "qcom,eeprom";
+				cell-index = "", "", "", "";
+			};
+			qcom,cam-sensor0 {
+				status = "ok";
+				clock-rates = <0x124f800>;
+				clock-cntl-level = "nominal";
+				clock-names = "cam_clk";
+				clocks = <&rpmhcc 0x11>;
+				cci-master = "", "", "", "";
+				gpio-req-tbl-label = "CAM_RESET0_1P8";
+				gpio-req-tbl-flags = "", "", "", "";
+				gpio-req-tbl-num = "", "", "", "";
+				gpio-reset = "", "", "", "";
+				gpios = <&lenovo_6d 0xb 0x0>;
+				pinctrl-1 = <&lenovo_e7 &lenovo_e8>;
+				pinctrl-0 = <&lenovo_e5 &lenovo_e6>;
+				pinctrl-names = "cam_default", "cam_suspend";
+				gpio-no-mux = "", "", "", "";
+				rgltr-load-current = "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
+				rgltr-max-voltage = <0x1b7740 0x120930 0x2b2eb0 0x2b2eb0>;
+				rgltr-min-voltage = <0x1b7740 0x120930 0x2b2eb0 0x2b2eb0>;
+				rgltr-cntrl-support;
+				regulator-names = "cam_vio", "cam_vdig", "cam_vana", "cam_vaf";
+				cam_vaf-supply = <&lenovo_e1>;
+				cam_vana-supply = <&lenovo_e4>;
+				power-domains = <&camcc 0x5>;
+				cam_vdig-supply = <&lenovo_e3>;
+				cam_vio-supply = <&lenovo_e2>;
+				led-flash-src = <&lenovo_eb>;
+				actuator-src = <&lenovo_ea>;
+				eeprom-src = <&lenovo_e9>;
+				sensor-position-yaw = <0xb4>;
+				sensor-position-pitch = "", "", "", "";
+				sensor-position-roll = <0x5a>;
+				csiphy-sd-index = <0x3>;
+				compatible = "qcom,cam-sensor";
+				cell-index = "", "", "", "";
+			};
+		};
+	};
+	lenovo_f7: fragment@71 {
+		target = <&cam_cci2>;
+		__overlay__ {
+			lenovo_f2: qcom,eeprom1 {
+			};
+			qcom,cam-sensor1 {
+				status = "ok";
+				clock-rates = <0x124f800>;
+				clock-cntl-level = "nominal";
+				clock-names = "cam_clk";
+				clocks = <&rpmhcc 0x11>;
+				cci-master = <0x1>;
+				gpio-req-tbl-label = "CAM_RESET1_1P8";
+				gpio-req-tbl-flags = "", "", "", "";
+				gpio-req-tbl-num = "", "", "", "";
+				gpio-reset = "", "", "", "";
+				gpios = <&lenovo_6d 0xc 0x0>;
+				pinctrl-1 = <&lenovo_f0 &lenovo_f1>;
+				pinctrl-0 = <&lenovo_ee &lenovo_ef>;
+				pinctrl-names = "cam_default", "cam_suspend";
+				gpio-no-mux = "", "", "", "";
+				rgltr-load-current = "", "", "", "", "", "", "", "", "", "", "", "";
+				rgltr-max-voltage = <0x1b7740 0x1397a0 0x2bf200>;
+				rgltr-min-voltage = <0x1b7740 0x1397a0 0x2bf200>;
+				rgltr-cntrl-support;
+				regulator-names = "cam_vio", "cam_vdig", "cam_vana";
+				cam_vana-supply = <&lenovo_ed>;
+				power-domains = <&camcc 0x5>;
+				cam_vdig-supply = <&lenovo_ec>;
+				cam_vio-supply = <&lenovo_e2>;
+				eeprom-src = <&lenovo_f2>;
+				sensor-position-yaw = "", "", "", "";
+				sensor-position-pitch = "", "", "", "";
+				sensor-position-roll = <0x10e>;
+				csiphy-sd-index = <0x2>;
+				compatible = "qcom,cam-sensor";
+				cell-index = <0x1>;
+			};
+		};
+	};

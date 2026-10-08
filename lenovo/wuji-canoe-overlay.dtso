@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: GPL-2.0
+// NFC/eSE fragments omitted: hardware is not fitted.
+/dts-v1/;
+/plugin/;
+
+/ {
+	model = "Qualcomm Technologies, Inc. Canoe QRD + ST54L + Pandeiro";
+	compatible = "qcom,canoe-qrd", "qcom,canoe", "qcom,canoep-cdp", "qcom,canoep", "qcom,qrd";
+	qcom,msm-id = <0x294 0x20000>;
+	qcom,board-id = <0x2000b 0x0>;
+	#include "wuji-canoe-overlay-pmic-storage.dtsi"
+	#include "wuji-canoe-overlay-connectivity.dtsi"
+	#include "wuji-canoe-overlay-display.dtsi"
+	#include "wuji-canoe-overlay-input-sensors.dtsi"
+	#include "wuji-canoe-overlay-audio.dtsi"
+
+};
