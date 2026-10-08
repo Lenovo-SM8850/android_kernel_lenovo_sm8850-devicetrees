@@ -495,6 +495,34 @@
 		target = <&cam_cci2>;
 		__overlay__ {
 			lenovo_f2: qcom,eeprom1 {
+				lenovo,sc820acs-fuse;
+				lenovo,fuse-slave-address = <0x6c>;
+				status = "ok";
+				clock-rates = <0x124f800>;
+				clock-cntl-level = "nominal";
+				clock-names = "cam_clk";
+				clocks = <&rpmhcc 0x11>;
+				cci-master = <0x1>;
+				gpio-req-tbl-label = "CAM_RESET1_1P8";
+				gpio-req-tbl-flags = "", "", "", "";
+				gpio-req-tbl-num = "", "", "", "";
+				gpio-reset = "", "", "", "";
+				gpios = <&lenovo_6d 0xc 0x0>;
+				pinctrl-1 = <&lenovo_f0 &lenovo_f1>;
+				pinctrl-0 = <&lenovo_ee &lenovo_ef>;
+				pinctrl-names = "cam_default", "cam_suspend";
+				gpio-no-mux = "", "", "", "";
+				rgltr-load-current = "", "", "", "", "", "", "", "", "", "", "", "";
+				rgltr-max-voltage = <0x1b7740 0x1397a0 0x2bf200>;
+				rgltr-min-voltage = <0x1b7740 0x1397a0 0x2bf200>;
+				rgltr-cntrl-support;
+				regulator-names = "cam_vio", "cam_vdig", "cam_vana";
+				cam_vana-supply = <&lenovo_ed>;
+				power-domains = <&camcc 0x5>;
+				cam_vdig-supply = <&lenovo_ec>;
+				cam_vio-supply = <&lenovo_e2>;
+				compatible = "qcom,eeprom";
+				cell-index = <0x1>;
 			};
 			qcom,cam-sensor1 {
 				status = "ok";
