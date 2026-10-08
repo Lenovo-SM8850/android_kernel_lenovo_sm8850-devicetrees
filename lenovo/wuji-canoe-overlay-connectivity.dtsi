@@ -344,19 +344,51 @@
 			#size-cells = "", "", "", "";
 			#address-cells = <0x1>;
 			i2c_et5907@35 {
+				pinctrl-0 = <&lenovo_e0>;
+				pinctrl-names = "default";
+				reg = <0x35>;
+				compatible = "will,et5907";
 				lenovo_e3: ldo_1 {
+					regulator-max-microvolt = <0x171240>;
+					regulator-min-microvolt = <0x79180>;
+					regulator-name = "ldo_1";
+					ldo-channel = "", "", "", "";
 				};
 				lenovo_ec: ldo_2 {
+					regulator-max-microvolt = <0x171240>;
+					regulator-min-microvolt = <0x79180>;
+					regulator-name = "ldo_2";
+					ldo-channel = <0x1>;
 				};
 				lenovo_ed: ldo_3 {
+					regulator-max-microvolt = <0x3613c0>;
+					regulator-min-microvolt = <0x16f300>;
+					regulator-name = "ldo_3";
+					ldo-channel = <0x2>;
 				};
 				lenovo_e4: ldo_4 {
+					regulator-max-microvolt = <0x3613c0>;
+					regulator-min-microvolt = <0x16f300>;
+					regulator-name = "ldo_4";
+					ldo-channel = <0x3>;
 				};
 				lenovo_e1: ldo_5 {
+					regulator-max-microvolt = <0x3613c0>;
+					regulator-min-microvolt = <0x16f300>;
+					regulator-name = "ldo_5";
+					ldo-channel = <0x4>;
 				};
 				lenovo_f3: ldo_6 {
+					regulator-max-microvolt = <0x3613c0>;
+					regulator-min-microvolt = <0x16f300>;
+					regulator-name = "ldo_6";
+					ldo-channel = <0x5>;
 				};
 				lenovo_e2: ldo_7 {
+					regulator-max-microvolt = <0x3613c0>;
+					regulator-min-microvolt = <0x16f300>;
+					regulator-name = "ldo_7";
+					ldo-channel = <0x6>;
 				};
 			};
 		};
