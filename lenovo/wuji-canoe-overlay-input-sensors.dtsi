@@ -441,6 +441,7 @@
 		target = <&soc>;
 		__overlay__ {
 			goodix_fp {
+				panel = <&lenovo_128 &lenovo_129>;
 			};
 		};
 	};

@@ -1863,6 +1863,12 @@
 		target = <&soc>;
 		__overlay__ {
 			goodix_fp {
+				compatible = "goodix,plat-driver";
+				interrupt-parent = <&tlmm>;
+				gfrst-gpios = <&tlmm 0x53 0x0>;
+				gfint-gpios = <&tlmm 0x54 0x0>;
+				vdd-supply = <&L14B>;
+				status = "okay";
 			};
 		};
 	};
