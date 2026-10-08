@@ -2214,6 +2214,9 @@
 				pmsg-size = "", " ", "";
 			};
 			swtp {
+				status = "okay";
+				compatible = "virtualsar,swtp-eint";
+				irq-gpio = <&tlmm 0x61 0x0>;
 			};
 		};
 	};
