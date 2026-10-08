@@ -2153,6 +2153,9 @@
 		__overlay__ {
 			status = "ok";
 			sgm66075@77 {
+				status = "ok";
+				compatible = "sgm,sgm66075";
+				reg = <0x77>;
 			};
 		};
 	};
