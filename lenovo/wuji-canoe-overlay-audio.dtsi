@@ -935,8 +935,22 @@
 		target = <&qupv3_se4_i2c>;
 		__overlay__ {
 			aw882xx_smartpa@34 {
+				LENOVO_CANOE_AW882XX_COMMON;
+				sound-channel = "", "", "", "";
+				pa-vddio-supply = <&L1G>;
+				pa-dvdd-supply = <&L12B>;
+				awinic,monitor-supply-microvolt = <1800000 1200000>;
+				reset-gpio = <&tlmm 0x72 0x0>;
+				reg = <0x34>;
 			};
 			aw882xx_smartpa@37 {
+				LENOVO_CANOE_AW882XX_COMMON;
+				sound-channel = <0x1>;
+				pa-vddio-supply = <&L1G>;
+				pa-dvdd-supply = <&L12B>;
+				awinic,monitor-supply-microvolt = <1800000 1200000>;
+				reset-gpio = <&tlmm 0x45 0x0>;
+				reg = <0x37>;
 			};
 		};
 	};

@@ -12887,9 +12887,17 @@
 	status = "okay";
 
 	aw882xx_smartpa@34 {
+		LENOVO_CANOE_AW882XX_COMMON;
+		sound-channel = <0x00>;
+		reset-gpio = <&tlmm 0x72 GPIO_ACTIVE_HIGH>;
+		reg = <0x34>;
 	};
 
 	aw882xx_smartpa@37 {
+		LENOVO_CANOE_AW882XX_COMMON;
+		sound-channel = <0x01>;
+		reset-gpio = <&tlmm 0x47 GPIO_ACTIVE_HIGH>;
+		reg = <0x37>;
 	};
 };
 
