@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
+#include "canoe-common-components.dtsi"
 // TB323FU_CN_OPEN_USER_Q00020.0_A16_ZUXOS_2.0.12.088_ST_260610 base entry 12 delta over the QTI CanoeP v2 techpack set.
 
 /delete-node/ &{/ddr-regions};
@@ -95,17 +96,13 @@
 
 &{/soc/qcom,qupv3_1_geni_se@ac0000/i2c@a94000} {
 	aw22xxx_led@6a {
-		compatible = "awinic,aw22xxx_led";
-		reg = <0x6a>;
+		LENOVO_CANOE_AW22XXX_NODE_COMMON;
 		pinctrl-names = "led_reset_ctrl_default";
 		pinctrl-0 = <&led_reset_ctrl_default>;
 		irq-gpio = <&tlmm 0x3 0x0>;
-		status = "okay";
 		aw22xxx,led {
-			aw22xxx,name = "aw22xxx_led";
+			LENOVO_CANOE_AW22XXX_LED_COMMON;
 			aw22xxx,imax = <0x03>;
-			aw22xxx,brightness = <0x80>;
-			aw22xxx,max_brightness = <0xff>;
 		};
 	};
 };

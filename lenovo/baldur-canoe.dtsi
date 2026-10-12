@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
+#include "canoe-common-components.dtsi"
 #ifdef LENOVO_CANOE_BASE_ASSEMBLY
 #include "baldur-canoe-base.dtsi"
 #else
@@ -2295,21 +2296,7 @@
 };
 
 &ufshc_mem {
-	lenovo,samsung-ufs-maintenance;
-	vcc-supply = <&L17B>;
-	vcc-max-microamp = <0x124f80>;
-	vccq-supply = <&L4D>;
-	vccq-max-microamp = <0x124f80>;
-	qcom,vccq-proxy-vote-supply = <&L4D>;
-	qcom,vccq-proxy-vote-max-microamp = <0x124f80>;
-	qcom,vddp-ref-clk-supply = <&L1G>;
-	qcom,vddp-ref-clk-max-microamp = <0x64>;
-	qcom,vccq-parent-supply = <&S7F>;
-	qcom,vccq-parent-max-microamp = <0x7cc180>;
-	reset-gpios = <&tlmm 0xd9 GPIO_ACTIVE_LOW>;
-	resets = <&gcc 0x19>;
-	reset-names = "rst";
-	status = "ok";
+	LENOVO_CANOE_UFS_MEMORY_PROPERTIES;
 };
 
 &sdhc_2 {
@@ -2619,9 +2606,9 @@
 
 	sys_temp_support {
 		compatible = "lenovo,baldur-sys-temp", "lenovo,sys-temp";
-		lenovo,temperature-names = "front_temp\0back_temp\0user_temp\0user_front_temp\0user_back_temp";
-		lenovo,sensor-listener-names = "ap-therm\0flash-led-ntc\0wlan-therm\0usb2-conn-therm\0rear-cam-ntc\0xo-therm\0quiet-therm\0fast-chg-therm\0ufs-therm\0fcam-ntc\0top-chg-therm\0batt2-pack-therm\0batt-pack-therm\0usb1-conn-therm\0lcm-thermal";
-		cust,all-ntc-names = "ap-therm\0flash-led-ntc\0wlan-therm\0usb2-conn-therm\0rear-cam-ntc\0xo-therm\0quiet-therm\0fast-chg-therm\0ufs-therm\0fcam-ntc\0top-chg-therm\0batt2-pack-therm\0batt-pack-therm\0usb1-conn-therm\0lcm-thermal";
+		lenovo,temperature-names = LENOVO_CANOE_THERMAL_ZONE_NAMES;
+		lenovo,sensor-listener-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES;
+		cust,all-ntc-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES;
 	};
 };
 
@@ -13493,29 +13480,17 @@
 	status = "okay";
 
 	aw882xx_smartpa@34 {
-		status = "okay";
-		aw-cali-mode = "none";
-		aw-re-max = <0x7530>;
-		aw-re-min = <0xfa0>;
-		rename-flag = <0x01>;
+		LENOVO_CANOE_AW882XX_COMMON;
 		sound-channel = <0x00>;
-		sync-load = <0x01>;
 		reset-gpio = <&tlmm 0x72 GPIO_ACTIVE_HIGH>;
 		reg = <0x34>;
-		compatible = "awinic,aw882xx_smartpa";
 	};
 
 	aw882xx_smartpa@37 {
-		status = "okay";
-		aw-cali-mode = "none";
-		aw-re-max = <0x7530>;
-		aw-re-min = <0xfa0>;
-		rename-flag = <0x01>;
+		LENOVO_CANOE_AW882XX_COMMON;
 		sound-channel = <0x01>;
-		sync-load = <0x01>;
 		reset-gpio = <&tlmm 0x47 GPIO_ACTIVE_HIGH>;
 		reg = <0x37>;
-		compatible = "awinic,aw882xx_smartpa";
 	};
 };
 

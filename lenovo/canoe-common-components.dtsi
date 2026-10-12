@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Invariant Lenovo Canoe component properties shared by Baldur and Wuji.
+#ifndef LENOVO_CANOE_COMMON_COMPONENTS_DTSI
+#define LENOVO_CANOE_COMMON_COMPONENTS_DTSI
+
+#define LENOVO_CANOE_UFS_MEMORY_PROPERTIES \
+	lenovo,samsung-ufs-maintenance; \
+	vcc-supply = <&L17B>; \
+	vcc-max-microamp = <0x124f80>; \
+	vccq-supply = <&L4D>; \
+	vccq-max-microamp = <0x124f80>; \
+	qcom,vccq-proxy-vote-supply = <&L4D>; \
+	qcom,vccq-proxy-vote-max-microamp = <0x124f80>; \
+	qcom,vddp-ref-clk-supply = <&L1G>; \
+	qcom,vddp-ref-clk-max-microamp = <0x64>; \
+	qcom,vccq-parent-supply = <&S7F>; \
+	qcom,vccq-parent-max-microamp = <0x7cc180>; \
+	reset-gpios = <&tlmm 0xd9 0x1>; \
+	resets = <&gcc 0x19>; \
+	reset-names = "rst"; \
+	status = "ok"
+
+#define LENOVO_CANOE_THERMAL_ZONE_NAMES \
+	"front_temp", "back_temp", "user_temp", "user_front_temp", \
+	"user_back_temp"
+
+#define LENOVO_CANOE_THERMAL_SENSOR_NAMES \
+	"ap-therm", "flash-led-ntc", "wlan-therm", "usb2-conn-therm", \
+	"rear-cam-ntc", "xo-therm", "quiet-therm", "fast-chg-therm", \
+	"ufs-therm", "fcam-ntc", "top-chg-therm", "batt2-pack-therm", \
+	"batt-pack-therm", "usb1-conn-therm", "lcm-thermal"
+
+#define LENOVO_CANOE_AW22XXX_NODE_COMMON \
+	compatible = "awinic,aw22xxx_led"; \
+	reg = <0x6a>; \
+	status = "okay"
+
+#define LENOVO_CANOE_AW22XXX_LED_COMMON \
+	aw22xxx,name = "aw22xxx_led"; \
+	aw22xxx,brightness = <0x80>; \
+	aw22xxx,max_brightness = <0xff>
+
+#define LENOVO_CANOE_AW882XX_COMMON \
+	status = "okay"; \
+	aw-cali-mode = "none"; \
+	aw-re-max = <0x7530>; \
+	aw-re-min = <0xfa0>; \
+	rename-flag = <0x1>; \
+	sync-load = <0x1>; \
+	compatible = "awinic,aw882xx_smartpa"
+
+#endif
