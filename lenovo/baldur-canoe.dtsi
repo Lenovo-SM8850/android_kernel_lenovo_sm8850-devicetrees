@@ -2312,6 +2312,7 @@
 };
 
 &sdhc_2 {
+	compatible = "lenovo,baldur-bh201-sdhci-v1", "qcom,sdhci-msm-v5";
 	vdd-supply = <&L9B>;
 	qcom,vdd-voltage-level = <0x2d0370 0x2d2a80>;
 	qcom,vdd-current-level = <0x21 0xee868>;
