@@ -2033,6 +2033,14 @@
 };
 
 &sdhc_2 {
+	compatible = "lenovo,bh201-sdhci-v1", "qcom,sdhci-msm-v5";
+	LENOVO_CANOE_SDHC_2_PROPERTIES;
+	qcom,vdd-io-current-level = <0x00 0x55f0>;
+	pinctrl-names = "default\0sleep";
+	LENOVO_CANOE_SDHC_2_PROPERTIES_2;
+	cd-gpios = <&tlmm 0x37 GPIO_ACTIVE_HIGH>;
+	LENOVO_CANOE_SDHC_2_PROPERTIES_3;
+	LENOVO_CANOE_SDHC_2_PROPERTIES_4;
 };
 
 &usb_qmp_dp_phy {
