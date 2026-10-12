@@ -1254,19 +1254,10 @@ _platform_map = {
     },
 }
 
-# Add only verified board sources here. Entries are ordered for image packaging;
-# future boards keep their prebuilt images until their bootloader IDs are known.
-_lenovo_platform_map = {
-    "canoe": {
-        "dtb_list": [{"name": "baldur-canoe-base.dtb"}],
-        "dtbo_list": [{"name": "baldur-canoe-overlay.dtbo"}],
-    },
-}
-
-def _get_dtb_lists(target, dt_overlay_supported):
+def _get_dtb_lists(target, dt_overlay_supported, device_map = {}):
     platform_map = dict(_platform_map)
     if dt_overlay_supported:
-        platform_map.update(_lenovo_platform_map)
+        platform_map.update(device_map)
     if not target in platform_map:
         fail("{} not in device tree platform map!".format(target))
 
@@ -1294,11 +1285,11 @@ def _get_dtb_lists(target, dt_overlay_supported):
 
     return ret
 
-def get_dtb_list(target, dt_overlay_supported = True):
-    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported).get("dtb_list", [])]
+def get_dtb_list(target, dt_overlay_supported = True, device_map = {}):
+    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported, device_map).get("dtb_list", [])]
 
-def get_dtbo_list(target, dt_overlay_supported = True):
-    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported).get("dtbo_list", [])]
+def get_dtbo_list(target, dt_overlay_supported = True, device_map = {}):
+    return [dtb["name"] for dtb in _get_dtb_lists(target, dt_overlay_supported, device_map).get("dtbo_list", [])]
 
-def get_custom_dtbo_img_list(target, dt_overlay_supported = True):
-    return _get_dtb_lists(target, dt_overlay_supported).get("custom_dtbo_img_list", [])
+def get_custom_dtbo_img_list(target, dt_overlay_supported = True, device_map = {}):
+    return _get_dtb_lists(target, dt_overlay_supported, device_map).get("custom_dtbo_img_list", [])
