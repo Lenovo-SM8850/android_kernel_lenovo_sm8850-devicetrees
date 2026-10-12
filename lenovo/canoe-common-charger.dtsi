@@ -1,0 +1,54 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Shared Canoe charger node data.
+#ifndef LENOVO_CANOE_COMMON_CHARGER_DTSI
+#define LENOVO_CANOE_COMMON_CHARGER_DTSI
+
+#define LENOVO_CANOE_PMIC_GLINK_ADC_BODY \
+	status = "ok"; \
+	smb1501_1_iin { \
+	reg = <0x1046801>; \
+	label = "smb1501_1_iin"; \
+	}; \
+	smb1501_1_ichg { \
+	reg = <0x1046802>; \
+	label = "smb1501_1_ichg"; \
+	}; \
+	smb1501_1_die_temp { \
+	reg = <0x1046803>; \
+	label = "smb1501_1_die_temp"; \
+	}; \
+	smb1501_2_iin { \
+	reg = <0x1046901>; \
+	label = "smb1501_2_iin"; \
+	}; \
+	smb1501_2_ichg { \
+	reg = <0x1046902>; \
+	label = "smb1501_2_ichg"; \
+	}; \
+	smb1501_2_die_temp { \
+	reg = <0x1046903>; \
+	label = "smb1501_2_die_temp"; \
+	}
+
+#define LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_SMB1501_68_BODY \
+	compatible = "qcom,i2c-pmic"; \
+	reg = <0x68>; \
+	qcom,can-sleep
+
+#define LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_SMB1501_69_BODY \
+	compatible = "qcom,i2c-pmic"; \
+	reg = <0x69>; \
+	qcom,can-sleep
+
+#define LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_CPS4061_30_BODY \
+	compatible = "qcom,i2c-pmic"; \
+	reg = <0x30>; \
+	qcom,can-sleep
+
+#define LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_PROPERTIES \
+	reg = <0x104>
+
+#define LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_PROPERTIES_2 \
+	qcom,bus-type = "i2c"
+
+#endif

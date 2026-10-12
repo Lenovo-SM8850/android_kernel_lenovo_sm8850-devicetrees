@@ -1,0 +1,73 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Stock base deltas shared by both Canoe tablets.
+
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmh0110@8/pinctrl@8800/cam-sensor-1p8-rst1-active-state};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmh0110@8/pinctrl@8800/cam-sensor-1p8-rst1-suspend-state};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/pinctrl@b800/alt-sleep-clk-default-state};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/pinctrl@b800/xoagg-therm-default-state};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmh0101_cam_flash_therm};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmh0101_pa_therm1};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmh0101_pa_therm2};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmh0101_skin_therm};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmh0101_wlan_therm};
+/delete-node/ &{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/vadc@9000/pmk8850_xoagg_therm};
+/delete-node/ &{/soc/qfprom@221c8000/debugbus_en@783};
+/delete-node/ &{/soc/qfprom@221c8000/gpu_niden_en@783};
+
+&{/} {
+	mem-offline {
+		compatible = "qcom,mem-offline";
+		status = "disabled";
+		offline-sizes = <0x02 0xc0000000 0x01 0x00>;
+		granule = <0x200>;
+		qcom,qmp = <&aoss_qmp>;
+	};
+};
+
+&{/soc/arbiter@c400000/spmi@c426000/pmk8850@0/pinctrl@b800} {
+	/delete-property/ pinctrl-0;
+	/delete-property/ pinctrl-names;
+};
+
+&{/soc/funnel@11163000} {
+	compatible = "arm,primecell";
+};
+
+&{/soc/ipclite} {
+	global_par_custom_val = <0x28>;
+};
+
+&{/soc/qcom,cvp@2400000/cvp_non_secure_cb_group} {
+	qcom,iommu-faults = "non-fatal";
+};
+
+&{/soc/qcom,kgsl-3d0@3d00000} {
+	nvmem-cell-names = "gpu_debug_bus_bin\0speed_bin";
+	nvmem-cells = <&gpu_debug_bus_bin &gpu_speed_bin>;
+};
+
+&{/soc/qcom,qupv3_3_geni_se@19c0000/i3c-master@1984000} {
+	clock-names = "se-clk";
+	clocks = <&gcc 0x74>;
+	dmas = <&gpi_dma3 0x0 0x1 0x4 0x40 0x0 &gpi_dma3 0x1 0x1 0x4 0x40 0x0>;
+	/delete-property/ interrupts;
+	interrupts-extended = <&intc 0x0 0x247 0x4>;
+};
+
+&{/soc/qcom,qupv3_4_geni_se@1ac0000/i3c-master@1a80000} {
+	dmas = <&gpi_dma4 0x0 0x0 0x4 0x40 0x0 &gpi_dma4 0x1 0x0 0x4 0x40 0x0>;
+};
+
+&{/soc/remoteproc-soccp@a3380000} {
+	/delete-property/ interconnect-names;
+	/delete-property/ interconnects;
+};
+
+&{/soc/ssusb@a600000/dwc3@a600000} {
+	snps,usb2-gadget-lpm-disable;
+	snps,usb2-lpm-disable;
+};
+
+&{/soc/tpdm@111c4000} {
+	status = "disabled";
+};

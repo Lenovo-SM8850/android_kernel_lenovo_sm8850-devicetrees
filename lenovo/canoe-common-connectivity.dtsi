@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Shared Canoe connectivity node data.
+#ifndef LENOVO_CANOE_COMMON_CONNECTIVITY_DTSI
+#define LENOVO_CANOE_COMMON_CONNECTIVITY_DTSI
+
+#define LENOVO_CANOE_USB_QMP_DP_PHY_BODY \
+	pinctrl-names = "unused"
+
+#define LENOVO_CANOE_PCIE_PROPERTIES \
+	power-domain-names = "gdsc-phy-vdd"
+
+#endif
