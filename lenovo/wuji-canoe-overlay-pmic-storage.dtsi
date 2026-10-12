@@ -1,0 +1,2293 @@
+// SPDX-License-Identifier: GPL-2.0
+#include "canoe-common-components.dtsi"
+// Canoe power, charging, and storage fragments.
+	fragment@0 {
+		target = <&spmi0_bus>;
+		__overlay__ {
+			lenovo_48: pmk8850@0 {
+				compatible = "qcom,spmi-pmic";
+				reg = "", "", "", "", "", "", "", "";
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PMIC_ECID_100_BODY;
+				};
+				lenovo_49: sdam@7000 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_7000_PROPERTIES;
+					reg = "", "", "p";
+					#address-cells = <0x1>;
+					#size-cells = <0x1>;
+					lenovo_11: ocp-log@76 {
+						reg = <0x76 0x6>;
+					};
+				};
+				lenovo_4a: sdam@7100 {
+					compatible = "qcom,spmi-sdam";
+					reg = "", "", "q";
+					#address-cells = <0x1>;
+					#size-cells = <0x1>;
+					lenovo_e: restart@48 {
+						reg = <0x48 0x1>;
+						bits = <0x1 0x7>;
+					};
+					lenovo_4b: bob1-off-mode-enable@50 {
+						reg = <0x50 0x1>;
+					};
+					lenovo_4c: xo_calib-data@59 {
+						reg = <0x59 0x1>;
+					};
+					lenovo_12: alarm-log@76 {
+						reg = <0x76 0x6>;
+					};
+					lenovo_4d: fmd-set@9a {
+						reg = <0x9a 0x1>;
+					};
+					lenovo_4e: fmd_cont_after_pon@9c {
+						reg = <0x9c 0x1>;
+					};
+					lenovo_4f: fmd-chg-pon@9f {
+						reg = <0x9f 0x1>;
+					};
+					lenovo_50: fmd-cnt2-stop@a2 {
+						reg = <0xa2 0x1>;
+					};
+				};
+				lenovo_f: sdam@7400 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_7000_PROPERTIES;
+					reg = "", "", "t";
+				};
+				lenovo_10: sdam@7500 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_7000_PROPERTIES;
+					reg = "", "", "u";
+				};
+				lenovo_7: sdam@8400 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_8400_BODY;
+				};
+				lenovo_8: sdam@8500 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_8500_BODY;
+				};
+				lenovo_51: sdam@9a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_9A00_PROPERTIES;
+					#address-cells = <0x1>;
+					#size-cells = <0x1>;
+					lenovo_c: sqm-timer@b8 {
+						reg = <0xb8 0x2>;
+					};
+				};
+				lenovo_d: sdam@9d00 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_9D00_BODY;
+				};
+				lenovo_9: sdam@aa00 {
+					compatible = "qcom,spmi-sdam";
+					reg = <0xaa00>;
+				};
+				lenovo_a: sdam@ab00 {
+					compatible = "qcom,spmi-sdam";
+					reg = <0xab00>;
+				};
+				lenovo_b: sdam@ac00 {
+					compatible = "qcom,spmi-sdam";
+					reg = <0xac00>;
+				};
+				pon_hlos@1300 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PROPERTIES;
+					reg-names = "hlos", "pbs";
+					pwrkey {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PWRKEY_PROPERTIES;
+						interrupts = <0x0 0x13 0x7 0x3>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PWRKEY_PROPERTIES_2;
+					};
+					resin {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_RESIN_PROPERTIES;
+						interrupts = <0x0 0x13 0x6 0x3>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_RESIN_PROPERTIES_2;
+					};
+				};
+				lenovo_2: sdam@a000 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A000_BODY;
+				};
+				lenovo_3: sdam@a100 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A100_BODY;
+				};
+				lenovo_4: sdam@a200 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A200_BODY;
+				};
+				lenovo_52: sdam@b600 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_B600_PROPERTIES;
+					lenovo_53: usb-mode@50 {
+						reg = <0x50 0x1>;
+					};
+				};
+				lenovo_5: sdam@b700 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_B700_BODY;
+				};
+				lenovo_54: pinctrl@b800 {
+					compatible = "qcom,pmk8850-gpio";
+					reg = <0xb800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_55: lcd-bl-pwm-default-state {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCD_BL_PWM_DEFAULT_STATE_PROPERTIES;
+						function = "func3";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCD_BL_PWM_DEFAULT_STATE_PROPERTIES_2;
+						power-source = "", "", "", "";
+					};
+					lenovo_56: xoagg-therm-default-state {
+						pins = "gpio7";
+						function = "normal";
+						bias-high-impedance;
+					};
+					lcm_therm {
+						lenovo_3f: lcm_therm_default {
+							LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCM_THERM_LCM_THERM_DEFAULT_BODY;
+						};
+					};
+					lenovo_e5: cam_sensor_mclk0_1p8_active {
+						power-source = "", "", "", "";
+						output-enable;
+						function = "func2";
+						pins = "gpio1";
+					};
+					lenovo_e7: cam_sensor_mclk0_1p8_suspend {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+						function = "func2";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES_2;
+					};
+					lenovo_ee: cam_sensor_mclk1_1p8_active {
+						power-source = "", "", "", "";
+						output-enable;
+						function = "func2";
+						pins = "gpio8";
+					};
+					lenovo_f0: cam_sensor_mclk1_1p8_suspend {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+						function = "func2";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK1_1P8_SUSPEND_PROPERTIES;
+					};
+				};
+				lenovo_57: rtc@6100 {
+					compatible = "qcom,pmk8350-rtc";
+					reg = "", "", "a", "", "", "b";
+					reg-names = "rtc", "alarm";
+					interrupts = <0x0 0x62 0x1 0x1>;
+				};
+				pmk8850-pwm {
+					compatible = "qcom,pmk8850-pwm", "qcom,pmk8550-pwm";
+					#address-cells = <0x1>;
+					#size-cells = "", "", "", "";
+					#pwm-cells = <0x2>;
+				};
+				lenovo_6: vadc@9000 {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES;
+					#address-cells = <0x1>;
+					#size-cells = "", "", "", "";
+					interrupts = <0x0 0x90 0x1 0x1 0x0 0x91 0x1 0x1>;
+					interrupt-names = "adc-sdam0", "adc-sdam1";
+					#thermal-sensor-cells = <0x1>;
+					#io-channel-cells = <0x1>;
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES_2;
+					pinctrl-0 = <&lenovo_1>;
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES_3;
+					/* Gen6 reference-board channels are absent on stock Wuji. */
+					pmh0101_cam_flash_therm { status = "disabled"; };
+					pmh0101_pa_therm1 { status = "disabled"; };
+					pmh0101_pa_therm2 { status = "disabled"; };
+					pmk8850_offset_ref {
+						reg = "", "", "", "";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_OFFSET_REF_PROPERTIES;
+					};
+					pmk8850_vref_1p25 {
+						reg = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_VREF_1P25_PROPERTIES;
+					};
+					pmk8850_die_temp {
+						reg = <0x3>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_DIE_TEMP_PROPERTIES;
+					};
+					pmk8850_xo_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_XO_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					lenovo_58: pmk8850_xoagg_therm {
+						reg = <0x4b>;
+						label = "pmk8850_xoagg_therm";
+						qcom,ratiometric;
+						qcom,hw-settle-time = <0xc8>;
+						qcom,adc-tm-type = <0x1>;
+						status = "disabled";
+					};
+					pmh0101_offset_ref {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_OFFSET_REF_BODY;
+					};
+					pmh0101_vref_1p25 {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_VREF_1P25_BODY;
+					};
+					pmh0101_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_DIE_TEMP_BODY;
+					};
+					pmh0101_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_VPH_PWR_BODY;
+					};
+					lenovo_59: pmh0101_qtm_therm {
+						status = "okay";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_QTM_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0110_d_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_D_DIE_TEMP_BODY;
+					};
+					pmh0110_d_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_D_VPH_PWR_BODY;
+					};
+					pmh0110_f_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_F_DIE_TEMP_BODY;
+					};
+					pmh0110_f_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_F_VPH_PWR_BODY;
+					};
+					pmh0110_g_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_G_DIE_TEMP_BODY;
+					};
+					pmh0110_g_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_G_VPH_PWR_BODY;
+					};
+					pmh0110_i_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_I_DIE_TEMP_BODY;
+					};
+					pmh0110_i_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_I_VPH_PWR_BODY;
+					};
+					pmih010x_offset_ref {
+						reg = "", "", "'";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_OFFSET_REF_PROPERTIES;
+					};
+					pmih010x_vref_1p25 {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VREF_1P25_BODY;
+					};
+					pmih010x_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_DIE_TEMP_BODY;
+					};
+					pmih010x_vph_pwr {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VPH_PWR_BODY;
+					};
+					pmih010x_vbat_sns_qbg {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VBAT_SNS_QBG_BODY;
+					};
+					pmih010x_iin {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_IIN_BODY;
+					};
+					pmih010x_ichg_fb {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_ICHG_FB_BODY;
+					};
+					pmih010x_chg_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_CHG_TEMP_BODY;
+					};
+					pmih010x_lite_die_temp {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_LITE_DIE_TEMP_BODY;
+					};
+					pmih010x_batt_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_BATT_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmih010x_usb_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_USB_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmih010x_batt_therm2 {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_BATT_THERM2_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmih010x_wls_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_WLS_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_skin_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_SKIN_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_rear_cam_ntc {
+						reg = <0x145>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_REAR_CAM_NTC_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_wlan_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_WLAN_THERM_PROPERTIES;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_usb2_conn_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_USB2_CONN_THERM_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_flash_led_ntc {
+						reg = <0x14a>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_FLASH_LED_NTC_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmh0101_quiet_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_QUIET_THERM_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+					};
+					pmih010x_ufs_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES_2;
+					};
+					pmih010x_fcam_ntc {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_FCAM_NTC_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES_2;
+					};
+					pmk8850_lcm_therm {
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_LCM_THERM_PROPERTIES;
+						qcom,pre-scaling = <0x1 0x1>;
+						qcom,adc-tm-type = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES_2;
+					};
+				};
+				lenovo_13: qcom,power-telemetry-device {
+					compatible = "qcom,power-telemetry";
+					status = "okay";
+					interrupts = <0x0 0xa2 0x1 0x1 0x0 0xa1 0x1 0x1>;
+					nvmem = <&lenovo_2 &lenovo_3 &lenovo_4>;
+					nvmem-names = "qpt-config-sdam", "qpt-frac-sdam", "qpt-data-sdam";
+					#powerzone-cells = <0x1>;
+					power-domains = <&CLUSTER_PD2>;
+				};
+				lenovo_5a: qcom,voltage-adj-device {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_QCOM_VOLTAGE_ADJ_DEVICE_BODY;
+				};
+				btl {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_BTL_PROPERTIES;
+					nvmem = <&lenovo_5>;
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_BTL_PROPERTIES_2;
+				};
+				qcom,power-telemetry-data-share-device {
+					LENOVO_CANOE_SPMI0_BUS_PMK8850_0_QCOM_POWER_TELEMETRY_DATA_SHARE_DEVICE_BODY;
+				};
+			};
+			pmh0101@1 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x1 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMIC_ECID_100_BODY;
+				};
+				lenovo_1e: pmh0101-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x1 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x103>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_5b: pinctrl@8800 {
+					compatible = "qcom,pmh0101-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_5c: qtm-therm-default-state {
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_QTM_THERM_DEFAULT_STATE_PROPERTIES;
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					lenovo_1: pa-therm2-default-state {
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_PA_THERM2_DEFAULT_STATE_PROPERTIES;
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					lenovo_5d: cam-sensor-1p8-rst0-active-state {
+						pins = "gpio4";
+						function = "normal";
+						qcom,drive-strength = <0x2>;
+						input-disable;
+						output-enable;
+						output-high;
+						power-source = "", "", "", "";
+					};
+					lenovo_5e: cam-sensor-1p8-rst0-suspend-state {
+						pins = "gpio4";
+						function = "normal";
+						qcom,drive-strength = <0x2>;
+						input-disable;
+						output-enable;
+						output-low;
+					};
+					lenovo_5f: pmh0101-bidir-lvl-shifter1-state {
+						pins = "gpio11", "gpio12";
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					lenovo_60: pmh0101-bidir-lvl-shifter2-state {
+						pins = "gpio13", "gpio14";
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					lenovo_61: pmh0101-bidir-lvl-shifter3-state {
+						pins = "gpio15", "gpio16";
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					lenovo_62: pmh0101-bidir-lvl-shifter4-state {
+						pins = "gpio17", "gpio18";
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES;
+					};
+					flash_led_ntc {
+						lenovo_38: flash_led_ntc_default {
+							pins = "gpio1";
+							bias-high-impedance;
+						};
+					};
+					quiet_therm {
+						lenovo_39: quiet_therm_default {
+							LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_QUIET_THERM_QUIET_THERM_DEFAULT_BODY;
+						};
+					};
+					fast_chg_therm {
+						lenovo_3a: fast_chg_therm_default {
+							LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_FAST_CHG_THERM_FAST_CHG_THERM_DEFAULT_BODY;
+						};
+					};
+				};
+				lenovo_63: led-controller {
+					compatible = "qcom,pmh0101-pwm", "qcom,pm8350c-pwm";
+					#address-cells = <0x1>;
+					#size-cells = "", "", "", "";
+					#pwm-cells = <0x2>;
+					nvmem = <&lenovo_7 &lenovo_8>;
+					nvmem-names = "lpg_chan_sdam", "lut_sdam";
+					led@1 {
+						reg = <0x1>;
+						color = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_1_PROPERTIES;
+					};
+					led@2 {
+						reg = <0x2>;
+						color = <0x2>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_2_PROPERTIES;
+					};
+					led@3 {
+						reg = <0x3>;
+						color = <0x3>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_3_PROPERTIES;
+					};
+				};
+				lenovo_19: bcl@4700 {
+					compatible = "qcom,pmh0101-bcl-v5";
+					reg = <0x4700 0x100>;
+					interrupts = <0x1 0x47 0x0 0x0 0x1 0x47 0x1 0x0 0x1 0x47 0x2 0x0>;
+					interrupt-names = "bcl-lvl0", "bcl-lvl1", "bcl-lvl2";
+					qcom,pmic7-threshold;
+					#thermal-sensor-cells = <0x1>;
+				};
+				lenovo_64: led-controller@ee00 {
+					compatible = "qcom,pmh0101-flash-led", "qcom,spmi-flash-led";
+					reg = <0xee00>;
+					lenovo_65: led-0 {
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES;
+						function-enumerator = "", "", "", "";
+						color = <0x6>;
+						led-sources = <0x1 0x4>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES_2;
+					};
+					lenovo_66: led-1 {
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES;
+						function-enumerator = <0x1>;
+						color = "", "", "", "";
+						led-sources = <0x2 0x3>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES_2;
+					};
+					lenovo_67: led-2 {
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES;
+						function-enumerator = <0x2>;
+						color = <0x4>;
+						led-sources = <0x1 0x2 0x3 0x4>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_68: pmh0110@3 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x3 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PMIC_ECID_100_BODY;
+				};
+				lenovo_1f: pmh0110-d-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x3 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x303>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_47: pinctrl@8800 {
+					compatible = "qcom,pmh0110-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_45: led_reset_ctrl_default {
+						pins = "gpio11";
+						function = "normal";
+						output-high;
+						bias-disable;
+						power-source = <0x1>;
+						qcom,drive-strength = <0x2>;
+					};
+					lenovo_46: led_reset_ctrl_low {
+						pins = "gpio11";
+						function = "normal";
+						output-low;
+						bias-disable;
+						power-source = <0x1>;
+						qcom,drive-strength = <0x2>;
+					};
+					lenovo_123: sde-mdp-vsync-p-1p2-active-state {
+						power-source = <0x2>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES;
+						function = "paired";
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES_2;
+					};
+					lenovo_124: sde-mdp-vsync-p-1p8-active-state {
+						power-source = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES;
+						function = "paired";
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES_2;
+					};
+					lenovo_100: sde_vo4_set_active {
+						power-source = <0x1>;
+						bias-disable;
+						output-high;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio7";
+					};
+					lenovo_101: sde_vo4_set_sleep {
+						output-low;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio7";
+					};
+					lenovo_102: sde_oled_nreset_active {
+						power-source = <0x1>;
+						bias-disable;
+						output-high;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio13";
+					};
+					lenovo_103: sde_oled_nreset_sleep {
+						output-low;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio13";
+					};
+					lenovo_104: sde_vo4_en_active {
+						power-source = <0x1>;
+						bias-disable;
+						output-high;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio14";
+					};
+					lenovo_105: sde_vo4_en_sleep {
+						output-low;
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio14";
+					};
+				};
+			};
+			lenovo_69: pmh0110@5 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x5 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PMIC_ECID_100_BODY;
+				};
+				lenovo_21: pmh0110-f-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x5 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x503>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_31: pinctrl@8800 {
+					compatible = "qcom,pmh0110-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					eusb2_reset_ctrl {
+						lenovo_32: eusb2_reset_ctrl_default {
+							LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PINCTRL_8800_EUSB2_RESET_CTRL_EUSB2_RESET_CTRL_DEFAULT_PROPERTIES;
+							function = "normal";
+							LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PINCTRL_8800_EUSB2_RESET_CTRL_EUSB2_RESET_CTRL_DEFAULT_PROPERTIES_2;
+							power-source = <0x1>;
+							qcom,drive-strength = <0x2>;
+						};
+					};
+					lenovo_125: sde-disp0-rst-1p2-active-state {
+						power-source = <0x2>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES;
+						function = "paired";
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES_2;
+					};
+					lenovo_fd: sde-disp0-rst-1p8-active-state {
+						power-source = <0x1>;
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES;
+						function = "paired";
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_6a: pmh0110@6 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x6 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0110_6_PMIC_ECID_100_BODY;
+				};
+				lenovo_23: pmh0110-g-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x6 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x603>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_6b: pinctrl@8800 {
+					compatible = "qcom,pmh0110-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_e0: cam_ldo_en_gpio {
+						qcom,drive-strength = <0x2>;
+						power-source = <0x1>;
+						bias-disable;
+						output-high;
+						function = "normal";
+						pins = "gpio9";
+					};
+				};
+			};
+			lenovo_6c: pmh0110@8 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x8 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PMIC_ECID_100_BODY;
+				};
+				lenovo_25: pmh0110-i-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x8 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x803>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_6d: pinctrl@8800 {
+					compatible = "qcom,pmh0110-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_ef: cam-sensor-1p8-rst1-active-state {
+						pins = "gpio12";
+						function = "normal";
+						qcom,drive-strength = <0x2>;
+						input-disable;
+						output-enable;
+						output-high;
+						power-source = "", "", "", "";
+					};
+					lenovo_f1: cam-sensor-1p8-rst1-suspend-state {
+						pins = "gpio12";
+						function = "normal";
+						qcom,drive-strength = <0x2>;
+						input-disable;
+						output-enable;
+						output-low;
+					};
+					lenovo_34: touch_avdd_active {
+						pins = "gpio8";
+						function = "normal";
+						input-disable;
+						output-enable;
+						bias-disable;
+						output-high;
+						power-source = <0x1>;
+					};
+					lenovo_35: touch_avdd_sleep {
+						pins = "gpio8";
+						function = "normal";
+						input-disable;
+						output-disable;
+						bias-disable;
+						power-source = <0x1>;
+					};
+					lenovo_e6: cam-sensor-1p8-rst0-active-state {
+						power-source = "", "", "", "";
+						output-enable;
+						input-disable;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						pins = "gpio11";
+					};
+					lenovo_e8: cam-sensor-1p8-rst0-suspend-state {
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PINCTRL_8800_CAM_SENSOR_1P8_RST0_SUSPEND_STATE_PROPERTIES;
+						qcom,drive-strength = <0x2>;
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PINCTRL_8800_CAM_SENSOR_1P8_RST0_SUSPEND_STATE_PROPERTIES_2;
+					};
+				};
+			};
+		};
+	};
+	fragment@1 {
+		target = <&spmi1_bus>;
+		__overlay__ {
+			qcom,pmd802x@4 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x4 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PMIC_ECID_100_BODY;
+				};
+				lenovo_27: pmd802x-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x4 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+				lenovo_70: pinctrl@8800 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES;
+					#gpio-cells = <0x2>;
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES_2;
+					#interrupt-cells = <0x2>;
+					lenovo_10f: sde_disp0_vdd_active {
+						qcom,drive-strength = <0x2>;
+						power-source = <0x2>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_SDE_DISP0_VDD_ACTIVE_PROPERTIES;
+						function = "normal";
+						LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_QTM_THERM_DEFAULT_STATE_PROPERTIES;
+					};
+				};
+				lenovo_71: amoled-ecm@f900 {
+					compatible = "qcom,amoled-ecm";
+					reg = <0xf900>;
+					interrupt-names = "ecm-sdam0", "ecm-sdam1", "ecm-sdam2";
+					nvmem-names = "amoled-ecm-sdam0", "amoled-ecm-sdam1", "amoled-ecm-sdam2";
+					nvmem = <&lenovo_9 &lenovo_a &lenovo_b>;
+					interrupt-parent = <&spmi0_bus>;
+					interrupts = <0x0 0xaa 0x1 0x1 0x0 0xab 0x1 0x1 0x0 0xac 0x1 0x1>;
+				};
+				lenovo_72: qcom-amoled {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_PROPERTIES;
+					#address-cells = <0x1>;
+					#size-cells = "", "", "", "";
+					nvmem-cells = <&lenovo_c>;
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_PROPERTIES_2;
+					lenovo_73: ibb@f800 {
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_IBB_F800_PROPERTIES;
+						regulator-min-microvolt = <0xc3500>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_IBB_F800_PROPERTIES_2;
+					};
+					lenovo_74: elvdd@f900 {
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_ELVDD_F900_BODY;
+					};
+					lenovo_75: oledb@fa00 {
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_OLEDB_FA00_BODY;
+					};
+				};
+			};
+			qcom,pmih010x@7 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x7 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PMIC_ECID_100_BODY;
+				};
+				lenovo_1d: pmih010x-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x7 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x2703>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_28: pmih010x-temp-alarm-lite@c00 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PMIH010X_TEMP_ALARM_LITE_C00_PROPERTIES;
+					interrupts = <0x7 0xc 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+					io-channels = <&lenovo_6 0x2718>;
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2;
+				};
+				lenovo_76: pinctrl@8800 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_PROPERTIES;
+					#gpio-cells = <0x2>;
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES_2;
+					#interrupt-cells = <0x2>;
+					ufs_therm {
+						lenovo_3b: ufs_therm_default {
+							LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_UFS_THERM_UFS_THERM_DEFAULT_BODY;
+						};
+					};
+					fcam_ntc {
+						lenovo_3c: fcam_ntc_default {
+							LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_FCAM_NTC_FCAM_NTC_DEFAULT_BODY;
+						};
+					};
+					top_chg_therm {
+						lenovo_3d: top_chg_therm_default {
+							LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_TOP_CHG_THERM_TOP_CHG_THERM_DEFAULT_BODY;
+						};
+					};
+					batt2_pack_therm {
+						lenovo_3e: batt2_pack_therm_default {
+							LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_BATT2_PACK_THERM_BATT2_PACK_THERM_DEFAULT_BODY;
+						};
+					};
+				};
+				lenovo_77: eusb2-repeater@fd00 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_EUSB2_REPEATER_FD00_PROPERTIES;
+					qcom,param-override-seq = <0x2 0x54>;
+				};
+				lenovo_78: qcom,hv-haptics@f000 {
+					compatible = "qcom,hv-haptics";
+					reg = <0xf000 0xf100 0xf200>;
+					interrupts = <0x7 0xf0 0x1 0x1>;
+					interrupt-names = "fifo-empty";
+					qcom,vmax-mv = <0x73a>;
+					qcom,lra-period-us = <0x1e0c>;
+					qcom,brake-mode = <0x1>;
+					qcom,brake-pattern = [ff 3f 1f];
+					qcom,drv-sig-shape = <0x1>;
+					qcom,brake-sig-shape = <0x1>;
+					qcom,rt-imp-detect;
+					nvmem-names = "hap_cfg_sdam";
+					nvmem = <&lenovo_d>;
+					lenovo_79: qcom,hap-swr-slave-reg {
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_QCOM_HAP_SWR_SLAVE_REG_BODY;
+					};
+					effect_0 {
+						qcom,effect-id = "", "", "", "";
+						qcom,wf-vmax-mv = <0xe10>;
+						qcom,wf-fifo-preload;
+						qcom,wf-fifo-data = <0x7f7f7f7f>;
+						qcom,wf-fifo-period = "", "", "", "";
+						qcom,wf-auto-res-disable;
+						qcom,wf-brake-disable;
+					};
+					effect_1 {
+						qcom,effect-id = <0x1>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					effect_2 {
+						qcom,effect-id = <0x2>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					effect_3 {
+						qcom,effect-id = <0x3>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_3_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					effect_4 {
+						qcom,effect-id = <0x4>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_3_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					effect_5 {
+						qcom,effect-id = <0x5>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_0 {
+						qcom,primitive-id = "", "", "", "";
+						qcom,wf-vmax-mv = <0xe10>;
+						qcom,wf-fifo-preload;
+						qcom,wf-fifo-data = "", "", "", "";
+						qcom,wf-fifo-period = "", "", "", "";
+						qcom,wf-auto-res-disable;
+						qcom,wf-brake-disable;
+					};
+					primitive_1 {
+						qcom,primitive-id = <0x1>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_2 {
+						qcom,primitive-id = <0x2>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_3 {
+						qcom,primitive-id = <0x3>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_4 {
+						qcom,primitive-id = <0x4>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_5 {
+						qcom,primitive-id = <0x5>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_6 {
+						qcom,primitive-id = <0x6>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_7 {
+						qcom,primitive-id = <0x7>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+					primitive_8 {
+						qcom,primitive-id = <0x8>;
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES;
+						qcom,wf-fifo-period = "", "", "", "";
+						LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2;
+					};
+				};
+				lenovo_15: bcl@4700 {
+					compatible = "qcom,bcl-v5";
+					reg = <0x4700 0x100>;
+					interrupts = <0x7 0x47 0x0 0x0 0x7 0x47 0x1 0x0 0x7 0x47 0x2 0x0>;
+					interrupt-names = "bcl-lvl0", "bcl-lvl1", "bcl-lvl2";
+					qcom,pmic7-threshold;
+					#thermal-sensor-cells = <0x1>;
+				};
+				lenovo_7a: bcl@4900 {
+					compatible = "qcom,bcl-v5";
+					reg = <0x4900 0x100>;
+					interrupts = <0x7 0x49 0x0 0x0 0x7 0x49 0x1 0x0 0x7 0x49 0x2 0x0>;
+					interrupt-names = "bcl-lvl0", "bcl-lvl1", "bcl-lvl2";
+					qcom,pmic7-threshold;
+					#thermal-sensor-cells = <0x1>;
+					status = "disabled";
+				};
+				lenovo_14: bcl-soc {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_BCL_SOC_PROPERTIES;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+			};
+			pmh0104@9 {
+				compatible = "qcom,spmi-pmic";
+				reg = "", "", "", "\t", "", "", "";
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PMIC_ECID_100_BODY;
+				};
+				lenovo_29: pmh0104-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0x9 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+				lenovo_7b: pinctrl@8800 {
+					compatible = "qcom,pmh0104-gpio";
+					reg = <0x8800>;
+					gpio-controller;
+					#gpio-cells = <0x2>;
+					interrupt-controller;
+					#interrupt-cells = <0x2>;
+					lenovo_d6: bt_uwb_en {
+						power-source = <0x1>;
+						bias-disable;
+						output-enable;
+						input-disable;
+						function = "normal";
+						pins = "gpio5";
+					};
+					lenovo_d8: bt_fmd_clk_en {
+						power-source = <0x1>;
+						LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PINCTRL_8800_BT_FMD_CLK_EN_PROPERTIES;
+						function = "normal";
+						LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PINCTRL_8800_BT_FMD_CLK_EN_PROPERTIES_2;
+					};
+				};
+			};
+			qcom,pmr735d@a {
+				compatible = "qcom,spmi-pmic";
+				reg = "", "", "", "\n", "", "", "";
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				lenovo_7c: pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMR735D_A_PMIC_ECID_100_BODY;
+				};
+				lenovo_2a: pmr735d-temp-alarm@a00 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "\n";
+					interrupts = <0xa 0xa 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+				lenovo_7d: pinctrl@8800 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMR735D_A_PINCTRL_8800_PROPERTIES;
+					#gpio-cells = <0x2>;
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES_2;
+					#interrupt-cells = <0x2>;
+				};
+			};
+			lenovo_7e: qcom,pm8010@4 {
+				compatible = "qcom,spmi-pmic";
+				reg = <0x4 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				lenovo_7f: pm8010e-temp-alarm@2400 {
+					compatible = "qcom,spmi-temp-alarm";
+					reg = "", "", "$";
+					interrupts = <0x4 0x24 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+			};
+			lenovo_80: qcom,pm8010@c {
+				compatible = "qcom,spmi-pmic";
+				reg = <0xc 0x0>;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PM8010_C_PMIC_ECID_100_BODY;
+				};
+				lenovo_2b: pm8010m-temp-alarm@2400 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "$";
+					interrupts = <0xc 0x24 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+			};
+			lenovo_81: qcom,pm8010@d {
+				compatible = "qcom,spmi-pmic";
+				reg = "", "", "", "\r", "", "", "";
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				pmic-ecid@100 {
+					LENOVO_CANOE_SPMI1_BUS_QCOM_PM8010_D_PMIC_ECID_100_BODY;
+				};
+				lenovo_2c: pm8010n-temp-alarm@2400 {
+					LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES;
+					reg = "", "", "$";
+					interrupts = <0xd 0x24 0x0 0x3>;
+					#thermal-sensor-cells = "", "", "", "";
+				};
+			};
+		};
+	};
+	fragment@2 {
+		target = <&soc>;
+		__overlay__ {
+			reboot_reason {
+				LENOVO_CANOE_SOC_REBOOT_REASON_PROPERTIES;
+				nvmem-cells = <&lenovo_e>;
+				LENOVO_CANOE_SOC_REBOOT_REASON_PROPERTIES_2;
+			};
+			pmic-pon-log {
+				LENOVO_CANOE_SOC_PMIC_PON_LOG_PROPERTIES;
+				nvmem = <&lenovo_f &lenovo_10>;
+				nvmem-names = "pon_log0", "pon_log1";
+				LENOVO_CANOE_SOC_PMIC_PON_LOG_PROPERTIES_2;
+			};
+			lenovo_82: regulator-ocp-notifer {
+				LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES;
+				interrupts = <0x0 0x71 0x1 0x1 0x0 0x85 0x1 0x1>;
+				nvmem-cells = <&lenovo_11 &lenovo_12>;
+				nvmem-cell-names = "ocp_log", "alarm_log";
+				LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_2;
+				LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_3;
+				periph-1cb-supply = <&L11B>;
+				LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_4;
+				periph-5c4-supply = <&L4F>;
+				LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_5;
+			};
+		};
+	};
+	fragment@3 {
+		target = <&soc>;
+		__overlay__ {
+			power-zones {
+				soc {
+					cpu-m {
+						power-channels = <&lenovo_13 0x6b6>;
+					};
+					cpu-m-spare {
+						power-channels = <&lenovo_13 0x8b0>;
+					};
+					cpu-l {
+						power-channels = <&lenovo_13 0x89e>;
+					};
+					cpu-l-spare {
+						power-channels = <&lenovo_13 0x8b3>;
+					};
+					gpu {
+						power-channels = <&lenovo_13 0x59b>;
+					};
+					gpu-spare {
+						power-channels = <&lenovo_13 0x5b6>;
+					};
+					nsp {
+						power-channels = <&lenovo_13 0x39e>;
+					};
+					nsp-spare {
+						power-channels = <&lenovo_13 0x3a4>;
+					};
+					debug-0 {
+						power-channels = <&lenovo_13 0x5b3>;
+					};
+					debug-1 {
+						power-channels = <&lenovo_13 0x8b6>;
+					};
+					debug-2 {
+						power-channels = <&lenovo_13 0x6a7>;
+					};
+					debug-3 {
+						power-channels = <&lenovo_13 0x39b>;
+					};
+					debug-4 {
+						power-channels = <&lenovo_13 0x3ad>;
+					};
+					debug-5 {
+						power-channels = <&lenovo_13 0x6b0>;
+					};
+					debug-6 {
+						power-channels = <&lenovo_13 0x9a4>;
+					};
+					debug-7 {
+						power-channels = <&lenovo_13 0x6ad>;
+					};
+					debug-8 {
+						power-channels = <&lenovo_13 0x5ad>;
+					};
+					debug-9 {
+						power-channels = <&lenovo_13 0x99e>;
+					};
+					debug-10 {
+						power-channels = <&lenovo_13 0x9a1>;
+					};
+					debug-11 {
+						power-channels = <&lenovo_13 0x3b6>;
+					};
+					debug-12 {
+						power-channels = <&lenovo_13 0x8ad>;
+					};
+				};
+			};
+		};
+	};
+	fragment@4 {
+		target = <&thermal_zones>;
+		__overlay__ {
+			socd {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_14>;
+				trips {
+					thermal-engine-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					thermal-hal-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_HAL_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_83: socd-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_HAL_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+				};
+			};
+			pmih010x-ibat-lvl0 {
+				thermal-sensors = <&lenovo_15 0x0>;
+				trips {
+					lenovo_84: ibat-lvl0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_IBAT_LVL0_TRIPS_IBAT_LVL0_BODY;
+					};
+				};
+			};
+			pmih010x-ibat-lvl1 {
+				thermal-sensors = <&lenovo_15 0x1>;
+				trips {
+					lenovo_85: ibat-lvl1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_IBAT_LVL1_TRIPS_IBAT_LVL1_BODY;
+					};
+				};
+			};
+			pmih010x-bcl-lvl0 {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_15 0x5>;
+				trips {
+					thermal-engine-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					thermal-hal-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_16: b-bcl-lvl0 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					lbat_lvl0 {
+						trip = <&lenovo_16>;
+						cooling-device = <&modem_bcl_mtpl_dsc 0x0 0x1 &modem_bcl 0x0 0x1 &msm_gpu 0x0 0x1>;
+					};
+				};
+			};
+			pmih010x-bcl-lvl1 {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_15 0x6>;
+				trips {
+					thermal-engine-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					thermal-hal-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_17: b-bcl-lvl1 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					lbat_lvl1 {
+						trip = <&lenovo_17>;
+						cooling-device = <&modem_bcl_mtpl_dsc 0x0 0x2 &modem_bcl 0x0 0x2 &msm_gpu 0x0 0x2>;
+					};
+				};
+			};
+			pmih010x-bcl-lvl2 {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_15 0x7>;
+				trips {
+					thermal-engine-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					thermal-hal-trip {
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_18: b-bcl-lvl2 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					lbat_gpu2 {
+						trip = <&lenovo_18>;
+						cooling-device = <&msm_gpu 0x0 0x3>;
+					};
+				};
+			};
+			pmh0101-bcl-lvl0 {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_19 0x5>;
+				trips {
+					lenovo_1a: bcl-lvl0 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					vph_lvl0 {
+						trip = <&lenovo_1a>;
+						cooling-device = <&modem_bcl 0x0 0x1 &msm_gpu 0x0 0x1>;
+					};
+				};
+			};
+			pmh0101-bcl-lvl1 {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_19 0x6>;
+				trips {
+					lenovo_1b: bcl-lvl1 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					vph_lvl1 {
+						trip = <&lenovo_1b>;
+						cooling-device = <&modem_bcl 0x0 0x2 &msm_gpu 0x0 0x2>;
+					};
+				};
+			};
+			pmh0101-bcl-lvl2 {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_19 0x7>;
+				trips {
+					lenovo_1c: bcl-lvl2 {
+						temperature = <0x1>;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					vph_gpu2 {
+						trip = <&lenovo_1c>;
+						cooling-device = <&msm_gpu 0x0 0x3>;
+					};
+				};
+			};
+			lenovo_86: pmih010x_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_1d>;
+				trips {
+					lenovo_87: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_88: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_89: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_8a: pmh0101_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_1e>;
+				trips {
+					lenovo_8b: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_8c: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_8d: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_8e: pmh0110_d_tz {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_1f>;
+				trips {
+					lenovo_20: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_8f: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_90: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					d_hvx {
+						trip = <&lenovo_20>;
+						cooling-device = <&cdsp_sw_hvx 0x5 0xffffffff &modem_lte_dsc 0xff 0xff &modem_nr_dsc 0xff 0xff>;
+					};
+				};
+			};
+			lenovo_91: pmh0110_f_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_21>;
+				trips {
+					lenovo_22: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_92: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_93: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					f_gpu {
+						trip = <&lenovo_22>;
+						cooling-device = <&msm_gpu 0x5 0xffffffff>;
+					};
+				};
+			};
+			lenovo_94: pmh0110_g_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_23>;
+				trips {
+					lenovo_24: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_95: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_96: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					g_apc {
+						trip = <&lenovo_24>;
+						cooling-device = <&APC0_MX_CX_PAUSE 0x1 0x1>;
+					};
+				};
+			};
+			lenovo_97: pmh0110_i_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_25>;
+				trips {
+					lenovo_26: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_98: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_99: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+				cooling-maps {
+					i_apc {
+						trip = <&lenovo_26>;
+						cooling-device = <&APC1_MX_CX_PAUSE 0x1 0x1>;
+					};
+				};
+			};
+			lenovo_9a: pmd802x_tz {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_27>;
+				trips {
+					lenovo_9b: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_9c: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_9d: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_9e: pmih010x_lite_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_28>;
+				trips {
+					lenovo_9f: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_LITE_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_a0: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_LITE_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_a1: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_a2: pmh0104_tz {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_29>;
+				trips {
+					lenovo_a3: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_a4: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_a5: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_a6: pmr735d_tz {
+				polling-delay-passive = <0x64>;
+				thermal-sensors = <&lenovo_2a>;
+				trips {
+					lenovo_a7: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_a8: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_a9: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_aa: pm8010m_tz {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_2b>;
+				trips {
+					lenovo_ab: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_ac: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_ad: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			lenovo_ae: pm8010n_tz {
+				LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES;
+				thermal-sensors = <&lenovo_2c>;
+				trips {
+					lenovo_af: trip0 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2;
+					};
+					lenovo_b0: trip1 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_b1: trip2 {
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2;
+					};
+				};
+			};
+			vbat {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_15 0x2>;
+				trips {
+					lenovo_b2: vbat-lvl0 {
+						LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL0_BODY;
+					};
+					lenovo_b3: vbat-lvl1 {
+						LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL1_BODY;
+					};
+					lenovo_b4: vbat-lvl2 {
+						LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL2_BODY;
+					};
+				};
+			};
+		};
+	};
+	fragment@5 {
+		target = <&soc>;
+		__overlay__ {
+			gpio_keys {
+				LENOVO_CANOE_SOC_GPIO_KEYS_PROPERTIES;
+				vol_up {
+					LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES;
+					gpios = <&tlmm 0x65 0x1>;
+					linux,input-type = <0x1>;
+					LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES_2;
+					debounce-interval = <0xf>;
+					LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES_3;
+				};
+			};
+		};
+	};
+	fragment@6 {
+		target = <&battery_charger>;
+		__overlay__ {
+			compatible = "lenovo,dual-usb-battery-charger-v1", "lenovo,offmode-charger-v1", "qcom,battery-charger";
+			qcom,thermal-mitigation-step = <0x7a120>;
+			qcom,thermal-mitigation = <0xbd3580 0xbd3580 0xb71b00 0xaf79e0 0xa7d8c0 0xa037a0 0x989680 0x90f560 0x895440 0x81b320 0x7a1200 0x6acfc0 0x5b8d80 0x4c4b40 0x3d0900 0x2dc6c0 0x2625a0 0x1e8480 0x16e360 0x7a120>;
+			#cooling-cells = <0x2>;
+			qcom,wireless-fw-name = "cps4061.bin";
+		};
+	};
+	fragment@7 {
+		target = <&pcie>;
+		__overlay__ {
+			power-domains = <&gcc 0x1>;
+			LENOVO_CANOE_PCIE_PROPERTIES;
+		};
+	};
+	fragment@8 {
+		target = <&ufsphy_mem>;
+		__overlay__ {
+			LENOVO_CANOE_UFSPHY_MEM_BODY;
+		};
+	};
+	fragment@9 {
+		target = <&ufshc_mem>;
+		__overlay__ {
+			LENOVO_CANOE_UFS_MEMORY_PROPERTIES;
+		};
+	};
+	fragment@10 {
+		target = <&sdhc_2>;
+		__overlay__ {
+			LENOVO_CANOE_SDHC_2_PROPERTIES;
+			qcom,vdd-io-current-level = <0x0 0x55f0>;
+			pinctrl-names = "default", "sleep";
+			LENOVO_CANOE_SDHC_2_PROPERTIES_2;
+			cd-gpios = <&tlmm 0x37 0x1>;
+			LENOVO_CANOE_SDHC_2_PROPERTIES_3;
+			qcom,external-fb-clk;
+			LENOVO_CANOE_SDHC_2_PROPERTIES_4;
+		};
+	};
+	fragment@11 {
+		target = <&qupv3_se5_i2c>;
+		__overlay__ {
+			status = "ok";
+			#address-cells = <0x1>;
+			#size-cells = "", "", "", "";
+			lenovo_b5: redriver@1c {
+				compatible = "onnn,redriver";
+				reg = <0x1c>;
+				vdd-supply = <&pmh0101_l15>;
+				lane-channel-swap;
+				eq = <0x4040404 0x5070705>;
+				flat-gain = <0x3010103 0x30300>;
+				output-comp = <0x3030303 0x3030303>;
+				loss-match = <0x1030301 0x3030303>;
+			};
+		};
+	};
+	fragment@12 {
+		target = <&usb_qmp_dp_phy>;
+		__overlay__ {
+			LENOVO_CANOE_USB_QMP_DP_PHY_BODY;
+		};
+	};
+	fragment@13 {
+		target = <&usb0>;
+		__overlay__ {
+			usb-role-switch;
+			lenovo,dual-port-data-switch;
+			pinctrl-names = "default";
+			pinctrl-0 = <&usb3phy_portselect_gpio>;
+			gpios = <&tlmm 0x3c 0x0>;
+			ports {
+				port@0 {
+					lenovo_2f: endpoint {
+						remote-endpoint = <&lenovo_2d>;
+					};
+				};
+				port@1 {
+					lenovo_30: endpoint {
+						remote-endpoint = <&lenovo_2e>;
+					};
+				};
+			};
+		};
+	};
+	fragment@14 {
+		target = <&ucsi>;
+		__overlay__ {
+			compatible = "lenovo,dual-port-ucsi-glink-v2", "qcom,ucsi-glink";
+			connector {
+				compatible = "usb-c-connector";
+				ports {
+					#address-cells = <0x1>;
+					#size-cells = "", "", "", "";
+					port@0 {
+						reg = "", "", "", "";
+						lenovo_2d: endpoint {
+							remote-endpoint = <&lenovo_2f>;
+						};
+					};
+					port@1 {
+						reg = <0x1>;
+						lenovo_b6: endpoint {
+							remote-endpoint = <&lenovo_314>;
+						};
+					};
+				};
+			};
+			connector1 {
+				compatible = "usb-c-connector";
+				ports {
+					port@0 {
+						reg = "", "", "", "";
+						lenovo_2e: endpoint {
+							remote-endpoint = <&lenovo_30>;
+						};
+					};
+					port@1 {
+						reg = <0x1>;
+						lenovo_b7: endpoint {
+							remote-endpoint = <&lenovo_315>;
+						};
+					};
+				};
+			};
+		};
+	};
+	fragment@15 {
+		target = <&qupv3_se5_i2c>;
+		__overlay__ {
+			status = "ok";
+			#address-cells = <0x1>;
+			#size-cells = "", "", "", "";
+			lenovo_33: eusb2_repeater@4f {
+				status = "ok";
+				compatible = "nxp,eusb2-repeater";
+				reg = <0x4f>;
+				vdd18-supply = <&L15B_E0>;
+				vdd3-supply = <&L5B_E0>;
+				reset-gpio = <&lenovo_31 0xe 0x0>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&lenovo_32>;
+				qcom,param-override-seq-c1 = <0x30 0x6 0x2 0x7 0x64 0x8 0x3 0xa>;
+				qcom,param-override-seq-c2 = <0x30 0x6 0x2 0x7 0x64 0x8 0x3 0xa>;
+			};
+		};
+	};
+	fragment@16 {
+		target = <&ucsi>;
+		__overlay__ {
+			gpios = <&tlmm 0x1e 0x0>;
+		};
+	};
+	fragment@17 {
+		target = <&eusb2_phy0>;
+		__overlay__ {
+			dummy-supply = <&lenovo_33>;
+			usb-repeater = <&lenovo_33>;
+		};
+	};
+	fragment@18 {
+		target = <&soc>;
+		__overlay__ {
+			goodix_fp {
+				compatible = "goodix,plat-driver";
+				interrupt-parent = <&tlmm>;
+				gfrst-gpios = <&tlmm 0x53 0x0>;
+				gfint-gpios = <&tlmm 0x54 0x0>;
+				vdd-supply = <&L14B>;
+				status = "okay";
+			};
+		};
+	};
+	fragment@19 {
+		target = <&qupv3_se19_spi>;
+		__overlay__ {
+			status = "ok";
+			spi-max-frequency = <0x1c9c380>;
+			touch@0 {
+				compatible = "gt9976n_thp";
+				status = "ok";
+				reg = "", "", "", "";
+				spi-max-frequency = <0x1c9c380>;
+				spi-mode = "", "", "", "";
+				bits-per-word = <0x8>;
+				chip-type = <0x3>;
+				goodix,avdd-name = "avdd";
+				goodix,iovdd-name = "iovdd";
+				iovdd-supply = <&L4B>;
+				goodix,reset-gpio = <&tlmm 0x7 0x0>;
+				goodix,irq-gpio = <&tlmm 0x9e 0x2001>;
+				goodix,irq-flags = <0x2>;
+				goodix,panel-max-x = <0x3e80>;
+				goodix,panel-max-y = "", "", "d";
+				goodix,panel-max-w = <0x100>;
+				goodix,panel-max-p = <0x1000>;
+				goodix,panel-key-map = <0x9e 0xac 0xd9>;
+				goodix,power-on-delay-us = <0x186a0>;
+				goodix,power-off-delay-us = <0x2710>;
+				goodix,esd-enable;
+				pinctrl-names = "active", "sleep";
+				pinctrl-0 = <&lenovo_34>;
+				pinctrl-1 = <&lenovo_35>;
+			};
+		};
+	};
+	fragment@20 {
+		target = <&tlmm>;
+		__overlay__ {
+			lenovo_36: vib_reset_l {
+				LENOVO_CANOE_TLMM_VIB_RESET_L_BODY;
+			};
+			lenovo_37: vib_reset_r {
+				LENOVO_CANOE_TLMM_VIB_RESET_R_BODY;
+			};
+		};
+	};
+	fragment@21 {
+		target = <&qupv3_se6_i2c>;
+		__overlay__ {
+			LENOVO_CANOE_QUPV3_SE6_I2C_PROPERTIES;
+			haptic_hv_l@5A {
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES;
+				lenovo,fixed-gain-waveform = <5 3>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_2;
+				irq-gpio = <&tlmm 0x63 0x0>;
+				reset-gpio = <&tlmm 0xd8 0x0>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+				pinctrl-0 = <&lenovo_36>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+				aw8693x_uvlo_vol_default = "";
+				aw8693x_cont_smart_loop = "";
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+				aw8693x_trig_config = <0x1 0x20000 0x1 0x20000 0x1 0x20000>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
+			};
+			haptic_hv_r@5B {
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES_2;
+				irq-gpio = <&tlmm 0x5f 0x0>;
+				reset-gpio = <&tlmm 0xd7 0x0>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3;
+				pinctrl-0 = <&lenovo_37>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4;
+				aw8693x_uvlo_vol_default = "";
+				aw8693x_cont_smart_loop = "";
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5;
+				aw8693x_trig_config = <0x1 0x20000 0x1 0x20000 0x1 0x20000>;
+				LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6;
+			};
+		};
+	};
+	fragment@22 {
+		target = <&soc>;
+		__overlay__ {
+			sys_temp_support {
+				compatible = "lenovo,sys-temp-oled", "lenovo,sys-temp";
+				LENOVO_CANOE_SOC_SYS_TEMP_SUPPORT_PROPERTIES;
+			};
+		};
+	};
+	fragment@23 {
+		target = <&thermal_zones>;
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&lenovo_38 &lenovo_39 &lenovo_3a &lenovo_3b &lenovo_3c &lenovo_3d &lenovo_3e &lenovo_3f>;
+			xo-therm {
+				thermal-sensors = <&lenovo_6 0x44>;
+				trips {
+					active-config0 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY;
+					};
+					active-config1 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY;
+					};
+					lenovo_40: trip-config0 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_TRIP_CONFIG0_BODY;
+					};
+					lenovo_41: trip-config1 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_TRIP_CONFIG1_BODY;
+					};
+					shutdown-trip {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_SHUTDOWN_TRIP_PROPERTIES;
+						hysteresis = "", "", "", "";
+						LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2;
+					};
+					lenovo_42: display-test-config1 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY;
+					};
+					lenovo_43: display-test-config2 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY;
+					};
+					lenovo_44: display-test-config3 {
+						LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY;
+					};
+				};
+				cooling-maps {
+					therm_cdev0 {
+						trip = <&lenovo_40>;
+						cooling-device = <&APC1_MX_CX_PAUSE 0x1 0x1 &APC0_MX_CX_PAUSE 0x1 0x1 &cdsp_sw 0x5 0xffffffff &msm_gpu 0x5 0xffffffff>;
+					};
+					therm_cdev1 {
+						trip = <&lenovo_41>;
+						cooling-device = <&cpu3_hotplug 0x1 0x1 &cpu4_hotplug 0x1 0x1 &cpu5_hotplug 0x1 0x1 &cpu6_hotplug 0x1 0x1 &cpu7_hotplug 0x1 0x1 &modem_lte_dsc 0xff 0xff &modem_nr_scg_dsc 0xff 0xff>;
+					};
+					display_cdev1 {
+						trip = <&lenovo_42>;
+						cooling-device = <&display_fps 0x1 0x1>;
+					};
+					display_cdev2 {
+						trip = <&lenovo_43>;
+						cooling-device = <&display_fps 0x2 0x2>;
+					};
+					display_cdev3 {
+						trip = <&lenovo_44>;
+						cooling-device = <&display_fps 0x3 0x3>;
+					};
+				};
+			};
+			ap-therm {
+				thermal-sensors = <&lenovo_6 0x144>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_AP_THERM_TRIPS_BODY;
+				};
+			};
+			rear-cam-ntc {
+				thermal-sensors = <&lenovo_6 0x145>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			wlan-therm {
+				thermal-sensors = <&lenovo_6 0x146>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			fast-chg-therm {
+				thermal-sensors = <&lenovo_6 0x14b>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			top-chg-therm {
+				thermal-sensors = <&lenovo_6 0x274d>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			batt-pack-therm {
+				thermal-sensors = <&lenovo_6 0x2744>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			usb1-conn-therm {
+				thermal-sensors = <&lenovo_6 0x2747>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			batt2-pack-therm {
+				thermal-sensors = <&lenovo_6 0x274c>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			usb2-conn-therm {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_6 0x148>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			flash-led-ntc {
+				thermal-sensors = <&lenovo_6 0x14a>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			quiet-therm {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_6 0x14c>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			ufs-therm {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_6 0x274b>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			fcam-ntc {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_6 0x275e>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+			lcm-thermal {
+				polling-delay-passive = "", "", "", "";
+				polling-delay = "", "", "", "";
+				thermal-sensors = <&lenovo_6 0x47>;
+				trips {
+					LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY;
+				};
+			};
+		};
+	};
+	fragment@24 {
+		target = <&pmic_glink_debug>;
+		__overlay__ {
+			i2c@104 {
+				LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_PROPERTIES;
+				#address-cells = <0x1>;
+				#size-cells = "", "", "", "";
+				LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_PROPERTIES_2;
+				smb1501@68 {
+					LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_SMB1501_68_BODY;
+				};
+				smb1501@69 {
+					LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_SMB1501_69_BODY;
+				};
+				cps4061@30 {
+					LENOVO_CANOE_PMIC_GLINK_DEBUG_I2C_104_CPS4061_30_BODY;
+				};
+			};
+		};
+	};
+	fragment@25 {
+		target = <&pmic_glink_adc>;
+		__overlay__ {
+			LENOVO_CANOE_PMIC_GLINK_ADC_BODY;
+		};
+	};
+	fragment@26 {
+		target = <&L14B>;
+		__overlay__ {
+			regulator-min-microvolt = <0x2dc6c0>;
+			regulator-max-microvolt = <0x2dc6c0>;
+			qcom,init-voltage = <0x2dc6c0>;
+		};
+	};
+	fragment@27 {
+		target = <&qupv3_se20_i2c>;
+		__overlay__ {
+			status = "ok";
+			sgm66075@77 {
+				status = "ok";
+				compatible = "sgm,sgm66075";
+				reg = <0x77>;
+			};
+		};
+	};
+	fragment@28 {
+		target = <&qupv3_se4_i2c>;
+		__overlay__ {
+			status = "ok";
+		};
+	};
+	fragment@29 {
+		target = <&sdhc_2>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+	fragment@30 {
+		target = <&tlmm>;
+		__overlay__ {
+			qcom,gpios-reserved = <0x26 0x27 0x28 0x29 0x2a 0x2b 0x4a 0x77 0x78 0x90 0x91 0x92 0x93>;
+		};
+	};
+	fragment@31 {
+		target = <&qupv3_se5_i2c>;
+		__overlay__ {
+			status = "okay";
+			aw22xxx_led@6a {
+				LENOVO_CANOE_AW22XXX_NODE_COMMON;
+				pinctrl-names = "led_reset_ctrl_default", "led_reset_ctrl_low";
+				pinctrl-0 = <&lenovo_45>;
+				pinctrl-1 = <&lenovo_46>;
+				irq-gpio = <&lenovo_47 0xc 0x1>;
+				aw22xxx,led {
+					LENOVO_CANOE_AW22XXX_LED_COMMON;
+					aw22xxx,imax = <0x1>;
+				};
+			};
+		};
+	};
+	fragment@32 {
+		target = <&ramoops_mem>;
+		__overlay__ {
+			alloc-ranges = <0x0 0xc2000000 0x0 0x400000>;
+			size = "", "", "", "", "", "@", "";
+			no-map;
+		};
+	};
+	fragment@33 {
+		target = <&soc>;
+		__overlay__ {
+			qcom_ramoops {
+				compatible = "qcom,ramoops";
+				memory-region = <&ramoops_mem>;
+				console-size = "", " ", "";
+				pmsg-size = "", " ", "";
+			};
+			swtp {
+				status = "okay";
+				compatible = "virtualsar,swtp-eint";
+				irq-gpio = <&tlmm 0x61 0x0>;
+			};
+		};
+	};
+	fragment@34 {
+		target = <&apps_rsc_drv2>;
+		__overlay__ {
+			rpmh-regulator-l13b-e0 {
+				compatible = "qcom,rpmh-vrm-regulator";
+				qcom,resource-name = "L13B_E0";
+				qcom,regulator-type = "pmic7-ldo";
+				qcom,supported-modes = <0x2 0x3>;
+				qcom,mode-threshold-currents = <0x0 0x2710>;
+				lenovo_b8: regulator-pmh0101-l13 {
+					regulator-name = "pmh0101_l13";
+					qcom,set = <0x3>;
+					regulator-min-microvolt = <0x2dc6c0>;
+					regulator-max-microvolt = <0x2dc6c0>;
+					qcom,init-voltage = <0x2dc6c0>;
+					qcom,init-mode = <0x3>;
+				};
+			};
+		};
+	};
+	fragment@35 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_b9: qcom,qbt_handler {
+				status = "disabled";
+			};
+		};
+	};
+	fragment@36 {
+		target = <&spmi1_bus>;
+		__overlay__ {
+			qcom,pmd802x@4 {
+				status = "disabled";
+			};
+			qcom,pm8010@4 {
+				status = "disabled";
+			};
+			qcom,pm8010@c {
+				status = "disabled";
+			};
+			qcom,pm8010@d {
+				status = "disabled";
+			};
+		};
+	};
+	fragment@37 {
+		target = <&spmi_debug_bus_1>;
+		__overlay__ {
+			pmd802x@4 {
+				status = "disabled";
+			};
+			pm8010@c {
+				status = "disabled";
+			};
+			pm8010@d {
+				status = "disabled";
+			};
+		};
+	};

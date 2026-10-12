@@ -1,0 +1,84 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Shared Canoe input node data.
+#ifndef LENOVO_CANOE_COMMON_INPUT_DTSI
+#define LENOVO_CANOE_COMMON_INPUT_DTSI
+
+#define LENOVO_CANOE_TLMM_VIB_RESET_L_BODY \
+	mux { \
+	pins = "gpio216"; \
+	function = "gpio"; \
+	}; \
+	config { \
+	pins = "gpio216"; \
+	bias-pull-up; \
+	}
+
+#define LENOVO_CANOE_TLMM_VIB_RESET_R_BODY \
+	mux { \
+	pins = "gpio215"; \
+	function = "gpio"; \
+	}; \
+	config { \
+	pins = "gpio215"; \
+	bias-pull-up; \
+	}
+
+#define LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES \
+	label = "volume_up"
+
+#define LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES_2 \
+	linux,code = <0x73>; \
+	gpio-key,wakeup
+
+#define LENOVO_CANOE_SOC_GPIO_KEYS_VOL_UP_PROPERTIES_3 \
+	linux,can-disable
+
+#define LENOVO_CANOE_SOC_GPIO_KEYS_PROPERTIES \
+	compatible = "gpio-keys"; \
+	label = "gpio-keys"; \
+	pinctrl-names = "default"; \
+	pinctrl-0 = <&key_vol_up_default>
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES \
+	status = "ok"; \
+	compatible = "awinic,haptic_hv_l"
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_2 \
+	reg = <0x5a>
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_3 \
+	pinctrl-names = "default"
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_4 \
+	f0_pre = <0x6a4>; \
+	mode = [05]; \
+	aw8693x_f0_cali_percent = [0f]; \
+	aw8693x_gain_bypass = [01]
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_5 \
+	aw8693x_cont_drv1_lvl = [7f]; \
+	aw8693x_cont_lra_vrms = <0x3e8>; \
+	aw8693x_cont_drv1_time = [04]; \
+	aw8693x_cont_drv2_time = [14]; \
+	aw8693x_cont_track_margin = [0f]; \
+	aw8693x_cont_brk_gain = [08]; \
+	aw8693x_cont_brk_time = [04]; \
+	aw8693x_duration_time = [14 1e 3c]; \
+	aw8693x_d2s_gain = [02]
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_L_5A_PROPERTIES_6 \
+	aw8693x_bst_vol_default = <0x2134>; \
+	aw8693x_is_enabled_track_en
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES \
+	status = "ok"; \
+	compatible = "awinic,haptic_hv_r"
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_HAPTIC_HV_R_5B_PROPERTIES_2 \
+	reg = <0x5b>
+
+#define LENOVO_CANOE_QUPV3_SE6_I2C_PROPERTIES \
+	status = "ok"; \
+	qcom,clk-freq-out = <0xf4240>
+
+#endif

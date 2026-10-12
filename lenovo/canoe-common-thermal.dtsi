@@ -1,0 +1,131 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Shared Canoe thermal node data.
+#ifndef LENOVO_CANOE_COMMON_THERMAL_DTSI
+#define LENOVO_CANOE_COMMON_THERMAL_DTSI
+
+#define LENOVO_CANOE_THERMAL_ZONES_AP_THERM_TRIPS_BODY \
+	active-config0 { \
+	temperature = <0xbb80>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}; \
+	active-config1 { \
+	temperature = <0xbf68>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}; \
+	active-config2 { \
+	temperature = <0xc350>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}; \
+	active-config3 { \
+	temperature = <0xea60>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}; \
+	active-config4 { \
+	temperature = <0xee48>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}; \
+	active-config5 { \
+	temperature = <0x15f90>; \
+	hysteresis = <0x7d0>; \
+	type = "passive"; \
+	}
+
+#define LENOVO_CANOE_THERMAL_ZONES_FLASH_LED_NTC_TRIPS_BODY \
+	active-config0 { \
+	temperature = <0x1e848>; \
+	hysteresis = <0x3e8>; \
+	type = "passive"; \
+	}; \
+	active-config1 { \
+	temperature = <0x1e848>; \
+	hysteresis = <0x3e8>; \
+	type = "passive"; \
+	}
+
+#define LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_TRIP_CONFIG0_BODY \
+	temperature = <0x130b0>; \
+	hysteresis = <0x1f40>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_TRIP_CONFIG1_BODY \
+	temperature = <0x13880>; \
+	hysteresis = <0x2710>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_ACTIVE_CONFIG0_BODY \
+	temperature = <0x1e848>; \
+	hysteresis = <0x3e8>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_IBAT_LVL0_TRIPS_IBAT_LVL0_BODY \
+	temperature = <0x34bc>; \
+	hysteresis = <0xc8>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_IBAT_LVL1_TRIPS_IBAT_LVL1_BODY \
+	temperature = <0x3a98>; \
+	hysteresis = <0xc8>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL0_BODY \
+	temperature = <0xaf0>; \
+	hysteresis = <0x64>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL1_BODY \
+	temperature = <0xa28>; \
+	hysteresis = <0x64>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_VBAT_TRIPS_VBAT_LVL2_BODY \
+	temperature = <0x8fc>; \
+	hysteresis = <0x64>; \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES \
+	temperature = <0x64>
+
+#define LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_ENGINE_TRIP_PROPERTIES_2 \
+	type = "passive"
+
+#define LENOVO_CANOE_THERMAL_ZONES_SOCD_TRIPS_THERMAL_HAL_TRIP_PROPERTIES \
+	temperature = <0x5a>
+
+#define LENOVO_CANOE_THERMAL_ZONES_SOCD_PROPERTIES \
+	polling-delay-passive = <0x64>
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP0_PROPERTIES \
+	temperature = <0x17318>
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES \
+	temperature = <0x1c138>
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP1_PROPERTIES_2 \
+	type = "hot"
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES \
+	temperature = <0x23668>
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_TZ_TRIPS_TRIP2_PROPERTIES_2 \
+	type = "critical"
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_LITE_TZ_TRIPS_TRIP0_PROPERTIES \
+	temperature = <0x1e848>
+
+#define LENOVO_CANOE_THERMAL_ZONES_PMIH010X_LITE_TZ_TRIPS_TRIP1_PROPERTIES \
+	temperature = <0x20f58>
+
+#define LENOVO_CANOE_SOC_SYS_TEMP_SUPPORT_PROPERTIES \
+	lenovo,temperature-names = LENOVO_CANOE_THERMAL_ZONE_NAMES; \
+	lenovo,sensor-listener-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES; \
+	cust,all-ntc-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES
+
+#define LENOVO_CANOE_THERMAL_ZONES_XO_THERM_TRIPS_SHUTDOWN_TRIP_PROPERTIES \
+	temperature = <0x15f90>
+
+#endif

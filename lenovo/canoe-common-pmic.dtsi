@@ -1,0 +1,602 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Shared Canoe pmic node data.
+#ifndef LENOVO_CANOE_COMMON_PMIC_DTSI
+#define LENOVO_CANOE_COMMON_PMIC_DTSI
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_OLEDB_FA00_BODY \
+	reg = <0xfa00>; \
+	reg-names = "oledb_base"; \
+	regulator-name = "oledb"; \
+	regulator-min-microvolt = <0x4c4b40>; \
+	regulator-max-microvolt = <0x7a1200>; \
+	qcom,swire-control
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_ELVDD_F900_BODY \
+	reg = <0xf900>; \
+	reg-names = "ab_base"; \
+	regulator-name = "ab"; \
+	regulator-min-microvolt = <0x2625a0>; \
+	regulator-max-microvolt = <0x53ec60>; \
+	qcom,swire-control
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0110_d"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0110_f"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_6_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0110_g"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0110_i"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmih010x"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PM8010_C_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pm8010_m"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PM8010_D_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pm8010_n"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmk8850"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0101"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmd802x"
+
+#define LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmh0104"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMR735D_A_PMIC_ECID_100_BODY \
+	compatible = "qcom,pmic-ecid"; \
+	reg = <0x100>; \
+	qcom,pmic-name = "pmr735d"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_LITE_DIE_TEMP_BODY \
+	reg = <0x2718>; \
+	label = "pmih010x_lite_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VBAT_SNS_QBG_BODY \
+	reg = <0x278f>; \
+	label = "pmih010x_vbat_sns_qbg"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VREF_1P25_BODY \
+	reg = <0x2701>; \
+	label = "pmih010x_vref_1p25"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_OFFSET_REF_BODY \
+	reg = <0x100>; \
+	label = "pmh0101_offset_ref"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_D_DIE_TEMP_BODY \
+	reg = <0x303>; \
+	label = "pmh0110_d_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_F_DIE_TEMP_BODY \
+	reg = <0x503>; \
+	label = "pmh0110_f_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_G_DIE_TEMP_BODY \
+	reg = <0x603>; \
+	label = "pmh0110_g_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_I_DIE_TEMP_BODY \
+	reg = <0x803>; \
+	label = "pmh0110_i_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_DIE_TEMP_BODY \
+	reg = <0x2703>; \
+	label = "pmih010x_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_CHG_TEMP_BODY \
+	reg = <0x2710>; \
+	label = "pmih010x_chg_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_8400_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0x8400>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_8500_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0x8500>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_9D00_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0x9d00>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A000_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0xa000>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A100_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0xa100>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_A200_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0xa200>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_B700_BODY \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0xb700>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_VREF_1P25_BODY \
+	reg = <0x101>; \
+	label = "pmh0101_vref_1p25"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_D_VPH_PWR_BODY \
+	reg = <0x38e>; \
+	label = "pmh0110_d_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_F_VPH_PWR_BODY \
+	reg = <0x58e>; \
+	label = "pmh0110_f_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_G_VPH_PWR_BODY \
+	reg = <0x68e>; \
+	label = "pmh0110_g_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0110_I_VPH_PWR_BODY \
+	reg = <0x88e>; \
+	label = "pmh0110_i_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_VPH_PWR_BODY \
+	reg = <0x278e>; \
+	label = "pmih010x_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_ICHG_FB_BODY \
+	reg = <0x27a1>; \
+	label = "pmih010x_ichg_fb"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_DIE_TEMP_BODY \
+	reg = <0x103>; \
+	label = "pmh0101_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_VPH_PWR_BODY \
+	reg = <0x18e>; \
+	label = "pmh0101_vph_pwr"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_QCOM_POWER_TELEMETRY_DATA_SHARE_DEVICE_BODY \
+	compatible = "qcom,power-telemetry-data-share"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_UFS_THERM_UFS_THERM_DEFAULT_BODY \
+	pins = "gpio15"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_FCAM_NTC_FCAM_NTC_DEFAULT_BODY \
+	pins = "gpio18"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_TOP_CHG_THERM_TOP_CHG_THERM_DEFAULT_BODY \
+	pins = "gpio12"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_BATT2_PACK_THERM_BATT2_PACK_THERM_DEFAULT_BODY \
+	pins = "gpio16"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCM_THERM_LCM_THERM_DEFAULT_BODY \
+	pins = "gpio3"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_IIN_BODY \
+	reg = <0x2717>; \
+	label = "pmih010x_iin"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_QUIET_THERM_QUIET_THERM_DEFAULT_BODY \
+	pins = "gpio9"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_FAST_CHG_THERM_FAST_CHG_THERM_DEFAULT_BODY \
+	pins = "gpio2"; \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_QCOM_HAP_SWR_SLAVE_REG_BODY \
+	regulator-name = "hap-swr-slave-reg"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_QCOM_VOLTAGE_ADJ_DEVICE_BODY \
+	compatible = "qcom,vadj"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_7000_PROPERTIES \
+	compatible = "qcom,spmi-sdam"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_9A00_PROPERTIES \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0x9a00>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PWRKEY_PROPERTIES \
+	compatible = "qcom,pmk8350-pwrkey"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PWRKEY_PROPERTIES_2 \
+	linux,code = <0x74>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_RESIN_PROPERTIES \
+	compatible = "qcom,pmk8350-resin"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_RESIN_PROPERTIES_2 \
+	linux,code = <0x72>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PON_HLOS_1300_PROPERTIES \
+	compatible = "qcom,pmk8350-pon"; \
+	reg = <0x1300 0x800>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_SDAM_B600_PROPERTIES \
+	compatible = "qcom,spmi-sdam"; \
+	reg = <0xb600>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCD_BL_PWM_DEFAULT_STATE_PROPERTIES \
+	pins = "gpio5"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_LCD_BL_PWM_DEFAULT_STATE_PROPERTIES_2 \
+	input-disable; \
+	output-enable
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES \
+	bias-high-impedance
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK0_1P8_SUSPEND_PROPERTIES_2 \
+	pins = "gpio1"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_PINCTRL_B800_CAM_SENSOR_MCLK1_1P8_SUSPEND_PROPERTIES \
+	pins = "gpio8"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_OFFSET_REF_PROPERTIES \
+	label = "pmk8850_offset_ref"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_VREF_1P25_PROPERTIES \
+	label = "pmk8850_vref_1p25"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_DIE_TEMP_PROPERTIES \
+	label = "pmk8850_die_temp"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_XO_THERM_PROPERTIES \
+	reg = <0x44>; \
+	label = "pmk8850_xo_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_QTM_THERM_PROPERTIES \
+	reg = <0x14b>; \
+	label = "pmh0101_qtm_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_OFFSET_REF_PROPERTIES \
+	label = "pmih010x_offset_ref"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_BATT_THERM_PROPERTIES \
+	reg = <0x2744>; \
+	label = "pmih010x_batt_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_USB_THERM_PROPERTIES \
+	reg = <0x2747>; \
+	label = "pmih010x_usb_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_BATT_THERM2_PROPERTIES \
+	reg = <0x274c>; \
+	label = "pmih010x_batt_therm_2"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_WLS_THERM_PROPERTIES \
+	reg = <0x274d>; \
+	label = "pmih010x_wls_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_SKIN_THERM_PROPERTIES \
+	reg = <0x144>; \
+	label = "pmh0101_skin_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_FLASH_LED_NTC_PROPERTIES \
+	label = "pmh0101_flash_led_ntc"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_WLAN_THERM_PROPERTIES \
+	reg = <0x146>; \
+	label = "pmh0101_wlan_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_USB2_CONN_THERM_PROPERTIES \
+	reg = <0x148>; \
+	label = "pmh0101_usb2_conn_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_REAR_CAM_NTC_PROPERTIES \
+	label = "pmh0101_rear_cam_ntc"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMH0101_QUIET_THERM_PROPERTIES \
+	reg = <0x14c>; \
+	label = "pmh0101_quiet_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES \
+	reg = <0x274b>; \
+	label = "pmih010x_ufs_therm"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_UFS_THERM_PROPERTIES_2 \
+	qcom,adc5-gen4
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMIH010X_FCAM_NTC_PROPERTIES \
+	reg = <0x275e>; \
+	label = "pmih010x_fcam_ntc"; \
+	qcom,ratiometric; \
+	qcom,hw-settle-time = <0xc8>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PMK8850_LCM_THERM_PROPERTIES \
+	reg = <0x47>; \
+	label = "pmk8850_lcm_therm"; \
+	qcom,ratiometric
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES \
+	compatible = "qcom,spmi-adc5-gen4"; \
+	reg = <0x9000 0x9100>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES_2 \
+	io-channel-ranges
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_VADC_9000_PROPERTIES_3 \
+	pinctrl-names = "default"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_BTL_PROPERTIES \
+	compatible = "qcom,btl"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMK8850_0_BTL_PROPERTIES_2 \
+	nvmem-names = "btl-sdam"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES \
+	compatible = "qcom,spmi-temp-alarm"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PMH0101_TEMP_ALARM_A00_PROPERTIES_2 \
+	io-channel-names = "thermal"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_QTM_THERM_DEFAULT_STATE_PROPERTIES \
+	pins = "gpio2"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_PINCTRL_8800_PA_THERM2_DEFAULT_STATE_PROPERTIES \
+	pins = "gpio3"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_1_PROPERTIES \
+	label = "red"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_2_PROPERTIES \
+	label = "green"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_LED_3_PROPERTIES \
+	label = "blue"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES \
+	function = "flash"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0101_1_LED_CONTROLLER_EE00_LED_0_PROPERTIES_2 \
+	led-max-microamp = <0x7a120>; \
+	flash-max-microamp = <0x1e8480>; \
+	flash-max-timeout-us = <0x138800>
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES \
+	output-enable; \
+	input-disable
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P2_ACTIVE_STATE_PROPERTIES_2 \
+	pins = "gpio9"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES \
+	output-disable; \
+	input-enable
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_3_PINCTRL_8800_SDE_MDP_VSYNC_P_1P8_ACTIVE_STATE_PROPERTIES_2 \
+	pins = "gpio10"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PINCTRL_8800_EUSB2_RESET_CTRL_EUSB2_RESET_CTRL_DEFAULT_PROPERTIES \
+	pins = "gpio14"
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_5_PINCTRL_8800_EUSB2_RESET_CTRL_EUSB2_RESET_CTRL_DEFAULT_PROPERTIES_2 \
+	input-enable; \
+	output-enable; \
+	bias-disable
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PINCTRL_8800_CAM_SENSOR_1P8_RST0_SUSPEND_STATE_PROPERTIES \
+	output-low; \
+	output-enable; \
+	input-disable
+
+#define LENOVO_CANOE_SPMI0_BUS_PMH0110_8_PINCTRL_8800_CAM_SENSOR_1P8_RST0_SUSPEND_STATE_PROPERTIES_2 \
+	pins = "gpio11"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_SDE_DISP0_VDD_ACTIVE_PROPERTIES \
+	bias-disable; \
+	output-enable; \
+	input-disable
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES \
+	compatible = "qcom,pmd802x-gpio"; \
+	reg = <0x8800>; \
+	gpio-controller
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_PINCTRL_8800_PROPERTIES_2 \
+	interrupt-controller
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_IBB_F800_PROPERTIES \
+	reg = <0xf800>; \
+	reg-names = "ibb_base"; \
+	regulator-name = "ibb"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_IBB_F800_PROPERTIES_2 \
+	regulator-max-microvolt = <0x895440>; \
+	regulator-allow-set-load; \
+	qcom,swire-control
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_PROPERTIES \
+	compatible = "qcom,amoled-regulator"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMD802X_4_QCOM_AMOLED_PROPERTIES_2 \
+	nvmem-cell-names = "ibb_spur_sqm_timer"; \
+	status = "disabled"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PMIH010X_TEMP_ALARM_LITE_C00_PROPERTIES \
+	compatible = "qcom,spmi-temp-alarm"; \
+	reg = <0xc00>
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_PINCTRL_8800_PROPERTIES \
+	compatible = "qcom,pmih010x-gpio"; \
+	reg = <0x8800>; \
+	gpio-controller
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_EUSB2_REPEATER_FD00_PROPERTIES \
+	compatible = "qcom,pmic-eusb2-repeater"; \
+	reg = <0xfd00>; \
+	vdd18-supply = <&pmh0101_l15>; \
+	vdd3-supply = <&pmh0101_l5>
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES \
+	qcom,wf-vmax-mv = <0xe10>; \
+	qcom,wf-fifo-preload; \
+	qcom,wf-fifo-data = [7f 7f 7f 7f 7f 7f]
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_1_PROPERTIES_2 \
+	qcom,wf-auto-res-disable; \
+	qcom,wf-brake-disable
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_2_PROPERTIES \
+	qcom,wf-vmax-mv = <0xe10>; \
+	qcom,wf-fifo-preload; \
+	qcom,wf-fifo-data = [7f 7f]
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_QCOM_HV_HAPTICS_F000_EFFECT_3_PROPERTIES \
+	qcom,wf-vmax-mv = <0xe10>; \
+	qcom,wf-fifo-preload; \
+	qcom,wf-fifo-data = [7f 7f 7f]
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMIH010X_7_BCL_SOC_PROPERTIES \
+	compatible = "qcom,msm-bcl-soc"
+
+#define LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PINCTRL_8800_BT_FMD_CLK_EN_PROPERTIES \
+	bias-disable; \
+	output-disable; \
+	input-enable
+
+#define LENOVO_CANOE_SPMI1_BUS_PMH0104_9_PINCTRL_8800_BT_FMD_CLK_EN_PROPERTIES_2 \
+	pins = "gpio6"
+
+#define LENOVO_CANOE_SPMI1_BUS_QCOM_PMR735D_A_PINCTRL_8800_PROPERTIES \
+	compatible = "qcom,pmr735d-gpio"; \
+	reg = <0x8800>; \
+	gpio-controller
+
+#define LENOVO_CANOE_SOC_REBOOT_REASON_PROPERTIES \
+	compatible = "qcom,reboot-reason"
+
+#define LENOVO_CANOE_SOC_REBOOT_REASON_PROPERTIES_2 \
+	nvmem-cell-names = "restart_reason"
+
+#define LENOVO_CANOE_SOC_PMIC_PON_LOG_PROPERTIES \
+	compatible = "qcom,pmic-pon-log"
+
+#define LENOVO_CANOE_SOC_PMIC_PON_LOG_PROPERTIES_2 \
+	depends-on-supply = <&wdog>
+
+#define LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES \
+	compatible = "qcom,regulator-ocp-notifier"; \
+	interrupt-parent = <&spmi0_bus>
+
+#define LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_2 \
+	periph-1c1-supply = <&L1B>; \
+	periph-1c2-supply = <&L2B>; \
+	periph-1c4-supply = <&L4B>; \
+	periph-1c5-supply = <&L5B>; \
+	periph-1c6-supply = <&L6B>; \
+	periph-1c7-supply = <&L7B>
+
+#define LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_3 \
+	periph-1c9-supply = <&L9B>; \
+	periph-1ca-supply = <&L10B>
+
+#define LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_4 \
+	periph-1cc-supply = <&L12B>; \
+	periph-1ce-supply = <&L14B>; \
+	periph-1cf-supply = <&L15B>; \
+	periph-1d1-supply = <&L17B>; \
+	periph-1e4-supply = <&BOB1>; \
+	periph-1e6-supply = <&BOB2>; \
+	periph-39b-supply = <&S1D_LEVEL>; \
+	periph-39e-supply = <&S2D_LEVEL>; \
+	periph-3a4-supply = <&S4D_LEVEL>; \
+	periph-3b6-supply = <&S10D>; \
+	periph-3c2-supply = <&L2D>; \
+	periph-3c4-supply = <&L4D>; \
+	periph-59b-supply = <&S1F_LEVEL>; \
+	periph-5aa-supply = <&S6F>; \
+	periph-5ad-supply = <&S7F>; \
+	periph-5b0-supply = <&S8F>; \
+	periph-5b6-supply = <&S10F_LEVEL>; \
+	periph-5c1-supply = <&L1F>; \
+	periph-5c2-supply = <&L2F>; \
+	periph-5c3-supply = <&L3F>
+
+#define LENOVO_CANOE_SOC_REGULATOR_OCP_NOTIFER_PROPERTIES_5 \
+	periph-6ad-supply = <&S7G>; \
+	periph-6b0-supply = <&S8G_LEVEL>; \
+	periph-6b3-supply = <&S9G>; \
+	periph-6c1-supply = <&L1G>; \
+	periph-6c2-supply = <&L2G>; \
+	periph-6c3-supply = <&L3G>; \
+	periph-6c4-supply = <&L4G>; \
+	periph-89b-supply = <&S1I_LEVEL>; \
+	periph-8ad-supply = <&S7I>; \
+	periph-8c1-supply = <&L1I_LEVEL>; \
+	periph-8c2-supply = <&L2I>; \
+	periph-8c3-supply = <&L3I>; \
+	periph-99b-supply = <&S1J>; \
+	periph-99e-supply = <&S2J>; \
+	periph-9a1-supply = <&S3J>; \
+	periph-9a4-supply = <&S4J>; \
+	periph-ac1-supply = <&L1K>; \
+	periph-ac2-supply = <&L2K>; \
+	periph-ac3-supply = <&L3K>; \
+	periph-ac4-supply = <&L4K>; \
+	periph-ac5-supply = <&L5K>; \
+	periph-ac6-supply = <&L6K>; \
+	periph-ac7-supply = <&L7K>
+
+#endif

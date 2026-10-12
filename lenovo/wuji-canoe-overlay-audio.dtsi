@@ -1,0 +1,954 @@
+// SPDX-License-Identifier: GPL-2.0
+#include "canoe-common-components.dtsi"
+// Canoe audio and amplifier fragments.
+	lenovo_356: fragment@202 {
+		target = <&lpass_cdc>;
+		__overlay__ {
+			qcom,lpass-cdc-version = <0x7>;
+			qcom,num-macros = <0x3>;
+			clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+			clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+			#size-cells = <0x1>;
+			#address-cells = <0x1>;
+			compatible = "qcom,lpass-cdc";
+			lenovo_32a: lpass-cdc-clk-rsc-mngr {
+				clocks = <&lenovo_283 0x0 &lenovo_284 0x0 &lenovo_285 0x0 &lenovo_286 0x0>;
+				clock-names = "tx_core_clk", "rx_core_clk", "rx_tx_core_clk", "va_core_clk";
+				qcom,wsa_mclk_mode_muxsel = <0x6bea110>;
+				qcom,rx_mclk_mode_muxsel = <0x6bec0d8>;
+				qcom,fs-gen-sequence = <0x3000 0x1 0x1 0x3004 0x3 0x3 0x3004 0x3 0x1 0x3080 0x2 0x2>;
+				compatible = "qcom,lpass-cdc-clk-rsc-mngr";
+			};
+			lenovo_32b: rx-macro@6AC0000 {
+				qcom,rx_mclk_mode_muxsel = <0x6bec0d8>;
+				reg = <0x6ac0000 0x0>;
+				clocks = <&lenovo_288 0x0>;
+				clock-names = "rx_mclk2_2x_clk";
+				qcom,default-clk-id = <0x5>;
+				qcom,rx-bcl-pmic-params = [00 03 48];
+				qcom,rx-swr-gpios = <&lenovo_287>;
+				compatible = "qcom,lpass-cdc-rx-macro";
+				lenovo_32c: rx_swr_master {
+					qcom,swr-master-version = <0x2000000>;
+					interrupts = <0x0 0x9b 0x4>;
+					swrm-io-base = <0x6ad0000 0x0>;
+					qcom,swr-clock-stop-mode0 = <0x1>;
+					qcom,swr-port-mapping = <0x1 0xe 0x1 0x1 0xf 0x2 0x2 0x12 0x3 0x3 0x10 0x1 0x3 0x11 0x2 0x4 0x13 0x1 0x5 0x14 0x1 0x5 0x15 0x2 0x6 0x16 0x1 0x7 0x17 0x3 0x8 0x18 0x3 0x9 0x3b 0x1 0x9 0x3c 0x2 0xa 0x1a 0x3 0xb 0x1b 0x3 0xc 0x1c 0x3>;
+					qcom,swr-num-ports = <0xc>;
+					interrupt-names = "swr_master_irq";
+					qcom,mipi-sdw-block-packing-mode = <0x1>;
+					qcom,swr-num-dev = <0x1>;
+					qcom,swr_master_id = <0x2>;
+					clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+					clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+					#size-cells = "", "", "", "";
+					#address-cells = <0x2>;
+					compatible = "qcom,swr-mstr";
+					lenovo_30a: wcd939x-rx-slave {
+						status = "disabled";
+						reg = <0xe 0x1170224>;
+						compatible = "qcom,wcd939x-slave";
+					};
+					lenovo_30c: wcd9378-rx-slave {
+						reg = <0x10 0x1170224>;
+						compatible = "qcom,wcd9378-slave";
+						status = "disabled";
+					};
+					lenovo_30e: wcd937x-rx-slave {
+						reg = <0xa 0x1170224>;
+						compatible = "qcom,wcd937x-slave";
+						status = "disabled";
+					};
+					lenovo_32d: swr_haptics@f0170220 {
+						qcom,rx_swr_ch_map = <0x0 0x1 0x1 0x0 0x16>;
+						compatible = "qcom,pmih010x-swr-haptics";
+						reg = <0x3 0xf0170220>;
+						status = "disabled";
+					};
+				};
+			};
+			lenovo_28b: wsa-macro@6B00000 {
+				wsa_data_fs_ctl_reg = <0x6b6f000>;
+				qcom,wsa-system-gains = <0x0 0x9 0x0 0x9>;
+				qcom,wsa-rloads = <0x2 0x2>;
+				qcom,wsa-bat-cfgs = <0x1 0x1>;
+				reg = <0x6b00000 0x0>;
+				#cooling-cells = <0x2>;
+				qcom,noise-gate-mode = <0x2>;
+				qcom,thermal-max-state = <0xb>;
+				qcom,default-clk-id = <0x6>;
+				qcom,wsa-bcl-pmic-params = [00 03 48];
+				qcom,wsa-swr-gpios = <&lenovo_289>;
+				compatible = "qcom,lpass-cdc-wsa-macro";
+				status = "disabled";
+				lenovo_32e: wsa_swr_master {
+					qcom,swr-master-version = <0x2000000>;
+					interrupts = <0x0 0xaa 0x4>;
+					swrm-io-base = <0x6b10000 0x0>;
+					interrupt-names = "swr_master_irq";
+					qcom,swr-port-mapping = <0x1 0x1 0x1 0x2 0x2 0xf 0x3 0x3 0x3 0x4 0x4 0x1 0x5 0x5 0xf 0x6 0x6 0x3 0x7 0x7 0x3 0x8 0x8 0x3 0x9 0x9 0x3 0xa 0xa 0x3 0xb 0xb 0x3 0xc 0xc 0x3 0xd 0xd 0x3>;
+					qcom,swr-num-ports = <0xd>;
+					qcom,swr-clock-stop-mode0 = <0x1>;
+					qcom,dynamic-port-map-supported = "", "", "", "";
+					qcom,mipi-sdw-block-packing-mode = "", "", "", "";
+					qcom,swr-num-dev = <0x1>;
+					qcom,swr_master_id = <0x1>;
+					clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+					clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+					#size-cells = "", "", "", "";
+					#address-cells = <0x2>;
+					compatible = "qcom,swr-mstr";
+					status = "disabled";
+					lenovo_32f: wsa884x@02170220 {
+						sound-name-prefix = "SpkrLeft";
+						qcom,cdc-static-supplies = "cdc-vdd-1p8";
+						qcom,cdc-vdd-1p8-lpm-supported = <0x1>;
+						qcom,cdc-vdd-1p8-current = <0x4e20>;
+						qcom,cdc-vdd-1p8-voltage = <0x1b7740 0x1b7740>;
+						cdc-vdd-1p8-supply = <&L15B>;
+						qcom,swr-wsa-port-params = <0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0>;
+						qcom,wsa-macro-handle = <&lenovo_28b>;
+						qcom,lpass-cdc-handle = <&lpass_cdc>;
+						qcom,spkr-sd-n-node = <&lenovo_28a>;
+						reg = <0x4 0x2170220>;
+						status = "disabled";
+						compatible = "qcom,wsa884x";
+					};
+					lenovo_330: wsa884x@02170221 {
+						sound-name-prefix = "SpkrRight";
+						qcom,cdc-static-supplies = "cdc-vdd-1p8";
+						qcom,cdc-vdd-1p8-lpm-supported = <0x1>;
+						qcom,cdc-vdd-1p8-current = <0x4e20>;
+						qcom,cdc-vdd-1p8-voltage = <0x1b7740 0x1b7740>;
+						cdc-vdd-1p8-supply = <&L15B>;
+						qcom,swr-wsa-port-params = <0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0>;
+						qcom,wsa-macro-handle = <&lenovo_28b>;
+						qcom,lpass-cdc-handle = <&lpass_cdc>;
+						qcom,spkr-sd-n-node = <&lenovo_28c>;
+						reg = <0x4 0x2170221>;
+						status = "disabled";
+						compatible = "qcom,wsa884x";
+					};
+					lenovo_331: wsa8855@02170230 {
+						qcom,codec-name = "sdca-simple-amp.01";
+						qcom,simple-amp-function-array = <0x1>;
+						qcom,lpass-cdc-handle = <&lpass_cdc>;
+						vdd-io-supply = <&L1G>;
+						vdd-1p8-supply = <&L15B>;
+						powerdown-gpios = <&tlmm 0x4c 0x1>;
+						sound-name-prefix = "SA1";
+						compatible = "qcom,simple-sdca-amp";
+						reg = <0x105 0x2170230>;
+						lenovo_332: stereo_amp {
+							mipi-sdca-function-initialization-table-v2 = <0x40580470 0x2 0x40580470 0x0 0x40580470 0x1 0x40400008 0x2 0x40580602 0x60 0x40580622 0x60 0x40580458 0x79 0x4058010b 0xd9 0x40580111 0xd9 0x4058013c 0x8 0x4058011d 0x40 0x40580129 0x40 0x4058011a 0x80 0x4058011a 0x81 0x40580126 0x80 0x40580126 0x81 0x40580103 0x6 0x405800ca 0x85 0x405800cb 0xe 0x405800cc 0xc 0x405800d0 0x80 0x4058041c 0x4e 0x40580647 0x34 0x40580667 0x34>;
+							mipi-sdca-function-initialization-table = <0x40580606 0x24 0x40580626 0x24 0x40580613 0x1 0x40580633 0x1 0x40580640 0x1 0x40580660 0x1 0x405806a1 0x14 0x405806b1 0x14 0x405806a9 0x14 0x405806b9 0x14 0x4058041c 0xf 0x4058041c 0xcf 0x40580470 0x2 0x40580470 0x0 0x40580470 0x1 0x40400008 0x2 0x40580602 0x60 0x40580622 0x60 0x40580108 0xa5 0x4058010e 0xa5 0x405800ca 0x85 0x405800cb 0xc 0x405800cb 0xe 0x405800cc 0xc 0x405804b4 0x1 0x405804b7 0x1 0x40580601 0x88 0x40580601 0x89 0x40580621 0x88 0x40580621 0x89 0x4058005b 0x82 0x4058005c 0x34 0x40580065 0x41 0x40580067 0x7f 0x405806cd 0x50 0x405806cc 0x6c 0x405806c7 0xd 0x405806c3 0x3 0x40580423 0x5 0x4058010b 0x45 0x40580111 0x45 0x405806ce 0x5 0x40580024 0x35 0x40580025 0x21 0x4058005e 0xc7 0x4058005f 0x11 0x405800d0 0x80 0x4058013c 0x8 0x40580103 0x3 0x4058000d 0x20 0x4058042b 0x47 0x40580435 0x47 0x40580647 0x34 0x40580667 0x34 0x40580458 0x79>;
+							lenovo_333: mipi-sdca-entity-id-0x0-subproperties@entity0 {
+								mipi-sdca-control-selectors = <0x1 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0x10 0x11 0x2c 0x2d 0x2e 0x2f>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = "", "", "", "";
+								mipi-sdca-entity-label = "ENTITY0";
+								control-selectors {
+									mipi-sdca-control-0x2F-subproperties = <&lenovo_29a>;
+									mipi-sdca-control-0x2E-subproperties = <&lenovo_299>;
+									mipi-sdca-control-0x2D-subproperties = <&lenovo_298>;
+									mipi-sdca-control-0x2C-subproperties = <&lenovo_297>;
+									mipi-sdca-control-0x11-subproperties = <&lenovo_296>;
+									mipi-sdca-control-0x10-subproperties = <&lenovo_295>;
+									mipi-sdca-control-0xA-subproperties = <&lenovo_294>;
+									mipi-sdca-control-0x9-subproperties = <&lenovo_293>;
+									mipi-sdca-control-0x8-subproperties = <&lenovo_292>;
+									mipi-sdca-control-0x7-subproperties = <&lenovo_291>;
+									mipi-sdca-control-0x6-subproperties = <&lenovo_290>;
+									mipi-sdca-control-0x5-subproperties = <&lenovo_28f>;
+									mipi-sdca-control-0x4-subproperties = <&lenovo_28e>;
+									mipi-sdca-control-0x1-subproperties = <&lenovo_28d>;
+									lenovo_28d: mipi-sdca-control-0x1-subproperties@C01 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_28e: mipi-sdca-control-0x4-subproperties@C04 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_28f: mipi-sdca-control-0x5-subproperties@C05 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_290: mipi-sdca-control-0x6-subproperties@C06 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_291: mipi-sdca-control-0x7-subproperties@C07 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_292: mipi-sdca-control-0x8-subproperties@C08 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_293: mipi-sdca-control-0x9-subproperties@C09 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_294: mipi-sdca-control-0xA-subproperties@C0A {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_295: mipi-sdca-control-0x10-subproperties@C010 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_296: mipi-sdca-control-0x11-subproperties@C011 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_297: mipi-sdca-control-0x2C-subproperties@C02C {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_298: mipi-sdca-control-0x2D-subproperties@C02D {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_299: mipi-sdca-control-0x2E-subproperties@C02E {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_29a: mipi-sdca-control-0x2F-subproperties@C02F {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_334: mipi-sdca-entity-id-0x1-subproperties@IT21 {
+								mipi-sdca-control-selectors = <0x10 0x11>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0x1>;
+								mipi-sdca-entity-label = "IT21";
+								control-selectors {
+									mipi-sdca-control-0x11-subproperties = <&lenovo_29c>;
+									mipi-sdca-control-0x10-subproperties = <&lenovo_29b>;
+									lenovo_29b: mipi-sdca-control-0x10-subproperties@C110 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_29c: mipi-sdca-control-0x11-subproperties@C111 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_335: mipi-sdca-entity-id-0x2-subproperties@CS21 {
+								mipi-sdca-control-selectors = <0x2 0x10>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0x2>;
+								mipi-sdca-entity-label = "CS21";
+								control-selectors {
+									mipi-sdca-control-0x10-subproperties = <&lenovo_29e>;
+									mipi-sdca-control-0x2-subproperties = <&lenovo_29d>;
+									lenovo_29d: mipi-sdca-control-0x2-subproperties@C201 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_29e: mipi-sdca-control-0x10-subproperties@C210 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_336: mipi-sdca-entity-id-0x3-subproperties@CS21 {
+								mipi-sdca-control-selectors = <0x10>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0x3>;
+								mipi-sdca-entity-label = "PPU21";
+								control-selectors {
+									mipi-sdca-control-0x10-subproperties = <&lenovo_29f>;
+									lenovo_29f: mipi-sdca-control-0x10-subproperties@C310 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_337: mipi-sdca-entity-id-0x4-subproperties@FU21 {
+								mipi-sdca-control-selectors = <0x1 0x2>;
+								mipi-sdca-control-numbers = <0x0 0x1 0x2>;
+								mipi-sdca-entity-number = <0x4>;
+								mipi-sdca-entity-label = "FU21";
+								control-selectors {
+									mipi-sdca-control-0x2-subproperties = <&lenovo_2a1>;
+									mipi-sdca-control-0x1-subproperties = <&lenovo_2a0>;
+									lenovo_2a0: mipi-sdca-control-0x1-subproperties@C401 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_2a1: mipi-sdca-control-0x2-subproperties@C402 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_338: mipi-sdca-entity-id-0x7-subproperties@SAPU29 {
+								mipi-sdca-control-selectors = <0x10 0x11>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0x7>;
+								mipi-sdca-entity-label = "SAPU29";
+								control-selectors {
+									mipi-sdca-control-0x11-subproperties = <&lenovo_2a3>;
+									mipi-sdca-control-0x10-subproperties = <&lenovo_2a2>;
+									lenovo_2a2: mipi-sdca-control-0x10-subproperties@C710 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_2a3: mipi-sdca-control-0x11-subproperties@C711 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_339: mipi-sdca-entity-id-0xA-subproperties@PDE23 {
+								mipi-sdca-control-selectors = <0x1 0x10>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0xa>;
+								mipi-sdca-entity-label = "PDE23";
+								control-selectors {
+									mipi-sdca-control-0x10-subproperties = <&lenovo_2a5>;
+									mipi-sdca-control-0x1-subproperties = <&lenovo_2a4>;
+									lenovo_2a4: mipi-sdca-control-0x1-subproperties@C0A02 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_2a5: mipi-sdca-control-0x10-subproperties@C0A10 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_33a: mipi-sdca-entity-id-0xB-subproperties@OT23 {
+								mipi-sdca-control-selectors = <0x4>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0xb>;
+								mipi-sdca-entity-label = "OT23";
+								control-selectors {
+									mipi-sdca-control-0x4-subproperties = <&lenovo_2a6>;
+									lenovo_2a6: mipi-sdca-control-0x4-subproperties@C0B04 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_33b: mipi-sdca-entity-id-0xC-subproperties@IT29 {
+								mipi-sdca-control-selectors = <0x10>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0xc>;
+								mipi-sdca-entity-label = "IT29";
+								control-selectors {
+									mipi-sdca-control-0x10-subproperties = <&lenovo_2a7>;
+									lenovo_2a7: mipi-sdca-control-0x04-subproperties@C0C04 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_33c: mipi-sdca-entity-id-0xE-subproperties@CS24 {
+								mipi-sdca-control-selectors = <0x2 0x10>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0xe>;
+								mipi-sdca-entity-label = "CS24";
+								control-selectors {
+									mipi-sdca-control-0x10-subproperties = <&lenovo_2a9>;
+									mipi-sdca-control-0x2-subproperties = <&lenovo_2a8>;
+									lenovo_2a8: mipi-sdca-control-0x2-subproperties@C0E02 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_2a9: mipi-sdca-control-0x10-subproperties@C210 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_33d: mipi-sdca-entity-id-0xF-subproperties@OT24 {
+								mipi-sdca-control-selectors = <0x4 0x11>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0xf>;
+								mipi-sdca-entity-label = "OT24";
+								control-selectors {
+									mipi-sdca-control-0x11-subproperties = <&lenovo_2ab>;
+									mipi-sdca-control-0x4-subproperties = <&lenovo_2aa>;
+									lenovo_2aa: mipi-sdca-control-0x4-subproperties@C0F04 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+									lenovo_2ab: mipi-sdca-control-0x11-subproperties@C0F11 {
+										mipi-sdca-control-access-mode = "", "", "", "";
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+							lenovo_33e: mipi-sdca-entity-id-0x10-subproperties@TG23 {
+								mipi-sdca-control-selectors = <0x11>;
+								mipi-sdca-control-numbers = "", "", "", "";
+								mipi-sdca-entity-number = <0x10>;
+								mipi-sdca-entity-label = "TG23";
+								control-selectors {
+									mipi-sdca-control-0x11-subproperties = <&lenovo_2ac>;
+									lenovo_2ac: mipi-sdca-control-0x11-subproperties@C1111 {
+										mipi-sdca-control-access-mode = <0x2>;
+										mipi-sdca-control-access-layer = <0x4>;
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+			lenovo_2ae: wsa2-macro@6AA0000 {
+				qcom,wsa-system-gains = <0x0 0x9 0x0 0x9>;
+				qcom,wsa-rloads = <0x2 0x2>;
+				qcom,wsa-bat-cfgs = <0x1 0x1>;
+				wsa_data_fs_ctl_reg = <0x6b6f000>;
+				reg = <0x6aa0000 0x0>;
+				#cooling-cells = <0x2>;
+				qcom,noise-gate-mode = <0x2>;
+				qcom,thermal-max-state = <0xb>;
+				qcom,default-clk-id = <0x7>;
+				qcom,wsa2-bcl-pmic-params = [00 03 48];
+				qcom,wsa2-swr-gpios = <&lenovo_2ad>;
+				compatible = "qcom,lpass-cdc-wsa2-macro";
+				status = "disabled";
+				lenovo_33f: wsa2_swr_master {
+					qcom,swr-master-version = <0x2000000>;
+					interrupts = <0x0 0xab 0x4>;
+					swrm-io-base = <0x6ab0000 0x0>;
+					qcom,dynamic-port-map-supported = "", "", "", "";
+					qcom,swr-port-mapping = <0x1 0x1 0x1 0x2 0x2 0xf 0x3 0x3 0x3 0x4 0x4 0x1 0x5 0x5 0xf 0x6 0x6 0x3 0x7 0x7 0x3 0x8 0x8 0x1 0x9 0x9 0x1 0xa 0xa 0x3 0xb 0xb 0x3 0xc 0xc 0x3 0xd 0xd 0x3>;
+					qcom,swr-clock-stop-mode0 = <0x1>;
+					qcom,swr-num-ports = <0xd>;
+					interrupt-names = "swr_master_irq";
+					qcom,mipi-sdw-block-packing-mode = "", "", "", "";
+					qcom,swr-num-dev = <0x3>;
+					qcom,swr_master_id = <0x4>;
+					clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+					clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+					#size-cells = "", "", "", "";
+					#address-cells = <0x2>;
+					compatible = "qcom,swr-mstr";
+					status = "disabled";
+					lenovo_340: wsa884x@02170220 {
+						sound-name-prefix = "Spkr2Left";
+						qcom,cdc-static-supplies = "cdc-vdd-1p8";
+						qcom,cdc-vdd-1p8-lpm-supported = <0x1>;
+						qcom,cdc-vdd-1p8-current = <0x4e20>;
+						qcom,cdc-vdd-1p8-voltage = <0x1b7740 0x1b7740>;
+						cdc-vdd-1p8-supply = <&L15B>;
+						qcom,swr-wsa-port-params = <0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0 0x1 0x0 0x3 0x0 0x5 0x0 0x0 0x0 0x6 0x0 0x0 0x0>;
+						qcom,wsa-macro-handle = <&lenovo_2ae>;
+						qcom,lpass-cdc-handle = <&lpass_cdc>;
+						qcom,spkr-sd-n-node = <&lenovo_28a>;
+						reg = <0x4 0x2170220>;
+						compatible = "qcom,wsa884x_2";
+						status = "disabled";
+					};
+					lenovo_341: wsa884x@02170221 {
+						sound-name-prefix = "Spkr2Right";
+						qcom,cdc-static-supplies = "cdc-vdd-1p8";
+						qcom,cdc-vdd-1p8-lpm-supported = <0x1>;
+						qcom,cdc-vdd-1p8-current = <0x4e20>;
+						qcom,cdc-vdd-1p8-voltage = <0x1b7740 0x1b7740>;
+						cdc-vdd-1p8-supply = <&L15B>;
+						qcom,swr-wsa-port-params = <0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0 0x2 0x0 0x4 0x0 0x15 0x0 0x9 0x0 0xd 0x0 0x19 0x0>;
+						qcom,wsa-macro-handle = <&lenovo_2ae>;
+						qcom,lpass-cdc-handle = <&lpass_cdc>;
+						qcom,spkr-sd-n-node = <&lenovo_28c>;
+						reg = <0x4 0x2170221>;
+						compatible = "qcom,wsa884x_2";
+						status = "disabled";
+					};
+					lenovo_313: swr_haptics@f0170220 {
+						qcom,rx_swr_vi_ch_map = <0x2 0x2 0x3 0x124f80 0xa>;
+						qcom,rx_swr_ch_map = <0x0 0x1 0x1 0x0 0x9>;
+						swr-slave-supply = <&lenovo_79>;
+						reg = <0x3 0xf0170220>;
+						compatible = "qcom,pmih010x-swr-haptics";
+						status = "disabled";
+					};
+				};
+			};
+			lenovo_342: va-macro@7660000 {
+				reg = <0x7660000 0x0>;
+				qcom,va-swr-gpios = <&lenovo_2af>;
+				qcom,is-used-swr-gpio = <0x1>;
+				qcom,use-clk-id = <0x3>;
+				qcom,default-clk-id = "", "", "", "";
+				qcom,va-clk-mux-select = <0x1>;
+				qcom,va-dmic-override-clk-div-factor = <0x4 0x4 0x4 0x4>;
+				qcom,va-dmic-clk-div-factor = <0x10 0x10 0x10 0x10>;
+				clocks = <&lpass_audio_hw_vote 0x0>;
+				clock-names = "lpass_audio_hw_vote";
+				compatible = "qcom,lpass-cdc-va-macro";
+				lenovo_343: va_swr_master {
+					qcom,swr-master-version = <0x2000000>;
+					interrupts = <0x0 0x2f9 0x4 0x0 0x311 0x4>;
+					swrm-io-base = <0x7630000 0x0>;
+					qcom,is-always-on = <0x1>;
+					qcom,swr-mstr-irq-wakeup-capable = <0x1>;
+					qcom,swr-clock-stop-mode0 = <0x1>;
+					qcom,swr-num-dev = <0x5>;
+					qcom,swr-port-mapping = <0x1 0x2d 0x3 0x2 0x2e 0x1 0x2 0x2f 0x2 0x2 0x30 0x4 0x2 0x31 0x8 0x3 0x32 0x1 0x3 0x33 0x2 0x3 0x34 0x4 0x3 0x35 0x8 0x4 0x36 0x1 0x4 0x37 0x2 0x4 0x38 0x4 0x4 0x39 0x8 0x5 0x3a 0x3>;
+					interrupt-names = "swr_master_irq", "swr_wake_irq";
+					qcom,swr-num-ports = <0x5>;
+					qcom,swr-wakeup-required = <0x1>;
+					qcom,mipi-sdw-block-packing-mode = <0x1>;
+					qcom,swr_master_id = <0x3>;
+					clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+					clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+					#size-cells = "", "", "", "";
+					#address-cells = <0x2>;
+					compatible = "qcom,swr-mstr";
+					lenovo_30b: wcd939x-tx-slave {
+						status = "disabled";
+						reg = <0xe 0x1170223>;
+						compatible = "qcom,wcd939x-slave";
+					};
+					lenovo_30d: wcd9378-tx-slave {
+						reg = <0x10 0x1170223>;
+						compatible = "qcom,wcd9378-slave";
+						status = "disabled";
+					};
+					lenovo_30f: wcd937x-tx-slave {
+						reg = <0xa 0x1170223>;
+						compatible = "qcom,wcd937x-slave";
+						status = "disabled";
+					};
+				};
+			};
+			lenovo_344: tx-macro@6AE0000 {
+				reg = <0x6ae0000 0x0>;
+				adapt-tuning-reg-values = <0x810 0x4c 0x4c 0x814 0x1d 0x1d 0x818 0x7c 0x7c 0x81c 0x3c 0x3c 0x820 0x67 0x67 0x824 0x16 0x16 0x828 0x3 0x3>;
+				qcom,is-used-swr-gpio = "", "", "", "";
+				qcom,tx-dmic-clk-div-factor = <0x4 0x4 0x4 0x4>;
+				qcom,default-clk-id = "", "", "", "";
+				compatible = "qcom,lpass-cdc-tx-macro";
+			};
+		};
+	};
+	lenovo_357: fragment@204 {
+		target = <&adsp_loader>;
+		__overlay__ {
+			status = "ok";
+		};
+	};
+	lenovo_358: fragment@206 {
+		target = <&spf_core_platform>;
+		__overlay__ {
+			lenovo_2b6: bt_swr_clk_data_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2b2 &lenovo_2b3>;
+				pinctrl-0 = <&lenovo_2b0 &lenovo_2b1>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+		};
+	};
+	lenovo_359: fragment@208 {
+		target = <&lpass_bt_swr>;
+		__overlay__ {
+			qcom,bt-swr-gpios = <&lenovo_2b6>;
+			clocks = <&lenovo_2b4 0x0 &lenovo_2b5 0x0 &lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+			clock-names = "bt_swr_mclk_clk", "bt_swr_mclk_clk_2x", "lpass_core_hw_vote", "lpass_audio_hw_vote";
+			compatible = "qcom,lpass-bt-swr";
+		};
+	};
+	lenovo_35a: fragment@210 {
+		target = <&swr4>;
+		__overlay__ {
+			qcom,swr-master-version = <0x2000000>;
+			qcom,swr-num-dev = <0x1>;
+			qcom,swr-port-mapping = <0x1 0x65 0x3 0x2 0x67 0x3 0x3 0x69 0x3 0x5 0x66 0x3 0x6 0x68 0x3 0x7 0x6a 0x3 0x8 0x6b 0x3>;
+			qcom,swr-num-ports = <0x7>;
+			interrupt-names = "swr_master_irq";
+			clocks = <&lpass_core_hw_vote 0x0 &lpass_audio_hw_vote 0x0>;
+			clock-names = "lpass_core_hw_vote", "lpass_audio_hw_vote";
+			qcom,swr_master_id = <0x5>;
+			compatible = "qcom,swr-mstr";
+		};
+	};
+	lenovo_35b: fragment@212 {
+		target = <&spf_core_platform>;
+		__overlay__ {
+			lenovo_310: pri_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				pinctrl-1 = <&i2s0_sck_sleep &i2s0_ws_sleep &i2s0_sd0_sleep &i2s0_sd1_sleep>;
+				pinctrl-0 = <&i2s0_sck_active &i2s0_ws_active &i2s0_sd0_active &i2s0_sd1_active>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "okay";
+			};
+			lenovo_345: fm_i2s1_pinctrl {
+				#gpio-cells = "", "", "", "";
+				pinctrl-1 = <&i2s1_sck_sleep &i2s1_ws_sleep &i2s1_sd0_sleep>;
+				pinctrl-0 = <&i2s1_sck_active &i2s1_ws_active &i2s1_sd0_active>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_346: tert_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2bb &lenovo_2bc &lenovo_2bd &lenovo_2be>;
+				pinctrl-0 = <&lenovo_2b7 &lenovo_2b8 &lenovo_2b9 &lenovo_2ba>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_347: quat_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2c5 &lenovo_2c6 &lenovo_2c7 &lenovo_2c8 &lenovo_2c9 &lenovo_2ca>;
+				pinctrl-0 = <&lenovo_2bf &lenovo_2c0 &lenovo_2c1 &lenovo_2c2 &lenovo_2c3 &lenovo_2c4>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_348: quin_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2cf &lenovo_2d0 &lenovo_2d1 &lenovo_2d2>;
+				pinctrl-0 = <&lenovo_2cb &lenovo_2cc &lenovo_2cd &lenovo_2ce>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_349: sen_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2d7 &lenovo_2d8 &lenovo_2d9 &lenovo_2da>;
+				pinctrl-0 = <&lenovo_2d3 &lenovo_2d4 &lenovo_2d5 &lenovo_2d6>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_34a: sep_mi2s_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2df &lenovo_2e0 &lenovo_2e1 &lenovo_2e2>;
+				pinctrl-0 = <&lenovo_2db &lenovo_2dc &lenovo_2dd &lenovo_2de>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+				status = "disabled";
+			};
+			lenovo_289: wsa_swr_clk_data_pinctrl {
+				status = "disabled";
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2e5 &lenovo_2e6>;
+				pinctrl-0 = <&lenovo_2e3 &lenovo_2e4>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_2ad: wsa2_swr_clk_data_pinctrl {
+				status = "disabled";
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2e9 &lenovo_2ea>;
+				pinctrl-0 = <&lenovo_2e7 &lenovo_2e8>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_287: rx_swr_clk_data_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2ee &lenovo_2ef &lenovo_2f0>;
+				pinctrl-0 = <&lenovo_2eb &lenovo_2ec &lenovo_2ed>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_2af: tx_swr_clk_data_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				qcom,chip-wakeup-default-val = <0x1>;
+				qcom,chip-wakeup-maskbit = <0x7>;
+				qcom,chip-wakeup-reg = <0xf1a4008>;
+				pinctrl-1 = <&lenovo_2f5 &lenovo_2f6 &lenovo_2f7 &lenovo_2f8>;
+				pinctrl-0 = <&lenovo_2f1 &lenovo_2f2 &lenovo_2f3 &lenovo_2f4>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_309: msm_cdc_pinctrl@32 {
+				status = "disabled";
+				pinctrl-1 = <&wcd939x_reset_sleep>;
+				pinctrl-0 = <&wcd939x_reset_active>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_311: cdc_dmic01_pinctrl {
+				status = "okay";
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2fb &lenovo_2fc>;
+				pinctrl-0 = <&lenovo_2f9 &lenovo_2fa>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_312: cdc_dmic23_pinctrl {
+				status = "okay";
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_2ff &lenovo_300>;
+				pinctrl-0 = <&lenovo_2fd &lenovo_2fe>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_34b: cdc_dmic45_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_303 &lenovo_304>;
+				pinctrl-0 = <&lenovo_301 &lenovo_302>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_34c: cdc_dmic67_pinctrl {
+				#gpio-cells = "", "", "", "";
+				qcom,lpi-gpios;
+				pinctrl-1 = <&lenovo_307 &lenovo_308>;
+				pinctrl-0 = <&lenovo_305 &lenovo_306>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+		};
+	};
+	lenovo_35c: fragment@214 {
+		target = <&lpi_tlmm>;
+		__overlay__ {
+			qcom,slew-reg = <0x7760000 0x0>;
+			qcom,gpios-count = <0x17>;
+			reg = <0x7760000 0x0>;
+		};
+	};
+	lenovo_35d: fragment@216 {
+		target = <&swr4>;
+		__overlay__ {
+			interrupts = <0x0 0x8a 0x4>;
+			swrm-io-base = <0x6ca0000 0x0>;
+		};
+	};
+	lenovo_35e: fragment@218 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_28a: wsa_spkr_en1_pinctrl {
+				qcom,lpi-gpios;
+				pinctrl-1 = <&spkr_02_sd_n_sleep>;
+				pinctrl-0 = <&spkr_02_sd_n_active>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+			lenovo_28c: wsa_spkr_en2_pinctrl {
+				qcom,lpi-gpios;
+				pinctrl-1 = <&spkr_13_sd_n_sleep>;
+				pinctrl-0 = <&spkr_13_sd_n_active>;
+				pinctrl-names = "aud_active", "aud_sleep";
+				compatible = "qcom,msm-cdc-pinctrl";
+			};
+		};
+	};
+	lenovo_35f: fragment@220 {
+		target = <&lpass_cdc>;
+		__overlay__ {
+			lenovo_34d: wcd939x-codec {
+				qcom,usbcss-hs-lin-k-gnd = <0xd>;
+				qcom,usbcss-hs-lin-k-aud = <0xd>;
+				qcom,usbcss-hs-r7 = <0x5>;
+				qcom,usbcss-hs-r6 = <0x1>;
+				qcom,usbcss-hs-r5 = <0x5>;
+				qcom,usbcss-hs-r4 = <0x14a>;
+				qcom,usbcss-hs-r3 = <0x1>;
+				qcom,usbcss-hs-r2 = <0x1d7e>;
+				qcom,usbcss-hs-rdson = <0x258>;
+				qcom,usbcss-hs-xtalk-config = "", "", "", "";
+				qcom,cdc-on-demand-supplies = "cdc-vdd-buck", "cdc-vdd-px";
+				qcom,cdc-static-supplies = "cdc-vdd-rx", "cdc-vdd-tx", "cdc-vdd-mic-bias";
+				qcom,cdc-micbias4-mv = <0x708>;
+				qcom,cdc-micbias3-mv = <0x708>;
+				qcom,cdc-micbias2-mv = <0x708>;
+				qcom,cdc-micbias1-mv = <0x708>;
+				qcom,cdc-vdd-px-rem-supported = <0x1>;
+				qcom,cdc-vdd-px-lpm-supported = <0x1>;
+				qcom,cdc-vdd-px-current = <0x3a98>;
+				qcom,cdc-vdd-px-voltage = <0x124f80 0x124f80>;
+				cdc-vdd-px-supply = <&L1G>;
+				qcom,cdc-vdd-mic-bias-current = <0x7530>;
+				qcom,cdc-vdd-mic-bias-voltage = "", "2K", "", "2K";
+				cdc-vdd-mic-bias-supply = <&BOB1>;
+				qcom,cdc-vdd-buck-lpm-supported = <0x1>;
+				qcom,cdc-vdd-buck-current = <0x9eb10>;
+				qcom,cdc-vdd-buck-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-buck-supply = <&L15B>;
+				qcom,cdc-vdd-tx-lpm-supported = <0x1>;
+				qcom,cdc-vdd-tx-current = <0x7530>;
+				qcom,cdc-vdd-tx-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-tx-supply = <&L15B>;
+				qcom,cdc-vdd-rx-lpm-supported = <0x1>;
+				qcom,cdc-vdd-rx-current = <0x7530>;
+				qcom,cdc-vdd-rx-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-rx-supply = <&L15B>;
+				qcom,tx-slave = <&lenovo_30b>;
+				qcom,rx-slave = <&lenovo_30a>;
+				qcom,wcd-rst-gpio-node = <&lenovo_309>;
+				qcom,swr-tx-port-params = <0x0 0x1 0x0 0x2 0x1 0x0 0x1 0x0 0x0 0x1 0x1 0x0 0x1 0x0 0x1 0x0 0x0 0x1 0x2 0x0 0x1 0x0 0x2 0x0 0x1 0x0 0x1 0x0 0x1 0x0 0x1 0x0>;
+				qcom,tx_swr_ch_map = <0x0 0x1e 0x1 0x0 0x2e 0x0 0x1f 0x2 0x0 0x2f 0x1 0x20 0x1 0x0 0x30 0x1 0x21 0x2 0x0 0x31 0x2 0x22 0x1 0x0 0x32 0x2 0x23 0x2 0x0 0x33 0x2 0x1d 0x4 0x0 0x34 0x2 0x24 0x4 0x0 0x34 0x2 0x25 0x8 0x0 0x35 0x3 0x26 0x1 0x0 0x36 0x3 0x27 0x2 0x0 0x37 0x3 0x28 0x4 0x0 0x38 0x3 0x29 0x8 0x0 0x39>;
+				qcom,rx_swr_ch_map = <0x0 0xe 0x1 0x0 0xe 0x0 0xf 0x2 0x0 0xf 0x1 0x12 0x1 0x0 0x12 0x2 0x10 0x1 0x0 0x10 0x2 0x11 0x2 0x0 0x11 0x3 0x13 0x1 0x0 0x13 0x4 0x14 0x1 0x0 0x14 0x4 0x15 0x2 0x0 0x15 0x5 0x3b 0x1 0x0 0x3b 0x5 0x3c 0x2 0x0 0x3c>;
+				qcom,split-codec = <0x1>;
+				status = "disabled";
+				compatible = "qcom,wcd939x-codec";
+				lenovo_34e: qcom,wcd-mb1-reg {
+					regulator-name = "wcd-mb1-reg";
+				};
+				lenovo_34f: qcom,wcd-mb2-reg {
+					regulator-name = "wcd-mb2-reg";
+				};
+				lenovo_350: qcom,wcd-mb3-reg {
+					regulator-name = "wcd-mb3-reg";
+				};
+				lenovo_351: qcom,wcd-mb4-reg {
+					regulator-name = "wcd-mb4-reg";
+				};
+			};
+			lenovo_352: wcd9378-codec {
+				qcom,cdc-on-demand-supplies = "cdc-vdd-buck";
+				qcom,cdc-static-supplies = "cdc-vdd-rxtx", "cdc-vdd-io";
+				qcom,cdc-micbias3-mv = <0x708>;
+				qcom,cdc-micbias2-mv = <0x708>;
+				qcom,cdc-micbias1-mv = <0x708>;
+				qcom,cdc-vdd-mic-bias-current = <0x9c77>;
+				qcom,cdc-vdd-mic-bias-voltage = "", "2K", "", "2K";
+				cdc-vdd-mic-bias-supply = <&BOB1>;
+				qcom,cdc-vdd-buck-lpm-supported = <0x1>;
+				qcom,cdc-vdd-buck-current = <0x9eb10>;
+				qcom,cdc-vdd-buck-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-buck-supply = <&L15B>;
+				qcom,cdc-vdd-io-lpm-supported = <0x1>;
+				qcom,cdc-vdd-io-current = <0x4e20>;
+				qcom,cdc-vdd-io-voltage = <0x124f80 0x124f80>;
+				cdc-vdd-io-supply = <&L1F>;
+				qcom,cdc-vdd-rxtx-lpm-supported = <0x1>;
+				qcom,cdc-vdd-rxtx-current = <0x7530>;
+				qcom,cdc-vdd-rxtx-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-rxtx-supply = <&L15B>;
+				qcom,tx-slave = <&lenovo_30d>;
+				qcom,rx-slave = <&lenovo_30c>;
+				qcom,wcd-rst-gpio-node = <&lenovo_309>;
+				qcom,swr-tx-port-params = <0x1 0x0 0x1 0x1 0x0 0x1 0x1 0x0 0x0 0x1 0x1 0x0 0x1 0x0 0x1 0x0 0x0 0x1 0x2 0x0 0x1 0x0 0x2 0x0 0x1 0x0 0x1 0x0 0x1 0x0 0x1 0x0>;
+				qcom,tx_swr_ch_map = <0x0 0x1e 0x1 0x0 0x2e 0x1 0x1f 0x1 0x0 0x2f 0x2 0x20 0x1 0x0 0x30 0x3 0x22 0x4 0x0 0x32 0x3 0x23 0x8 0x0 0x33 0x3 0x1d 0x4 0x0 0x34 0x4 0x24 0x1 0x0 0x34 0x4 0x25 0x2 0x0 0x35 0x4 0x26 0x3 0x0 0x36 0x4 0x27 0x4 0x0 0x37>;
+				qcom,rx_swr_ch_map = <0x0 0xe 0x1 0x0 0xe 0x0 0xf 0x2 0x0 0xf 0x1 0x12 0x1 0x0 0x12 0x2 0x10 0x1 0x0 0x10 0x2 0x11 0x2 0x0 0x11 0x3 0x13 0x1 0x0 0x13 0x4 0x14 0x1 0x0 0x14 0x4 0x15 0x2 0x0 0x15>;
+				qcom,wcd-mode = <0x1>;
+				qcom,split-codec = <0x1>;
+				compatible = "qcom,wcd9378-codec";
+				status = "disabled";
+			};
+			lenovo_353: wcd937x-codec {
+				qcom,cdc-on-demand-supplies = "cdc-vdd-buck";
+				qcom,cdc-static-supplies = "cdc-vdd-rxtx", "cdc-vddpx", "cdc-vdd-mic-bias";
+				qcom,cdc-micbias3-mv = <0x708>;
+				qcom,cdc-micbias2-mv = <0x708>;
+				qcom,cdc-micbias1-mv = <0x708>;
+				qcom,cdc-vdd-mic-bias-current = <0x17bc>;
+				qcom,cdc-vdd-mic-bias-voltage = "", "2K", "", "2K";
+				cdc-vdd-mic-bias-supply = <&BOB1>;
+				qcom,cdc-vdd-buck-current = <0x58233>;
+				qcom,cdc-vdd-buck-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-buck-supply = <&L7B>;
+				qcom,cdc-vddpx-current = <0x3321>;
+				qcom,cdc-vddpx-voltage = <0x1b7740 0x1b7740>;
+				cdc-vddpx-supply = <&L7B>;
+				qcom,cdc-vdd-rxtx-current = <0x3321>;
+				qcom,cdc-vdd-rxtx-voltage = <0x1b7740 0x1b7740>;
+				cdc-vdd-rxtx-supply = <&L7B>;
+				qcom,tx-slave = <&lenovo_30f>;
+				qcom,rx-slave = <&lenovo_30e>;
+				qcom,wcd-rst-gpio-node = <&lenovo_309>;
+				qcom,swr-tx-port-params = <0x1 0x0 0x0 0x1 0x1 0x0 0x1 0x0 0x0 0x1 0x1 0x0 0x1 0x0 0x1 0x0 0x0 0x1 0x2 0x0 0x1 0x0 0x2 0x0 0x1 0x0 0x1 0x0 0x1 0x0 0x1 0x0>;
+				qcom,tx_swr_ch_map = <0x0 0x1e 0x1 0x493e00 0x2e 0x1 0x1f 0x1 0x493e00 0x32 0x1 0x20 0x2 0x493e00 0x33 0x2 0x22 0x1 0x0 0x31 0x2 0x23 0x2 0x0 0x32 0x2 0x1d 0x4 0x493e00 0x33 0x3 0x24 0x1 0x0 0x34 0x3 0x25 0x2 0x0 0x35 0x3 0x26 0x4 0x0 0x36 0x3 0x27 0x8 0x0 0x37>;
+				qcom,rx_swr_ch_map = <0x0 0xe 0x1 0x0 0xe 0x0 0xf 0x2 0x0 0xf 0x1 0x12 0x1 0x0 0x12 0x2 0x10 0x1 0x0 0x10 0x2 0x11 0x2 0x0 0x11 0x3 0x13 0x1 0x0 0x13 0x4 0x14 0x1 0x0 0x14 0x4 0x15 0x2 0x0 0x15>;
+				qcom,split-codec = <0x1>;
+				compatible = "qcom,wcd937x-codec";
+				status = "disabled";
+			};
+		};
+	};
+	lenovo_360: fragment@222 {
+		target = <&wcd_usbss>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+	lenovo_361: fragment@224 {
+		target = <&canoe_snd>;
+		__overlay__ {
+			mode-switch;
+			qcom,upd_ear_pa_reg_addr = <0x3430>;
+			qcom,upd_lpass_reg_addr = <0x6b00418 0x6b14020>;
+			qcom,upd_backends_used = "wsa";
+			qcom,msm_audio_ssr_devs = <&audio_gpr &lpi_tlmm &lpass_cdc &lpass_bt_swr>;
+			qcom,msm-mbhc-gnd-swh = "", "", "", "";
+			qcom,msm-mbhc-hphl-swh = "", "", "", "";
+			qcom,msm-mbhc-usbc-audio-supported = "", "", "", "";
+			qcom,msm-mbhc-hs-mic-max-threshold-mv = <0x686>;
+			qcom,audio-routing = "TX DMIC0", "Digital Mic0", "TX DMIC1", "Digital Mic1", "TX DMIC2", "Digital Mic2", "TX DMIC3", "Digital Mic3", "TX DMIC4", "Digital Mic4", "TX DMIC5", "Digital Mic5", "VA DMIC0", "Digital Mic0", "VA DMIC1", "Digital Mic1", "VA DMIC2", "Digital Mic2", "VA DMIC3", "Digital Mic3", "VA DMIC4", "Digital Mic4", "VA DMIC5", "Digital Mic5", "RX_TX DEC0_INP", "TX DEC0 MUX", "RX_TX DEC1_INP", "TX DEC1 MUX", "RX_TX DEC2_INP", "TX DEC2 MUX", "RX_TX DEC3_INP", "TX DEC3 MUX", "VA SWR_INPUT", "VA_SWR_CLK", "VA_AIF1 CAP", "VA_SWR_CLK", "VA_AIF2 CAP", "VA_SWR_CLK", "VA_AIF3 CAP", "VA_SWR_CLK";
+			qcom,dedicated-wsa2;
+			qcom,wcn-bt-ext = <0x1>;
+			qcom,wsa-max-devs = "", "", "", "";
+			asoc-codec-names = "msm-stub-codec.1", "lpass-cdc", "swr-haptics";
+			asoc-codec = <&stub_codec &lpass_cdc &lenovo_313>;
+			qcom,dmic-dvdd-voltage-level = <0x124f80 0x124f80>;
+			dmic-dvdd-supply = <&L11B>;
+			qcom,dmic-avdd-voltage-level = <0x1b7740 0x1b7740>;
+			dmic-avdd-supply = <&L10B>;
+			qcom,cdc-dmic23-gpios = <&lenovo_312>;
+			qcom,cdc-dmic01-gpios = <&lenovo_311>;
+			qcom,pri-mi2s-gpios = <&lenovo_310>;
+			qcom,mi2s-audio-intf = <0x1>;
+			swr-haptics-unsupported;
+			qcom,audio-core-list = <0x0 0x1>;
+			qcom,mi2s-clk-attribute = <0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+			qcom,tdm-clk-attribute = <0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+			qcom,tdm-max-slots = <0x8>;
+			qcom,ext-disp-audio-rx = <0x1>;
+			qcom,wcd-disabled = <0x1>;
+			qcom,wcn-bt = <0x1>;
+			qcom,mi2s-tdm-is-hw-vote-needed = <0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+			qcom,msm-mi2s-master = <0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+			qcom,model = "canoe-qrd-snd-card";
+			port@0 {
+				lenovo_314: endpoint {
+					remote-endpoint = <&lenovo_b6>;
+				};
+			};
+			port@1 {
+				lenovo_315: endpoint {
+					remote-endpoint = <&lenovo_b7>;
+				};
+			};
+		};
+	};
+	lenovo_362: fragment@228 {
+		target = <&qupv3_se4_i2c>;
+		__overlay__ {
+			aw882xx_smartpa@34 {
+				LENOVO_CANOE_AW882XX_COMMON;
+				sound-channel = "", "", "", "";
+				pa-vddio-supply = <&L1G>;
+				pa-dvdd-supply = <&L12B>;
+				reset-gpio = <&tlmm 0x72 0x0>;
+				reg = <0x34>;
+			};
+			aw882xx_smartpa@37 {
+				LENOVO_CANOE_AW882XX_COMMON;
+				sound-channel = <0x1>;
+				pa-vddio-supply = <&L1G>;
+				pa-dvdd-supply = <&L12B>;
+				reset-gpio = <&tlmm 0x45 0x0>;
+				reg = <0x37>;
+			};
+		};
+	};

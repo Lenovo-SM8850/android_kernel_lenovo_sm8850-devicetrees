@@ -1,0 +1,1702 @@
+// SPDX-License-Identifier: GPL-2.0
+// Canoe input and sensor fragments.
+	lenovo_27c: fragment@185 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_11f: qcom,mdss_mdp@1 {
+				connectors = <&lenovo_114 &lenovo_115 &lenovo_116 &lenovo_117 &lenovo_118 &lenovo_119>;
+				nvmem-cell-names = "ssip_config";
+				nvmem-cells = <&ssip_config>;
+				qcom,sde-dspp-ltm-off = "", "", "3", "", "", "3", "", "", "3", "", "", "3";
+				qcom,sde-dspp-ltm-version = <0x10004>;
+				mx-supply = <&VDD_MXA_LEVEL>;
+				mxc-supply = <&VDD_MXC_LEVEL>;
+				cx-supply = <&VDD_CX_LEVEL>;
+				mmcx-supply = <&VDD_MMCX_LEVEL>;
+				qti,smmu-proxy-cb-id = <0x1>;
+				qcom,sde-reg-bus,vectors-KBps = <0x0 0x0 0x0 0x36b0 0x0 0x222e0 0x0 0x4baf0>;
+				qcom,sde-secure-sid-mask = <0x2801 0x2c01>;
+				qcom,sde-reg-dma-clk-ctrl = <0x2bc 0x14>;
+				qcom,sde-reg-dma-xin-id = <0x7>;
+				qcom,sde-reg-dma-trigger-off = <0x119c>;
+				qcom,sde-reg-dma-version = <0x40000>;
+				qcom,sde-reg-dma-id = <0x0 0x1>;
+				qcom,sde-reg-dma-off = <0x0 0x800>;
+				qcom,sde-ipcc-client-out-phys-id = <0x18>;
+				qcom,sde-ipcc-protocol-offset = <0xc0000>;
+				qcom,sde-hw-fence-mdp-ctl-offset = "", "", "@";
+				qcom,sde-ipcc-client-dpu-phys-id = <0x15>;
+				qcom,sde-ipcc-protocol-id = <0x4>;
+				qcom,sde-qos-cpu-irq-latency = <0x12c>;
+				qcom,sde-qos-cpu-dma-latency = <0x12c>;
+				qcom,sde-qos-cpu-mask-performance = <0x3>;
+				qcom,sde-qos-cpu-mask = <0x3>;
+				qcom,sde-cdp-setting = <0x1 0x1 0x1 0x0>;
+				qcom,sde-creq-lut = <0x112233 0x44556666 0x112233 0x66666666 0x112233 0x44556666 0x112233 0x66666666 0x0 0x0 0x0 0x0 0x77776666 0x66666540 0x77776666 0x66666540 0x77776541 0x0 0x77776541 0x0 0x112233 0x44556666 0x112233 0x66666666 0x112233 0x44556666 0x112233 0x66666666 0x0 0x0 0x0 0x0 0x55555544 0x33221100 0x55555544 0x33221100>;
+				qcom,sde-safe-lut = <0xff00 0xfff0 0xff00 0xfff0 0xffff 0xffff 0x1 0x1 0x3ff 0x3ff 0xff00 0xfff0 0xff00 0xfff0 0xffff 0xffff 0xff 0xff>;
+				qcom,sde-danger-lut = <0xffff 0xffff 0xffff 0xffff 0x0 0x0 0x0 0x0 0x0 0x0 0xffff 0xffff 0xffff 0xffff 0x0 0x0 0xffff0000 0xffff0000>;
+				qcom,sde-vbif-qos-wb-rot-remap = <0x4 0x4 0x5 0x5 0x5 0x5 0x5 0x6 0x4 0x4 0x5 0x5 0x5 0x5 0x5 0x6>;
+				qcom,sde-vbif-qos-cnoc-remap = <0x3 0x3 0x4 0x4 0x5 0x5 0x5 0x5 0x3 0x3 0x4 0x4 0x5 0x5 0x5 0x5>;
+				qcom,sde-vbif-qos-offline-wb-remap = <0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3>;
+				qcom,sde-vbif-qos-lutdma-remap = <0x4 0x4 0x4 0x4 0x5 0x5 0x5 0x5 0x4 0x4 0x4 0x4 0x5 0x5 0x5 0x5>;
+				qcom,sde-vbif-qos-nrt-remap = <0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3>;
+				qcom,sde-vbif-qos-rt-remap = <0x4 0x4 0x5 0x5 0x5 0x5 0x5 0x6 0x4 0x4 0x5 0x5 0x5 0x5 0x5 0x6>;
+				qcom,sde-vbif-dynamic-ot-wr-limit = <0x3b53800 0x2 0x76a7000 0x6 0x1da9c000 0x10>;
+				qcom,sde-vbif-default-ot-wr-limit = <0x20>;
+				qcom,sde-vbif-default-ot-rd-limit = <0x28>;
+				qcom,sde-vbif-memtype-1 = <0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3>;
+				qcom,sde-vbif-memtype-0 = <0x3 0x3 0x3 0x3 0x3 0x3 0x3 0x3>;
+				qcom,sde-vbif-id = "", "", "", "";
+				qcom,sde-vbif-size = <0x1074>;
+				qcom,sde-vbif-off = "", "", "", "";
+				qcom,sde-uidle-size = <0x80>;
+				qcom,sde-uidle-off = "", "", "`";
+				qcom,sde-lm-noise-version = <0x10000>;
+				qcom,sde-lm-noise-off = <0x320>;
+				qcom,sde-dspp-spr-dither-off = <0x34e0 0x34e0 0x34e0 0x34e0>;
+				qcom,sde-dspp-spr-dither-version = <0x20000>;
+				qcom,sde-dspp-spr-version = <0x20000>;
+				qcom,sde-dspp-spr-size = <0x200>;
+				qcom,sde-dspp-spr-off = "", "", "4", "", "", "4", "", "", "4", "", "", "4";
+				qcom,sde-num-nrt-paths = "", "", "", "";
+				qcom,sde-dram-channels = <0x4>;
+				qcom,sde-min-dram-ib-kbps = <0xc3500>;
+				qcom,sde-min-llcc-ib-kbps = "", "", "", "";
+				qcom,sde-min-core-ib-kbps = <0x2625a0>;
+				qcom,sde-max-bw-high-kbps = <0x1ccd0c0>;
+				qcom,sde-max-bw-low-kbps = <0x14689c0>;
+				qcom,sde-max-trusted-vm-displays = <0x1>;
+				qcom,sde-has-dest-scaler;
+				qcom,sde-has-dim-layer;
+				qcom,sde-pipe-order-version = <0x1>;
+				qcom,sde-has-src-split;
+				qcom,sde-has-cdp;
+				qcom,sde-panic-per-pipe;
+				qcom,sde-smart-panel-align-mode = <0xc>;
+				qcom,sde-macrotile-mode = <0x1>;
+				qcom,sde-ubwc-static = <0x1>;
+				qcom,sde-ubwc-bw-calc-version = <0x1>;
+				qcom,sde-ubwc-swizzle = <0x6>;
+				qcom,sde-ubwc-version = "`", "", "";
+				qcom,sde-highest-bank-bit = <0x8 0x3 0x7 0x2>;
+				qcom,sde-mixer-blendstages = <0xb>;
+				qcom,sde-wb-linewidth-linear = "", "", " ";
+				qcom,sde-max-dest-scaler-output-linewidth = "", "", "\n";
+				qcom,sde-max-dest-scaler-input-linewidth = <0x800>;
+				qcom,sde-dsc-linewidth = "", "", "\n";
+				qcom,sde-wb-linewidth = <0x1000>;
+				qcom,sde-sspp-linewidth = <0x1400>;
+				qcom,sde-mixer-linewidth = "", "", "\n";
+				qcom,sde-qseed-scalar-version = <0x3005>;
+				qcom,sde-qseed-sw-lib-rev = "qseedv3lite";
+				qcom,sde-csc-type = "csc-10bit";
+				qcom,sde-sspp-csc-off = <0x1800>;
+				qcom,sde-sspp-clk-status = <0x4334 0x0 0x6334 0x0 0x8334 0x0 0xa334 0x0 0x24334 0x0 0x26334 0x0 0x28334 0x0 0x2a334 0x0 0x2c334 0x0 0x2e334 0x0>;
+				qcom,sde-sspp-clk-ctrl = <0x4330 0x0 0x6330 0x0 0x8330 0x0 0xa330 0x0 0x24330 0x0 0x26330 0x0 0x28330 0x0 0x2a330 0x0 0x2c330 0x0 0x2e330 0x0>;
+				qcom,sde-max-per-pipe-bw-high-kbps = <0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660 0x6c5660>;
+				qcom,sde-max-per-pipe-bw-kbps = <0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20 0x44aa20>;
+				qcom,sde-mixer-blend-op-off = <0x40 0x70 0xa0 0xd0 0x100 0x130 0x160 0x190 0x1c0 0x1f0 0x220>;
+				qcom,sde-mixer-pair-mask = <0x2 0x1 0x4 0x3 0x6 0x5 0x8 0x7>;
+				qcom,sde-smart-dma-rev = "smart_dma_v2p5";
+				qcom,sde-sspp-smart-dma-priority = <0x7 0x8 0x9 0xa 0x1 0x2 0x3 0x4 0x5 0x6>;
+				qcom,sde-sspp-excl-rect = <0x1 0x1 0x1 0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+				qcom,sde-sspp-xin-id = <0x0 0x4 0x8 0xc 0x1 0x5 0x9 0xd 0xe 0xf>;
+				qcom,sde-sspp-src-size = <0x84>;
+				qcom,sde-sspp-off = <0x2c000 0x35000 0x3e000 0x47000 0x98000 0xa1000 0xaa000 0xb3000 0xbc000 0xc5000>;
+				qcom,sde-sspp-type = "vig", "vig", "vig", "vig", "dma", "dma", "dma", "dma", "dma", "dma";
+				qcom,sde-dither-size = <0x24>;
+				qcom,sde-dither-version = <0x30000>;
+				qcom,sde-dither-off = <0xc0 0xc0 0xc0 0xc0 0xc0 0xc0 0xc0 0xc0 0xc0 0xc0>;
+				qcom,sde-dsc-native422-supp = <0x1 0x1 0x1 0x1 0x1 0x1 0x1 0x1>;
+				qcom,sde-dsc-ctl-size = <0x24>;
+				qcom,sde-dsc-ctl = <0xf00 0xf80 0xf00 0xf80 0xf00 0xf80 0xf00 0xf80>;
+				qcom,sde-dsc-enc-size = <0x100>;
+				qcom,sde-dsc-enc = <0x100 0x200 0x100 0x200 0x100 0x200 0x100 0x200>;
+				qcom,sde-dsc-hw-rev = "dsc_1_2";
+				qcom,sde-dsc-pair-mask = <0x2 0x1 0x4 0x3 0x6 0x5 0x8 0x7>;
+				qcom,sde-dsc-size = <0x8>;
+				qcom,sde-dsc-off = <0x182000 0x182000 0x184000 0x184000 0x186000 0x186000 0x188000 0x188000>;
+				qcom,sde-cdm-size = <0x240>;
+				qcom,sde-cdm-off = <0x19e000>;
+				qcom,sde-merge-3d-size = <0x1c>;
+				qcom,sde-merge-3d-off = <0x164000 0x165000 0x166000 0x167000 0x16a700 0x16b700>;
+				qcom,sde-pp-merge-3d-id = <0x0 0x0 0x1 0x1 0x2 0x2 0x3 0x3 0x4 0x4 0x5 0x5>;
+				qcom,sde-pp-size = <0x2c>;
+				qcom,sde-pp-slave = "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
+				qcom,sde-pp-off = <0x109000 0x111000 0x119000 0x121000 0x129000 0x131000 0x139000 0x141000 0x16a000 0x16a400 0x16b000 0x16b400>;
+				qcom,sde-intf-tear-irq-off = <0x0 0x18f800 0x190800 0x0>;
+				qcom,sde-intf-type = "dp", "dsi", "dsi", "dp";
+				qcom,sde-intf-size = <0x4bc>;
+				qcom,sde-intf-off = <0x18e000 0x18f000 0x190000 0x191000>;
+				qcom,sde-wb-id = <0x1 0x2>;
+				qcom,sde-wb-xin-id = <0xa 0x6>;
+				qcom,sde-wb-size = <0x2c8>;
+				qcom,sde-wb-off = <0x16e000 0x16f000>;
+				qcom,sde-dest-scaler-size = <0x800>;
+				qcom,sde-dest-scaler-off = <0x0 0x8000 0x10000 0x18000>;
+				qcom,sde-dest-scaler-top-size = <0x1c>;
+				qcom,sde-dest-scaler-top-off = <0x108000>;
+				qcom,sde-dnsc-blur-dither-size = <0x40>;
+				qcom,sde-dnsc-blur-dither-off = <0x5c0>;
+				qcom,sde-dnsc-blur-gaus-lut-size = <0x400>;
+				qcom,sde-dnsc-blur-gaus-lut-off = <0x100>;
+				qcom,sde-dnsc-blur-size = <0x40>;
+				qcom,sde-dnsc-blur-off = <0x1aa000>;
+				qcom,sde-dnsc-blur-version = <0x100>;
+				qcom,sde-aiqe-has-feature-aiscaler;
+				qcom,sde-aiqe-has-feature-copr;
+				qcom,sde-aiqe-has-feature-ssrc;
+				qcom,sde-aiqe-has-feature-abc;
+				qcom,sde-aiqe-has-feature-mdnie;
+				qcom,sde-dspp-aiqe-aiscaler-size = <0x7d0>;
+				qcom,sde-dspp-aiqe-aiscaler-version = <0x10000>;
+				qcom,sde-dspp-aiqe-aiscaler-off = <0xbb000 0xffffffff>;
+				qcom,sde-dspp-aiqe-wrapper-size = <0x1c>;
+				qcom,sde-dspp-aiqe-wrapper-version = <0x10000>;
+				qcom,sde-dspp-aiqe-wrapper-off = <0xc1780 0xffffffff 0xb2780 0xffffffff>;
+				qcom,sde-dspp-aiqe-dither-size = <0x20>;
+				qcom,sde-dspp-aiqe-dither-version = <0x10000>;
+				qcom,sde-dspp-aiqe-dither-off = <0xc1700 0xffffffff 0xb2700 0xffffffff>;
+				qcom,sde-dspp-aiqe-size = <0x474>;
+				qcom,sde-dspp-aiqe-version = <0x20000>;
+				qcom,sde-dspp-aiqe-off = <0xc1000 0xffffffff 0xb2000 0xffffffff>;
+				qcom,sde-dspp-demura-version = <0x40000>;
+				qcom,sde-dspp-demura-size = <0x154>;
+				qcom,sde-dspp-demura-off = "", "", "6", "", "", "6", "", "", "6", "", "", "6";
+				qcom,sde-dspp-rc-min-region-width = <0x14>;
+				qcom,sde-dspp-rc-mem-size = <0xaa0>;
+				qcom,sde-dspp-rc-size = <0x5c>;
+				qcom,sde-dspp-rc-off = "", "", "8", "", "", "8", "", "", "8", "", "", "8";
+				qcom,sde-dspp-rc-version = <0x10001>;
+				qcom,sde-dspp-size = <0x1800>;
+				qcom,sde-dspp-off = <0x106000 0x10e000 0x116000 0x11e000>;
+				qcom,sde-dspp-top-size = <0x8c>;
+				qcom,sde-dspp-top-off = <0x1300>;
+				qcom,sde-mixer-display-pref = "primary", "primary", "none", "none", "none", "none", "none", "none";
+				qcom,sde-mixer-size = <0x400>;
+				qcom,sde-mixer-off = <0x104000 0x10c000 0x114000 0x11c000 0x124000 0x12c000 0x134000 0x13c000>;
+				qcom,sde-ctl-display-pref = "primary", "none", "none", "none", "none", "none";
+				qcom,sde-ctl-size = <0x1000>;
+				qcom,sde-ctl-off = <0x20000 0x21000 0x22000 0x23000 0x24000 0x25000>;
+				qcom,sde-qultiv-sw-version = <0x1>;
+				qcom,sde-len = <0x488>;
+				qcom,sde-off = <0x1000>;
+				#cooling-cells = <0x2>;
+				reg-names = "mdp_phys", "vbif_phys", "regdma_phys", "ipcc_reg", "swfuse_phys";
+				reg = <0x0 0x9800000 0x0 0x1c8800 0x0 0x9b16000 0x0 0x2008 0x0 0x9b60000 0x0 0x7000 0x0 0x1100000 0x0 0x1000 0x0 0x9aa0000 0x0 0x13c>;
+				qcom,sde-hw-version = <0xd0000000>;
+				status = "disabled";
+				qcom,op-label = "hfi";
+				compatible = "qcom,sde-kms-hfi";
+				lenovo_23e: qcom,sde-sspp-vig-blocks {
+					lenovo_23f: vcm@0 {
+						qcom,sde-ucsc-alpha-dither = <0x1600 0x10000>;
+						qcom,sde-ucsc-csc = <0x1600 0x10001>;
+						qcom,sde-ucsc-gc = <0x1600 0x10001>;
+						qcom,sde-ucsc-unmult = <0x1600 0x10001>;
+						qcom,sde-ucsc-igc = <0x1600 0x10001>;
+						qcom,sde-vig-inverse-pma;
+						qcom,sde-vig-igc = <0x1c00 0x60000>;
+						qcom,sde-vig-gamut = <0x1c00 0x60001>;
+						qcom,sde-vig-qseed-size = <0xec>;
+						qcom,sde-vig-qseed-off = "", "", " ";
+						qcom,sde-vig-csc-off = <0x1800>;
+						qcom,sde-vig-top-off = <0x1600>;
+						cell-index = "", "", "", "";
+					};
+					lenovo_240: vcm@1 {
+						qcom,sde-ucsc-alpha-dither = <0x3600 0x10000>;
+						qcom,sde-ucsc-csc = <0x3600 0x10001>;
+						qcom,sde-ucsc-gc = <0x3600 0x10001>;
+						qcom,sde-ucsc-unmult = <0x3600 0x10001>;
+						qcom,sde-ucsc-igc = <0x3600 0x10001>;
+						cell-index = <0x1>;
+					};
+				};
+				lenovo_241: qcom,sde-sspp-dma-blocks {
+					lenovo_242: dgm@0 {
+						qcom,sde-ucsc-alpha-dither = <0x1600 0x10000>;
+						qcom,sde-ucsc-csc = <0x1600 0x10001>;
+						qcom,sde-ucsc-gc = <0x1600 0x10001>;
+						qcom,sde-ucsc-unmult = <0x1600 0x10001>;
+						qcom,sde-ucsc-igc = <0x1600 0x10001>;
+						qcom,sde-dma-top-off = <0x1600>;
+						cell-index = "", "", "", "";
+					};
+					lenovo_243: dgm@1 {
+						qcom,sde-ucsc-alpha-dither = <0x3600 0x10000>;
+						qcom,sde-ucsc-csc = <0x3600 0x10001>;
+						qcom,sde-ucsc-gc = <0x3600 0x10001>;
+						qcom,sde-ucsc-unmult = <0x3600 0x10001>;
+						qcom,sde-ucsc-igc = <0x3600 0x10001>;
+						cell-index = <0x1>;
+					};
+				};
+				lenovo_244: qcom,sde-dspp-blocks {
+					qcom,sde-dspp-dither = <0x82c 0x10007>;
+					qcom,sde-dspp-gc = <0x17c0 0x20000>;
+					qcom,sde-dspp-pcc = <0x1700 0x60000>;
+					qcom,sde-dspp-gamut = <0x1000 0x40003>;
+					qcom,sde-dspp-vlut = <0xa00 0x10008>;
+					qcom,sde-dspp-sixzone = <0x900 0x20000>;
+					qcom,sde-dspp-hist = <0x800 0x10007>;
+					qcom,sde-dspp-memcolor = <0x880 0x10007>;
+					qcom,sde-dspp-hsic = <0x800 0x10007>;
+					qcom,sde-dspp-igc = <0x1260 0x50001>;
+				};
+				qcom,platform-supply-entries {
+					#size-cells = "", "", "", "";
+					#address-cells = <0x1>;
+					qcom,platform-supply-entry@0 {
+						qcom,supply-disable-load = "", "", "", "";
+						qcom,supply-enable-load = "", "", "", "";
+						qcom,supply-max-voltage = <0x1a0>;
+						qcom,supply-min-voltage = <0x1a0>;
+						qcom,supply-name = "mmcx";
+						reg = "", "", "", "";
+					};
+					qcom,platform-supply-entry@1 {
+						qcom,supply-disable-load = "", "", "", "";
+						qcom,supply-enable-load = "", "", "", "";
+						qcom,supply-max-voltage = <0x1e0>;
+						qcom,supply-min-voltage = <0x1e0>;
+						qcom,supply-name = "cx";
+						reg = <0x1>;
+					};
+					qcom,platform-supply-entry@2 {
+						qcom,supply-disable-load = "", "", "", "";
+						qcom,supply-enable-load = "", "", "", "";
+						qcom,supply-max-voltage = <0x1c8>;
+						qcom,supply-min-voltage = <0x1c8>;
+						qcom,supply-name = "mxc";
+						reg = <0x2>;
+					};
+					qcom,platform-supply-entry@3 {
+						qcom,supply-disable-load = "", "", "", "";
+						qcom,supply-enable-load = "", "", "", "";
+						qcom,supply-max-voltage = <0x1c8>;
+						qcom,supply-min-voltage = <0x1c8>;
+						qcom,supply-name = "mx";
+						reg = <0x3>;
+					};
+				};
+			};
+			lenovo_11b: qcom,mdss_dsi_ctrl2@2 {
+				reg-names = "dsi_ctrl", "mdp_intf_base";
+				reg = <0x0 0x9ac0000 0x0 0x1000 0x0 0x998f000 0x0 0x300>;
+				frame-threshold-time-us = <0x320>;
+				cell-index = "", "", "", "";
+				label = "dsi-ctrl-0";
+				status = "disabled";
+				qcom,op-label = "hfi";
+				compatible = "qcom,dsi-ctrl-hfi-hw-v2.10";
+			};
+			lenovo_11c: qcom,mdss_dsi_ctrl3@3 {
+				reg-names = "dsi_ctrl", "mdp_intf_base";
+				reg = <0x0 0x9ac3000 0x0 0x1000 0x0 0x9990000 0x0 0x300>;
+				frame-threshold-time-us = <0x320>;
+				cell-index = <0x1>;
+				label = "dsi-ctrl-1";
+				status = "disabled";
+				qcom,op-label = "hfi";
+				compatible = "qcom,dsi-ctrl-hfi-hw-v2.10";
+			};
+			lenovo_11d: qcom,mdss_dsi_phy2@2 {
+				qcom,platform-regulator-settings = [1d 1d 1d 1d 1d];
+				qcom,platform-lane-config = <0xa0a 0xa0a 0xa0a 0xa0a 0x8a8a>;
+				qcom,platform-strength-ctrl = [55 03 55 03 55 03 55 03 55 00];
+				pll-label = "dsi_pll_3nm_hfi";
+				reg-names = "dsi_phy", "pll_base", "dyn_refresh_base";
+				reg = <0x0 0x9ac1000 0x0 0xa00 0x0 0x9ac1500 0x0 0x400 0x0 0x9ac0200 0x0 0xa0>;
+				#clock-cells = <0x1>;
+				cell-index = "", "", "", "";
+				label = "dsi-phy-0";
+				status = "disabled";
+				qcom,op-label = "hfi";
+				compatible = "qcom,dsi-hfi-phy-v7.2";
+			};
+			lenovo_11e: qcom,mdss_dsi_phy3@3 {
+				qcom,platform-lane-config = <0xa0a 0xa0a 0xa0a 0xa0a 0x8a8a>;
+				qcom,platform-regulator-settings = [1d 1d 1d 1d 1d];
+				qcom,platform-strength-ctrl = [55 03 55 03 55 03 55 03 55 00];
+				pll-label = "dsi_pll_3nm_hfi";
+				reg-names = "dsi_phy", "pll_base", "dyn_refresh_base";
+				reg = <0x0 0x9ac4000 0x0 0xa00 0x0 0x9ac4500 0x0 0x400 0x0 0x9ac3200 0x0 0xa0>;
+				#clock-cells = <0x1>;
+				cell-index = <0x1>;
+				label = "dsi-phy-1";
+				status = "disabled";
+				qcom,op-label = "hfi";
+				compatible = "qcom,dsi-hfi-phy-v7.2";
+			};
+		};
+	};
+	lenovo_27d: fragment@187 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_11a: smmu_sde_iommu_region_partition@1 {
+				iommu-addresses = <&lenovo_116 0x0 0x0 0x0 0x20000 &lenovo_116 0x0 0xfc800000 0x0 0x2b00000 &lenovo_117 0x0 0x0 0x0 0x20000>;
+			};
+			lenovo_116: qcom,smmu_sde_unsec_cb@1 {
+				dma-coherent;
+				qcom,iommu-earlymap;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <&lenovo_11a>;
+				iommus = <&apps_smmu 0x800 0x2>;
+				compatible = "qcom,smmu_sde_unsec";
+				status = "disabled";
+				qcom,op-label = "hfi";
+			};
+			lenovo_117: qcom,smmu_sde_sec_cb@1 {
+				qcom,iommu-vmid = <0xa>;
+				qcom,iommu-faults = "non-fatal";
+				memory-region = <&lenovo_11a>;
+				iommus = <&apps_smmu 0x801 0x0>;
+				compatible = "qcom,smmu_sde_sec";
+				status = "disabled";
+				qcom,op-label = "hfi";
+			};
+		};
+	};
+	lenovo_27e: fragment@189 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_114: qcom,dsi-display-primary0 {
+				pinctrl-2 = <&lenovo_127 &lenovo_ff &lenovo_122 &lenovo_123 &lenovo_124 &lenovo_125 &lenovo_fd>;
+				pinctrl-1 = <&lenovo_121 &lenovo_fc &lenovo_126 &lenovo_123 &lenovo_124 &lenovo_125 &lenovo_fd>;
+				pinctrl-0 = <&lenovo_121 &lenovo_fc &lenovo_122 &lenovo_123 &lenovo_124 &lenovo_125 &lenovo_fd>;
+				pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+				tvdd-supply = <&L4B>;
+				vdd-supply = <&L11B>;
+				vci-supply = <&lenovo_b8>;
+				vddio-supply = <&L12B>;
+				qcom,demura-panel-id = <0x122e700 0x471>;
+				qcom,dsi-default-panel = <&lenovo_120>;
+				qcom,mdp = <&lenovo_11f>;
+				qcom,panel-te-source = "", "", "", "";
+				qcom,platform-te-gpio = <&tlmm 0x56 0x0>;
+				qcom,dsi-phy = <&lenovo_11d &lenovo_11e>;
+				qcom,dsi-ctrl = <&lenovo_11b &lenovo_11c>;
+				status = "disabled";
+				qcom,op-label = "hfi";
+				label = "primary";
+				compatible = "qcom,dsi-display";
+			};
+			lenovo_115: qcom,dsi-display-secondary0 {
+				pinctrl-2 = <&lenovo_10b &lenovo_10c &lenovo_108>;
+				pinctrl-1 = <&lenovo_106 &lenovo_107 &lenovo_109>;
+				pinctrl-0 = <&lenovo_106 &lenovo_107 &lenovo_108>;
+				pinctrl-names = "panel_active", "panel_active_with_esync", "panel_suspend";
+				tvdd-supply = <&L4B>;
+				vdd-supply = <&L11B>;
+				vci-supply = <&lenovo_b8>;
+				vddio-supply = <&L12B>;
+				qcom,demura-panel-id = "", "", "", "", "", "", "", "";
+				qcom,mdp = <&lenovo_11f>;
+				qcom,panel-te-source = <0x1>;
+				qcom,platform-te-gpio = <&tlmm 0x57 0x0>;
+				qcom,dsi-phy = <&lenovo_11d &lenovo_11e>;
+				qcom,dsi-ctrl = <&lenovo_11b &lenovo_11c>;
+				status = "disabled";
+				qcom,op-label = "hfi";
+				label = "secondary";
+				compatible = "qcom,dsi-display";
+			};
+		};
+	};
+	lenovo_27f: fragment@191 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_118: qcom,wb-display@2 {
+				status = "disabled";
+				qcom,op-label = "hfi";
+				label = "wb_display0";
+				cell-index = "", "", "", "";
+				compatible = "qcom,wb-display";
+			};
+			lenovo_119: qcom,wb-display@3 {
+				status = "disabled";
+				qcom,op-label = "hfi";
+				label = "wb_display1";
+				cell-index = <0x1>;
+				compatible = "qcom,wb-display";
+			};
+		};
+	};
+	lenovo_280: fragment@193 {
+		target = <&qupv3_se19_spi>;
+		__overlay__ {
+			touch@0 {
+				panel = <&lenovo_128 &lenovo_129>;
+			};
+		};
+	};
+	lenovo_281: fragment@195 {
+		target = <&battery_charger>;
+		__overlay__ {
+			qcom,display-panels = <&lenovo_128 &lenovo_129>;
+		};
+	};
+	lenovo_282: fragment@197 {
+		target = <&soc>;
+		__overlay__ {
+			goodix_fp {
+				panel = <&lenovo_128 &lenovo_129>;
+			};
+		};
+	};
+	lenovo_354: fragment@198 {
+		target = <&lpi_tlmm>;
+		__overlay__ {
+			lenovo_2f1: swr_tx_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio0";
+				};
+				config {
+					bias-disable;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio0";
+				};
+			};
+			lenovo_2f5: swr_tx_clk_sleep {
+				mux {
+					bias-pull-down;
+					input-enable;
+					function = "func1";
+					pins = "gpio0";
+				};
+				config {
+					drive-strength = <0x2>;
+					pins = "gpio0";
+				};
+			};
+			lenovo_2bf: lpi_i2s0_sck_active {
+				mux {
+					function = "func2";
+					pins = "gpio0";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio0";
+				};
+			};
+			lenovo_2c5: lpi_i2s0_sck_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio0";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio0";
+				};
+			};
+			lenovo_2f2: swr_tx_data0_active {
+				mux {
+					function = "func1";
+					pins = "gpio1";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio1";
+				};
+			};
+			lenovo_2f6: swr_tx_data0_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio1";
+				};
+				config {
+					bias-bus-hold;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio1";
+				};
+			};
+			lenovo_2c0: lpi_i2s0_ws_active {
+				mux {
+					function = "func2";
+					pins = "gpio1";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio1";
+				};
+			};
+			lenovo_2c6: lpi_i2s0_ws_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio1";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio1";
+				};
+			};
+			lenovo_2f3: swr_tx_data1_active {
+				mux {
+					function = "func1";
+					pins = "gpio2";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio2";
+				};
+			};
+			lenovo_2f7: swr_tx_data1_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio2";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio2";
+				};
+			};
+			lenovo_2c1: lpi_i2s0_data0_active {
+				mux {
+					function = "func2";
+					pins = "gpio2";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio2";
+				};
+			};
+			lenovo_2c7: lpi_i2s0_data0_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio2";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio2";
+				};
+			};
+			lenovo_2eb: swr_rx_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio3";
+				};
+				config {
+					bias-disable;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio3";
+				};
+			};
+			lenovo_2ee: swr_rx_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio3";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio3";
+				};
+			};
+			lenovo_2c2: lpi_i2s0_data1_active {
+				mux {
+					function = "func2";
+					pins = "gpio3";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio3";
+				};
+			};
+			lenovo_2c8: lpi_i2s0_data1_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio3";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio3";
+				};
+			};
+			lenovo_2ec: swr_rx_data0_active {
+				mux {
+					function = "func1";
+					pins = "gpio4";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio4";
+				};
+			};
+			lenovo_2ef: swr_rx_data0_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio4";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio4";
+				};
+			};
+			lenovo_2c3: lpi_i2s0_data2_active {
+				mux {
+					function = "func2";
+					pins = "gpio4";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio4";
+				};
+			};
+			lenovo_2c9: lpi_i2s0_data2_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio4";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio4";
+				};
+			};
+			lenovo_2ed: swr_rx_data1_active {
+				mux {
+					function = "func1";
+					pins = "gpio5";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio5";
+				};
+			};
+			lenovo_2f0: swr_rx_data1_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio5";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio5";
+				};
+			};
+			lenovo_316: ext_mclk1_c_active {
+				mux {
+					function = "func2";
+					pins = "gpio5";
+				};
+				config {
+					pins = "gpio5";
+				};
+			};
+			lenovo_317: ext_mclk1_c_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio5";
+				};
+				config {
+					pins = "gpio5";
+				};
+			};
+			lenovo_2c4: lpi_i2s0_data3_active {
+				mux {
+					function = "func3";
+					pins = "gpio5";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio5";
+				};
+			};
+			lenovo_2ca: lpi_i2s0_data3_sleep {
+				mux {
+					function = "func3";
+					pins = "gpio5";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio5";
+				};
+			};
+			lenovo_2f9: lpi_dmic0_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio6";
+				};
+				config {
+					output-high;
+					drive-strength = <0x8>;
+					pins = "gpio6";
+				};
+			};
+			lenovo_2fb: lpi_dmic0_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio6";
+				};
+				config {
+					output-low;
+					bias-disable;
+					drive-strength = <0x2>;
+					pins = "gpio6";
+				};
+			};
+			lenovo_2cb: lpi_i2s1_clk_active {
+				mux {
+					function = "func2";
+					pins = "gpio6";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio6";
+				};
+			};
+			lenovo_2cf: lpi_i2s1_clk_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio6";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio6";
+				};
+			};
+			lenovo_2fa: lpi_dmic0_data_active {
+				mux {
+					function = "func1";
+					pins = "gpio7";
+				};
+				config {
+					input-enable;
+					drive-strength = <0x8>;
+					pins = "gpio7";
+				};
+			};
+			lenovo_2fc: lpi_dmic0_data_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio7";
+				};
+				config {
+					input-enable;
+					pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio7";
+				};
+			};
+			lenovo_2cc: lpi_i2s1_ws_active {
+				mux {
+					function = "func2";
+					pins = "gpio7";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio7";
+				};
+			};
+			lenovo_2d0: lpi_i2s1_ws_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio7";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio7";
+				};
+			};
+			lenovo_2fd: lpi_dmic1_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio8";
+				};
+				config {
+					output-high;
+					drive-strength = <0x8>;
+					pins = "gpio8";
+				};
+			};
+			lenovo_2ff: lpi_dmic1_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio8";
+				};
+				config {
+					output-low;
+					bias-disable;
+					drive-strength = <0x2>;
+					pins = "gpio8";
+				};
+			};
+			lenovo_2cd: lpi_i2s1_data0_active {
+				mux {
+					function = "func2";
+					pins = "gpio8";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio8";
+				};
+			};
+			lenovo_2d1: lpi_i2s1_data0_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio8";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio8";
+				};
+			};
+			lenovo_2fe: lpi_dmic1_data_active {
+				mux {
+					function = "func1";
+					pins = "gpio9";
+				};
+				config {
+					input-enable;
+					drive-strength = <0x8>;
+					pins = "gpio9";
+				};
+			};
+			lenovo_300: lpi_dmic1_data_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio9";
+				};
+				config {
+					input-enable;
+					pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio9";
+				};
+			};
+			lenovo_2ce: lpi_i2s1_data1_active {
+				mux {
+					function = "func2";
+					pins = "gpio9";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio9";
+				};
+			};
+			lenovo_2d2: lpi_i2s1_data1_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio9";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio9";
+				};
+			};
+			lenovo_318: ext_mclk1_b_active {
+				mux {
+					function = "func3";
+					pins = "gpio9";
+				};
+				config {
+					pins = "gpio9";
+				};
+			};
+			lenovo_319: ext_mclk1_b_sleep {
+				mux {
+					function = "func3";
+					pins = "gpio9";
+				};
+				config {
+					pins = "gpio9";
+				};
+			};
+			lenovo_2d3: lpi_i2s2_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio10";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio10";
+				};
+			};
+			lenovo_2d7: lpi_i2s2_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio10";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio10";
+				};
+			};
+			lenovo_2e3: wsa_swr_clk_active {
+				mux {
+					function = "func2";
+					pins = "gpio10";
+				};
+				config {
+					bias-disable;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio10";
+				};
+			};
+			lenovo_2e5: wsa_swr_clk_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio10";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio10";
+				};
+			};
+			lenovo_2d4: lpi_i2s2_ws_active {
+				mux {
+					function = "func1";
+					pins = "gpio11";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio11";
+				};
+			};
+			lenovo_2d8: lpi_i2s2_ws_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio11";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio11";
+				};
+			};
+			lenovo_2e4: wsa_swr_data_active {
+				mux {
+					function = "func2";
+					pins = "gpio11";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio11";
+				};
+			};
+			lenovo_2e6: wsa_swr_data_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio11";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio11";
+				};
+			};
+			lenovo_301: lpi_dmic2_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio12";
+				};
+				config {
+					output-high;
+					drive-strength = <0x8>;
+					pins = "gpio12";
+				};
+			};
+			lenovo_303: lpi_dmic2_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio12";
+				};
+				config {
+					output-low;
+					bias-disable;
+					drive-strength = <0x2>;
+					pins = "gpio12";
+				};
+			};
+			lenovo_2db: lpi_i2s3_clk_active {
+				mux {
+					function = "func2";
+					pins = "gpio12";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio12";
+				};
+			};
+			lenovo_2df: lpi_i2s3_clk_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio12";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio12";
+				};
+			};
+			lenovo_302: lpi_dmic2_data_active {
+				mux {
+					function = "func1";
+					pins = "gpio13";
+				};
+				config {
+					input-enable;
+					drive-strength = <0x8>;
+					pins = "gpio13";
+				};
+			};
+			lenovo_304: lpi_dmic2_data_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio13";
+				};
+				config {
+					input-enable;
+					pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio13";
+				};
+			};
+			lenovo_2dc: lpi_i2s3_ws_active {
+				mux {
+					function = "func2";
+					pins = "gpio13";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio13";
+				};
+			};
+			lenovo_2e0: lpi_i2s3_ws_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio13";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio13";
+				};
+			};
+			lenovo_31a: ext_mclk1_a_active {
+				mux {
+					function = "func3";
+					pins = "gpio13";
+				};
+				config {
+					pins = "gpio13";
+				};
+			};
+			lenovo_31b: ext_mclk1_a_sleep {
+				mux {
+					function = "func3";
+					pins = "gpio13";
+				};
+				config {
+					pins = "gpio13";
+				};
+			};
+			lenovo_31c: lpass_lpi_dbg_clk_active {
+				mux {
+					function = "func5";
+					pins = "gpio13";
+				};
+				config {
+					pins = "gpio13";
+				};
+			};
+			lenovo_31d: lpass_lpi_dbg_clk_sleep {
+				mux {
+					function = "func5";
+					pins = "gpio13";
+				};
+				config {
+					pins = "gpio13";
+				};
+			};
+			lenovo_2f4: swr_tx_data2_active {
+				mux {
+					function = "func1";
+					pins = "gpio14";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio14";
+				};
+			};
+			lenovo_2f8: swr_tx_data2_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio14";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio14";
+				};
+			};
+			lenovo_31e: ext_mclk1_d_active {
+				mux {
+					function = "func2";
+					pins = "gpio14";
+				};
+				config {
+					pins = "gpio14";
+				};
+			};
+			lenovo_31f: ext_mclk1_d_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio14";
+				};
+				config {
+					pins = "gpio14";
+				};
+			};
+			lenovo_2d5: lpi_i2s2_data0_active {
+				mux {
+					function = "func1";
+					pins = "gpio15";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio15";
+				};
+			};
+			lenovo_2d9: lpi_i2s2_data0_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio15";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio15";
+				};
+			};
+			lenovo_2e7: wsa2_swr_clk_active {
+				mux {
+					function = "func2";
+					pins = "gpio15";
+				};
+				config {
+					bias-disable;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio15";
+				};
+			};
+			lenovo_2e9: wsa2_swr_clk_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio15";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio15";
+				};
+			};
+			lenovo_2d6: lpi_i2s2_data1_active {
+				mux {
+					function = "func1";
+					pins = "gpio16";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio16";
+				};
+			};
+			lenovo_2da: lpi_i2s2_data1_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio16";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio16";
+				};
+			};
+			lenovo_2e8: wsa2_swr_data_active {
+				mux {
+					function = "func2";
+					pins = "gpio16";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio16";
+				};
+			};
+			lenovo_2ea: wsa2_swr_data_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio16";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio16";
+				};
+			};
+			lenovo_305: lpi_dmic3_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio17";
+				};
+				config {
+					output-high;
+					drive-strength = <0x8>;
+					pins = "gpio17";
+				};
+			};
+			lenovo_307: lpi_dmic3_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio17";
+				};
+				config {
+					output-low;
+					bias-disable;
+					drive-strength = <0x2>;
+					pins = "gpio17";
+				};
+			};
+			lenovo_2dd: lpi_i2s3_data0_active {
+				mux {
+					function = "func2";
+					pins = "gpio17";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio17";
+				};
+			};
+			lenovo_2e1: lpi_i2s3_data0_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio17";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio17";
+				};
+			};
+			lenovo_306: lpi_dmic3_data_active {
+				mux {
+					function = "func1";
+					pins = "gpio18";
+				};
+				config {
+					input-enable;
+					drive-strength = <0x8>;
+					pins = "gpio18";
+				};
+			};
+			lenovo_308: lpi_dmic3_data_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio18";
+				};
+				config {
+					input-enable;
+					pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio18";
+				};
+			};
+			lenovo_2de: lpi_i2s3_data1_active {
+				mux {
+					function = "func2";
+					pins = "gpio18";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio18";
+				};
+			};
+			lenovo_2e2: lpi_i2s3_data1_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio18";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio18";
+				};
+			};
+			lenovo_2b7: lpi_i2s4_clk_active {
+				mux {
+					function = "func1";
+					pins = "gpio19";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio19";
+				};
+			};
+			lenovo_2bb: lpi_i2s4_clk_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio19";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio19";
+				};
+			};
+			lenovo_320: slimbus_clk_active {
+				mux {
+					function = "func2";
+					pins = "gpio19";
+				};
+				config {
+					pins = "gpio19";
+				};
+			};
+			lenovo_321: slimbus_clk_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio19";
+				};
+				config {
+					pins = "gpio19";
+				};
+			};
+			lenovo_2b0: qca_swr_clk_active {
+				mux {
+					function = "func3";
+					pins = "gpio19";
+				};
+				config {
+					bias-disable;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio19";
+				};
+			};
+			lenovo_2b2: qca_swr_clk_sleep {
+				mux {
+					function = "func3";
+					pins = "gpio19";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio19";
+				};
+			};
+			lenovo_2b8: lpi_i2s4_ws_active {
+				mux {
+					function = "func1";
+					pins = "gpio20";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio20";
+				};
+			};
+			lenovo_2bc: lpi_i2s4_ws_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio20";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio20";
+				};
+			};
+			lenovo_322: slimbus_data_active {
+				mux {
+					function = "func2";
+					pins = "gpio20";
+				};
+				config {
+					pins = "gpio20";
+				};
+			};
+			lenovo_323: slimbus_data_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio20";
+				};
+				config {
+					pins = "gpio20";
+				};
+			};
+			lenovo_2b1: qca_swr_data_active {
+				mux {
+					function = "func3";
+					pins = "gpio20";
+				};
+				config {
+					bias-bus-hold;
+					slew-rate = <0x1>;
+					drive-strength = <0x2>;
+					pins = "gpio20";
+				};
+			};
+			lenovo_2b3: qca_swr_data_sleep {
+				mux {
+					function = "func3";
+					pins = "gpio20";
+				};
+				config {
+					bias-pull-down;
+					input-enable;
+					drive-strength = <0x2>;
+					pins = "gpio20";
+				};
+			};
+			lenovo_2b9: lpi_i2s4_data0_active {
+				mux {
+					function = "func1";
+					pins = "gpio21";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio21";
+				};
+			};
+			lenovo_2bd: lpi_i2s4_data0_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio21";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio21";
+				};
+			};
+			lenovo_2ba: lpi_i2s4_data1_active {
+				mux {
+					function = "func1";
+					pins = "gpio22";
+				};
+				config {
+					output-high;
+					bias-disable;
+					drive-strength = <0x8>;
+					pins = "gpio22";
+				};
+			};
+			lenovo_2be: lpi_i2s4_data1_sleep {
+				mux {
+					function = "func1";
+					pins = "gpio22";
+				};
+				config {
+					input-enable;
+					bias-pull-down;
+					drive-strength = <0x2>;
+					pins = "gpio22";
+				};
+			};
+			lenovo_324: ext_mclk1_e_active {
+				mux {
+					function = "func2";
+					pins = "gpio22";
+				};
+				config {
+					pins = "gpio22";
+				};
+			};
+			lenovo_325: ext_mclk1_e_sleep {
+				mux {
+					function = "func2";
+					pins = "gpio22";
+				};
+				config {
+					pins = "gpio22";
+				};
+			};
+		};
+	};
+	lenovo_355: fragment@200 {
+		target = <&soc>;
+		__overlay__ {
+			lenovo_286: va_core_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x307>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0x2>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_326: wsa_core_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x309>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0x3>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_327: wsa2_core_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x310>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0xc>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_284: rx_core_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x30e>;
+				qcom,codec-lpass-ext-clk-freq = <0x1588800>;
+				qcom,codec-ext-clk-src = <0x5>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_285: rx_core_tx_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x312>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0xd>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_283: tx_core_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x30c>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0x7>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_328: wsa_core_tx_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x314>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0xe>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_329: wsa2_core_tx_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x316>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0xf>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_288: rx_mclk2_2x_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x318>;
+				qcom,codec-lpass-ext-clk-freq = <0x124f800>;
+				qcom,codec-ext-clk-src = <0x10>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_2b4: bt_swr_mclk_clk {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x31a>;
+				qcom,codec-lpass-ext-clk-freq = <0x1770000>;
+				qcom,codec-ext-clk-src = <0x12>;
+				compatible = "qcom,audio-ref-clk";
+			};
+			lenovo_2b5: bt_swr_mclk_clk_2x {
+				#clock-cells = <0x1>;
+				qcom,codec-lpass-clk-id = <0x31b>;
+				qcom,codec-lpass-ext-clk-freq = <0x1770000>;
+				qcom,codec-ext-clk-src = <0x13>;
+				compatible = "qcom,audio-ref-clk";
+			};
+		};
+	};

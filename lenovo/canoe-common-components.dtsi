@@ -48,4 +48,16 @@
 	sync-load = <0x1>; \
 	compatible = "awinic,aw882xx_smartpa"
 
+#include "canoe-common-pmic.dtsi"
+
+#include "canoe-common-storage.dtsi"
+
+#include "canoe-common-connectivity.dtsi"
+
+#include "canoe-common-input.dtsi"
+
+#include "canoe-common-thermal.dtsi"
+
+#include "canoe-common-charger.dtsi"
+
 #endif
