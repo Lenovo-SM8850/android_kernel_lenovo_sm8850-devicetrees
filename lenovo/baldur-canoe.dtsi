@@ -2295,6 +2295,7 @@
 };
 
 &ufshc_mem {
+	lenovo,samsung-ufs-maintenance;
 	vcc-supply = <&L17B>;
 	vcc-max-microamp = <0x124f80>;
 	vccq-supply = <&L4D>;
