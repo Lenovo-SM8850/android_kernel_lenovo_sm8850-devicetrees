@@ -7,7 +7,7 @@
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/spmi/spmi.h>
 
-#ifdef BALDUR_CANOE_BASE
+#ifdef LENOVO_CANOE_BASE_ASSEMBLY
 pmk8850@0 {
 #else
 pmk8850: pmk8850@0 {

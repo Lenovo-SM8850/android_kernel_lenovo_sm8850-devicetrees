@@ -130,7 +130,7 @@
 				"lpass_audio_hw_vote";
 		clocks = <&lpass_core_hw_vote 0>,
 				<&lpass_audio_hw_vote 0>;
-#ifdef BALDUR_CANOE_BASE
+#ifdef LENOVO_CANOE_BASE_ASSEMBLY
 		lpass-cdc-clk-rsc-mngr {
 #else
 		lpass_clk_mngr: lpass-cdc-clk-rsc-mngr {

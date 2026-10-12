@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: GPL-2.0-only
+// Audio/canoe-audio.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/audio/canoe-audio.dtsi"
+// Camera/canoe-camera-v2.dts
+#include <dt-bindings/clock/qcom,gcc-canoe.h>
+#include <dt-bindings/clock/qcom,camcc-canoe.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
+#include "../qcom/camera/canoe-camera-v2.dtsi"
+// Display/display/canoe-sde.dts
+#include "../qcom/display/display/canoe-sde.dtsi"

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
-#ifdef BALDUR_CANOE_BASE
+#ifdef LENOVO_CANOE_BASE_ASSEMBLY
 #include "baldur-canoe-base.dtsi"
 #else
 // Mechanical conversion of the stock overlay; all references use labels.
@@ -13583,4 +13583,4 @@
 	status = "ok";
 };
 
-#endif /* BALDUR_CANOE_BASE */
+#endif /* LENOVO_CANOE_BASE_ASSEMBLY */
