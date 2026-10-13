@@ -2296,6 +2296,7 @@
 };
 
 &ufshc_mem {
+	lenovo,samsung-ufs-maintenance;
 	LENOVO_CANOE_UFS_MEMORY_PROPERTIES;
 };
 

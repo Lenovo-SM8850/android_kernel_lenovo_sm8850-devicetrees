@@ -4,7 +4,6 @@
 #define LENOVO_CANOE_COMMON_COMPONENTS_DTSI
 
 #define LENOVO_CANOE_UFS_MEMORY_PROPERTIES \
-	lenovo,samsung-ufs-maintenance; \
 	vcc-supply = <&L17B>; \
 	vcc-max-microamp = <0x124f80>; \
 	vccq-supply = <&L4D>; \
