@@ -7,6 +7,7 @@
 #include "canoe-base-techpacks-before-ipa.dtsi"
 #include "canoe-base-techpacks-after-ipa.dtsi"
 / {
+	lenovo,lcd-display;
 	model = "Qualcomm Technologies, Inc. CanoeP v2 SoC";
 	compatible = "qcom,canoep";
 	qcom,msm-id = <0x295 0x20000>;

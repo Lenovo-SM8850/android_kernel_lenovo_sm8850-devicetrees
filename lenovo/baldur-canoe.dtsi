@@ -2301,7 +2301,7 @@
 };
 
 &sdhc_2 {
-	compatible = "lenovo,baldur-bh201-sdhci-v1", "qcom,sdhci-msm-v5";
+	compatible = "lenovo,bh201-sdhci-v1", "qcom,sdhci-msm-v5";
 	vdd-supply = <&L9B>;
 	qcom,vdd-voltage-level = <0x2d0370 0x2d2a80>;
 	qcom,vdd-current-level = <0x21 0xee868>;
@@ -2606,7 +2606,7 @@
 &soc {
 
 	sys_temp_support {
-		compatible = "lenovo,baldur-sys-temp", "lenovo,sys-temp";
+		compatible = "lenovo,sys-temp-lcd", "lenovo,sys-temp";
 		lenovo,temperature-names = LENOVO_CANOE_THERMAL_ZONE_NAMES;
 		lenovo,sensor-listener-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES;
 		cust,all-ntc-names = LENOVO_CANOE_THERMAL_SENSOR_NAMES;
