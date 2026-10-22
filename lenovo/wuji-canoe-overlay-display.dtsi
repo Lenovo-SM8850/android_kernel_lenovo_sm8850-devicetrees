@@ -6533,6 +6533,7 @@
 		target = <&mdss_mdp>;
 		__overlay__ {
 			lenovo_128: qcom,mdss_dsi_wuji_rm693a0_tianma_dvt2_cmd {
+				lenovo,reinit-on-first-mode-switch;
 				lenovo_203: qcom,mdss-dsi-display-timings {
 					lenovo_204: timing@0 {
 					};
@@ -6552,6 +6553,7 @@
 		target = <&mdss_mdp>;
 		__overlay__ {
 			lenovo_129: qcom,mdss_dsi_wuji_rm693a0_tianma_dsc_cmd {
+				lenovo,reinit-on-first-mode-switch;
 				lenovo_209: qcom,mdss-dsi-display-timings {
 					lenovo_20a: timing@0 {
 					};
